@@ -14,7 +14,7 @@
 <!-- Portions created by Ricoh Silicon Valley, Inc. are Copyright (C)       -->
 <!-- 1995-2000.  All Rights Reserved.                                       -->
 <!--                                                                        -->
-<!-- Contributor(s):                                                        -->
+<!-- Contributor(s):  steve@rsv.ricoh.com                                   -->
 <!-- ====================================================================== -->
 
 <tagset name="toc" parent="HTML" tagset="xhtml">
@@ -27,10 +27,18 @@
 <ul>
   <li> &lt;body&gt;
   </li>
-  <li> &lt;h2&gt;, &lt;h3&gt;
+  <li> &lt;h2&gt;, &lt;h3&gt;<br />
+       Only the &lt;h2&gt; and &lt;h3&gt; elements are indexed.
   </li>
-  <li> &lt;toc&gt;text&lt;/toc&gt;
-		Table of contents
+  <li> &lt;toc&gt;<br />
+       Table of contents.  The content of the element is replaced by the new
+       table of contents.  NOTE: The toc tag must occur before the first
+       indexable &lt;h2&gt; element.  This should really be a &lt;div&gt;
+       tag. 
+  </li>
+  <li> &lt;a&gt; <br />
+       defined so that the section-number anchors needed for the
+       table of contents can be renumbered when rebuilding the TOC.
   </li>
 </ul>
 </doc>
