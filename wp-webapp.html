@@ -404,9 +404,9 @@ face="Verdana, Arial, Helvetica, sans-serif" color="black"
   <li> As a server, the PIA provides a simple platform for form-processing
        applications.  All of the PIA's special tags are interpreted on the
        server: the browser sees nothing but ordinary HTML.  But because the
-       PIA's tags have the same syntax as HTML tags, PIA-based applications
-       can be developed using nothing but the tools all web developers are
-       already familiar with.
+       PIA's tags have the same syntax as HTML and XML tags, PIA-based
+       applications can be developed using nothing but the tools all web
+       developers are already familiar with.
 
   <li> As a client, the PIA can download and process pages from other web
        sites.  For example, this can be used for ``portal'' applications that
@@ -763,6 +763,11 @@ face="Verdana, Arial, Helvetica, sans-serif" color="black"
        
 </ol>
 
+<p> It is difficult, using embedded languages, to perform processing on
+    arbitrary documents.  It is almost impossible to use them to define new
+    tags, or new meanings for old tags. 
+
+
 <h3>Server-side extension languages</h3>
 
 <p> Server-side extension languages are complete programming languages that
@@ -779,7 +784,8 @@ face="Verdana, Arial, Helvetica, sans-serif" color="black"
        with this approach is that, because angle-bracketed constructs can be
        nested (including inside of regular tags and attributes), Meta-HTML
        pages do not adhere to XML or HTML syntax, and so cannot be edited by
-       standard tools.
+       standard tools.  It <em>is</em> possible to use Meta-HTML to define new
+       tags and embed them in regular HTML.
 
        <p>
 
@@ -794,7 +800,7 @@ face="Verdana, Arial, Helvetica, sans-serif" color="black"
        disadvantages of embedded code with respect to editing tools, but at
        least the embedded constructs are designed so that they can be properly
        ignored or passed through by XML tools.  It would not be difficult for
-       PHP and the PIA to co-exist. 
+       PHP and the PIA to co-exist.  
 
 </ul>
 
@@ -802,11 +808,11 @@ face="Verdana, Arial, Helvetica, sans-serif" color="black"
     we know of, shows any awareness of the structure of the underlying
     document.  The document is simply treated as a ``character string;'' it is
     possible to generate syntactically incorrect documents, and it is
-    <em>not</em> possible to manipulate the document's parse tree.
+    not particularly easy to manipulate the document's parse tree.
 
-<p> It is difficult, using embedded languages, to perform processing on
-    arbitrary documents.  It is almost impossible to use them to define new
-    tags, or new meanings for old tags. 
+<p> PHP <em>does</em> include an XML parser, which can be used for processing
+    documents, but it can't handle ordinary HTML.  Unlike Meta-HTML, PHP lacks
+    the notion of tagsets.
 
 
 <h3>XML-based approaches</h3>
