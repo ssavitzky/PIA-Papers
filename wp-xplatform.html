@@ -280,52 +280,112 @@
 </p>
 
 <hr />
-<h2>Web Applications: an Overview</h2>
+<h2>Web Applications Across Platforms</h2>
 
 <em>
-The usual processing diagram, showing tagsets and documents.<br />
+The usual processing diagrams, showing tagsets and documents.<br />
 
 Starting points for figures can be found in
 <a href="file:/pia1/pia/Doc/Slides/review97/Figures/"
 >/pia1/pia/Doc/Slides/review97/Figures/</a>.  I could have sworn that we had
-better ones, but it looks like we haven't been keeping up.<br />
+better ones, but it looks like they haven't been going into CVS.<br />
 </em>
+
+<h3>Web Applications: an Overview</h3>
+
+<p> In essence, a web application is a web site or part of a web site that
+    performs some useful function (for example, configuring a printer or
+    ordering groceries).  It typically consists of the following components:
+</p>
+
+<ol>
+  <li> A <strong>Web Server:</strong> the ``platform'' on which the
+       application runs.
+  </li>
+  <li> <strong>Documents:</strong> a mixture of ``static'' documents, which
+       are served to the client browser essentially unchanged, and ``active''
+       documents, which are processed on the server and which may perform
+       ``actions'' ranging from simply updating a counter to complex database
+       transactions. 
+  </li>
+  <li> A <strong>Document Processing Engine</strong> that processes the active
+       documents.  This is often part of the server, although in the common
+       case of ``CGI scripts'' it may simply represent the underlying
+       operating system's ability to run programs.
+  </li>
+</ol>
+
+<p> There are three main approaches to server-side processing:
+</p>
+
+<ol>
+  <li> <strong>Computed Documents.</strong> Commonly called ``CGI scripts''
+       after the Common Gateway Interface, these are actually <em>programs
+       that compute documents.</em> They are usually run in response to a
+       query or form submission, and are responsible both for performing any
+       necessary actions, and outputting the response document to the browser.
+       Java ``servlets'' also fall into this category -- servlets are small
+       programs that are called from a specialized ``servlet engine'' server.
+  </li>
+  <li> <strong>Embedded Actions.</strong> These are little ``code snippets''
+       in some simple programming language embedded in otherwise-ordinary HTML
+       documents.  Examples of this approach include Java Server Pages, Active
+       Server Pages, PHP3, and MetaHTML.
+  </li>
+  <li> <strong>Tag Definitions.</strong> These are XML tags, embedded in
+       the active documents, with actions defined in some separate ``style
+       sheet'' or template file.  The Cocoon system falls into this category;
+       its stylesheets combine the XML-based XSLT stylesheet language with
+       embedded Java code fragments for performing actions that XSLT cannot,
+       such as arithmetic.
+  </li>
+</ol>
+
+<p> The PIA is described in more detail in other white papers, specifically <a
+    href="wp-webapp.html">Web Applications and the PIA</a> and <a
+    href="wp-dps.html">Document Processing in the PIA</a>.  For now it is
+    sufficient to explain that it combines aspects of <em>both</em> the
+    embedded action <em>and</em> tag definition approaches.  It uses a
+    complete programming language with XML syntax; this allows actions to be
+    embedded in documents, but also allows the use of a separate tag
+    definition file <em>in the same XML-based language.</em>
+</p>
 
 <h3>Moving a Web Application</h3>
 
 <h4>The General Case</h4>
 
-<p> In general, a web application consists of several components; some are
-    much easier to move between platforms than others:
+<p> Some of a web application's components are much easier to move between
+    platforms than others:
 </p>
 
 <ul>
   <li> <strong>Static documents:</strong>  these are inherently
        platform-independent.  Unfortunately, their <em>names</em> may not be. 
   </li>
-  <li> <strong>Site Structure:</strong> Filenames and other aspects of a
+  <li> <strong>Site structure:</strong> Filenames and other aspects of a
        site's structure can vary in several ways among platforms:
        <ol>
-	 <li> <strong>File Types:</strong> different platforms have different
+	 <li> <strong>File types:</strong> different platforms have different
 	      ways of indicating the MIME type of a document.  For example,
 	      Unix normally uses an extension of <code>.html</code> to
 	      indicate a <code>text/html</code> document; Windows uses
 	      <code>.htm</code>.  MacOS uses a file type stored in the file's
 	      resource fork.
 	 </li>
-	 <li> <strong>Case Sensitivity:</strong> Unix filenames are case
+	 <li> <strong>Case sensitivity:</strong> Unix filenames are case
 	      sensitive.  It is possible to distinguish, for example,
 	      <code>Polish.html</code> and <code>polish.html</code>.  On other
 	      operating systems one of these documents would have to be
 	      renamed. 
 	 </li>
-	 <li> <strong>Name Length:</strong> Most modern operating systems
+	 <li> <strong>Name length:</strong> Most modern operating systems
 	      permit long names for files, but many older systems do not.  DOS
 	      is notorious for its ``8+3'' limitation; it also had a
 	      limitation on <em>depth</em> (the length of a pathname) which
 	      Windows 95 does its best to conceal from the user.
 	 </li>
-	 <li> <strong>Character Set:</strong> Operating systems differ in the
+	 <li> <strong>Character set:</strong> Operating systems differ in the
 	      set of characters permitted in filenames.  Letters, digits, and
 	      hyphens are safe. 
 	 </li>
@@ -339,7 +399,7 @@ better ones, but it looks like we haven't been keeping up.<br />
        directories as ``documents'' with the actual content in, e.g., the
        directory's <code>index.html</code> file.
   </li>
-  <li> <strong>Active Documents:</strong> The most important documents in a
+  <li> <strong>Active documents:</strong> The most important documents in a
        web application (as opposed to a simple web site) are the active ones:
        the documents that do the work.  These include both CGI scripts and,
        more recently, documents with embedded code such as HHP3, ASP and JSP.
@@ -349,7 +409,7 @@ better ones, but it looks like we haven't been keeping up.<br />
        independent: a CGI script written in PERL or Python will usually be
        fairly portable.
   </li>
-  <li> <strong>Server Features:</strong> Many, perhaps most, web servers have
+  <li> <strong>Server features:</strong> Many, perhaps most, web servers have
        special features that an application may make use of.  Different
        servers may have different ways of keeping names and passwords for
        authentication, for example.  Some, such as Apache, may perform URL
@@ -358,11 +418,18 @@ better ones, but it looks like we haven't been keeping up.<br />
        language (C, Java, etc.).  These code modules are far more efficient
        than separate CGI scripts, but are also far less portable.
   </li>
-  <li> <strong>Operating Environment:</strong> Some web applications interact
+  <li> <strong>Operating environment:</strong> Some web applications interact
        strongly with their underlying operating systems and applications.
        Active documents running on a Microsoft platform can use COM to obtain
        services from standard applications; CGI scripts on Unix can use a
        command line for the same purpose. 
+  </li>
+  <li> <strong>Development environment:</strong> In some cases, changing the
+       environment in which a web application is developed can be harder than
+       changing the environment in which it operates.  If the development
+       tools use a proprietary file format, a specialized database, or a
+       nonstandard connection to the server, the application can be ``locked
+       in'' and almost impossible to move. 
   </li>
 </ul>
 
