@@ -1,76 +1,91 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html><head>
 <title>Trends in Web Applications</title>
-</head><body>
+</head><body bgcolor=white >
 <h1>Trends in Web Applications</h1>
-<!-- Slides for a brief presentation -->
+<!-- Slides for a brief presentation on trends -->
 
-<slide>
+
+<pre> Outline
+
+What's happening on the web:
+  0. The web has become the standard for providing goods and services
+     [assorted e-commerce logos: e-trade, amazon, webvan, peapod...]
+
+  1. HTML and now XML have become the standard for information interchange
+
+  2. Proliferation of clients
+     [PC, cell phone, picture frame]
+
+  2a. Proliferation of servers
+     [the server slide]
+
+  3. Increased interactivity and customization
+     
+  4. Rise of open source software
+     [Apache slide]
+
+Web Engineering Challenges:
+
+  1. What server / language / OS to use?
+     [3-d chart -- labeled axes]
+
+  2. How to collaborate
+     [one of the old PIA writer/programmer/customer slides]
+
+  3. Maintenance and Customization
+     [old slide: editing paper vs. electronic forms]
+
+The PIA Solution
+
+Summarize trends; skills
+</pre>
+
+
+<font size="+2">
+<slide><!-- title slide: no top caption. -->
+<p> &nbsp;</p>
+<div align='center' valign='center'>
+<font size='+2'> <strong>Trends in Web Applications</strong></font><br />
+<p><img src="Images/pialogo150.gif" /></p>
+<table>
+  <tr>
+     <td>
+	Stephen Savitzky<br />
+	Chief Software Scientist<br />
+	Ricoh Silicon Valley<br />
+	<code>&lt;steve@rsv.ricoh.com&gt;</code><br />
+     </td>
+     <td>&nbsp;</td>
+     <td align="left" valign="top">
+	<table cellpadding='0' cellspacing='0' border='0'>
+	    <tr nowrap nobr><th><a href='http://rsv.ricoh.com/'><img src='Images/ricoh.gif' border='0' width='170' height='48' alt='R I C O H'></a></th></tr> 
+	    <tr nowrap nobr><td nowrap nobr><img src='Images/blackline.gif' height='2' width='170'></td></tr> 
+	    <tr nowrap nobr><th align='left' valign='top'><img src='Images/ricoh-silicon-valley.gif' alt='RICOH SILICON VALLEY' border='0' width='170' height='21'></th></tr>
+	</table>
+     </td>
+  </tr>	  
+</table>
+</div>
 </slide>
 
-<slide><h2>What is a Web Application?</h2>
+<slide><h2>The Triumph of the Web</h2>
 <ul>
-  <li> Web site or part of a web site
-  </li>
-  <li> Performs some distinct function, e.g.
+  <li> The web the preeminent medium for communication between
        <ul>
-	 <li> maintaining a calendar
+	 <li> businesses
 	 </li>
-	 <li> ordering groceries
+	 <li> people
 	 </li>
-	 <li> controlling a printer
+	 <li> machines
 	 </li>
        </ul>
   </li>
 </ul>
 </slide>
 
-<slide><h2>Widening Range of Platforms</h2>
-
-<p> <strong>platform = ( server, OS, language )</strong> 
-</p>
-<p> <img src="Images/widening.png" />
-</p>
-</slide>
-
-<slide><h2>Proliferation of Servers and OS's</h2>
-
-<table align="center">
-  <tr><th>Market Share for Top Servers Across All Domains</th></tr>
-  <tr><td align="center">
-         <img src="Images/overallc.gif"
-         alt="" />
-      </td>
-  </tr>
-  <tr><td align="right"><font size="-1">Source: <a
-	href="http://www.netcraft.com/">Netcraft</a> Web Server Survey, <a
-	href="http://www.netcraft.com/survey/"
-	>http://www.netcraft.com/survey/</a><br />
-        Note: Apache and Microsoft are composites of several versions.
-      </font>
-      </td>
-  </tr>
-</table>
-</slide>
-
-
-<slide><h2>Proliferation of Languages</h2>
-<p> Making a web site <strong>active</strong> requires a server-side language:
-</p>
-<div align=center>
-C<br />
-C + PERL<br />
-C + PERL + MetaHTML<br />
-C + PERL + MetaHTML + PHP3 + ASP + Java<br />
-C + PERL + MetaHTML + PHP3 + ASP + Java + JSP + DSSSL + XSLT + PIA<br />
-...
-</div>
-<p align="right"> There is no sign of consolidation,<br />
-but new languages mostly look like XML.
-</p>
-</slide>
-
-<slide><h2>Increasing Use of XML</h2>
+<slide><h2>The Rise of XML</h2>
+<!-- === rewrite === -->
 <p> Perhaps the one area of convergence:
 </p>
 <ul>
@@ -95,31 +110,134 @@ but new languages mostly look like XML.
 </ul>
 </slide>
 
+<slide><h2>Proliferation of Servers</h2>
+<table align="center">
+  <tr> <th>Embedded Applications </th>
+       <th>Appliances</th>
+       <th>Mainframes</th>
+  </tr>
+  <tr> <th> <a href="http://wearables.stanford.edu">
+            <img src="Images/matchbox.jpg" width="133" height="120"
+ 		 alt="matchbox server" /></a> <br />
+            <a href="http://people.ne.mediaone.net/fwhite/ace/index.html">
+            <img src="Images/matchhead.jpg" height="101" width="133"
+ 		 alt="matchhead server" ></a> 
+       </th>
+       <th> <img src="Images/ecabinet.jpg" width="151" height="134"
+	    alt="Ricoh eCabinet" /> <br />
+	    <img src="Images/qube.jpg" />
+       </th>
+       <th> <a href="http://oss.software.ibm.com/developerworks/opensource/linux390/index.html">
+            <img src="Images/s390.gif" alt="IBM S/390"
+	         width="148" height="243" /></a>
+       </th>
+  </tr>
+
+</table>
+</slide>
+
 
 <slide><h2>Proliferation of Clients</h2>
+<ul><!-- === pictures === -->
+  <li> Browsers, of course
+  </li>
+  <li> ... and more
+       <table>
+       </table>
+         <tr> <th>``Thin'' clients</th>
+	      <th>Mobile clients</th>
+	      <th>Specialized </th>
+	 </tr>
+         <tr> <td><img src="" /> </td>
+	      <td><img src="" /></td>
+	      <td><img src="" /> </td>
+	 </tr>
+       </table>
+  </li>
+</ul>
+</slide>
+
+
+<slide><h2>Increasing Customization and Interaction</h2>
 <ul>
-  <li> More and more browsers
+  <li> Some web applications are <em>designed for interaction</em>.
        <ul>
-	 <li> each new version is <em>very</em> different
+	 <li> user contributions
+	      (e.g. <a href="http://www.linuxtoday.com/">Linux Today</a>)
 	 </li>
-	 <li> many old versions still around
+	 <li> discussions
+	      (e.g. <a href="http://slashdot.org/">Slashdot</a>)
+	 </li>
+	 <li> collaborative writing
+	      (e.g. <a href="http://c2.com/cgi/wiki?WikiWikiWeb">Wiki Wiki
+	      Web</a>) 
+	 </li>
+	 <li> form-based applications
+	      (e.g. <a href="http://www.linux-firewall-tools.com/linux/">Linux
+	      Firewall Tools</a>)
 	 </li>
        </ul>
   </li>
-  <li> Not just browsers
+  <li> Others are designed to be <em>customized</em>
        <ul>
-	 <li> ``Thin'' clients
+	 <li> customizable portals
+	      (e.g. <a href="http://my.yahoo.com/">My Yahoo</a>
 	 </li>
-	 <li> Mobile clients
-	 </li>
-	 <li> Specialized applications
+	 <li> customizable intranet applications
+	      (e.g. the <a href="http://forms:8000/">RSV Forms Server</a> )
 	 </li>
        </ul>
   </li>
 </ul>
 </slide>
 
-<slide><h2>Increasing Collaboration</h2>
+
+<slide><h2>The Rise of Open Source</h2>
+
+<table align="center">
+  <tr><th>Market Share for Top Servers Across All Domains</th></tr>
+  <tr><td align="center">
+         <img src="Images/overallc.gif" width="503" height="166"
+         alt="" />
+      </td>
+  </tr>
+  <tr><td align="right"><font size="-1">Source: <a
+	href="http://www.netcraft.com/">Netcraft</a> Web Server Survey, <a
+	href="http://www.netcraft.com/survey/"
+	>http://www.netcraft.com/survey/</a><br />
+        Note: Apache and Microsoft are composites of several versions.
+      </font>
+      </td>
+  </tr>
+</table>
+</slide>
+
+
+
+<!-- ====================== challenges ======================= -->
+<set name="subcaption">Challenges for Web Application Developers</set>
+<slide><h2>Challenges for Web Application Developers</h2>
+<p> &nbsp;</p>
+<ul>
+  <li> Which platform?
+  </li>
+  <li> How to collaborate?
+  </li>
+  <li> Which development environment?
+  </li>
+  <li> How to maintain / customize?
+  </li>
+</ul>
+</slide>
+
+<slide><h2>Which platform?</h2>
+<p align="center"> <strong>platform = ( server, OS, language )</strong> 
+<br />
+    <img src="Images/widening.png" />
+</p>
+</slide>
+
+<slide><h2>How to Collaborate?</h2>
 <ul>
   <li> Many people work on a web application
        <ul>
@@ -146,32 +264,7 @@ but new languages mostly look like XML.
 </ul>
 </slide>
 
-<slide><h2>Increasing Customization and Interaction</h2>
-<ul>
-  <li> Web applications are ``just'' documents<br />
-       ... and so are easy to edit
-  </li>
-  <li> End users have many skills, <br />
-       ... but web application design not usually one of them
-  </li>
-  <li> Some web applications are <em>designed for interaction</em>.
-       <ul>
-	 <li> news sites
-	      (e.g. <a href="http://www.linuxtoday.com/">Linux Today</a>)
-	 </li>
-	 <li> discussion sites
-	      (e.g. <a href="http://slashdot.org/">Slashdot</a>)
-	 </li>
-	 <li> collaborative writing
-	      (e.g. <a href="http://c2.com/cgi/wiki?WikiWikiWeb">Wiki Wiki
-	      Web</a>) 
-	 </li>
-       </ul>
-  </li>
-</ul>
-</slide>
-
-<slide><h2>Proliferation of Development Environments</h2>
+<slide><h2>Which Development Environment?</h2>
 <ul>
   <li> From ``notepad'' and <code>emacs</code>
   </li>
@@ -183,31 +276,32 @@ but new languages mostly look like XML.
        </p>
   <li> Different developers have different preferences
   </li>
+  <li> Tools should not interfere with one another
+  </li>
+</ul>
+</slide>
+
+<slide><h2>How to Maintain and Customize?</h2>
+<ul>
+  <li> Customization and maintenance are closely related
+       <ul>
+	 <li> an application that is easy to customize
+	 </li>
+	 <li> ... is also easy to maintain
+	 </li>
+       </ul>
+  </li>
   <li> Customizing and interacting users may have simpler needs<br />
        ... or they may be computer experts themselves.
   </li>
-</ul>
-</slide>
-
-
-<slide><h2>Shifting Balance; Wider Range</h2>
-<ul>
-  <li> Much processing is moving to the server
-  </li>
-  <li> ... but clients are getting more capable
-  </li>
-  <li> Server-side languages are proliferating
-  </li>
-  <li> ... but the new ones are all based on XML
-  </li>
-  <li> Developers are getting more skilled
-  </li>
-  <li> ... but end users are doing more customization
+  <li> Documents are easy to maintain<br />
+       ... programs are hard
   </li>
 </ul>
 </slide>
 
-
+<hide>
+<!-- === old === -->
 <slide><h2>Requirements for Web Applications</h2>
 <ul>
   <li> Cross Platform 
@@ -251,6 +345,47 @@ but new languages mostly look like XML.
   </li>
 </ul>
 </slide>
+</hide>
+
+<set name="subcaption">The PIA Solution: XML-based  framework</set>
+<slide><h2>The PIA Solution</h2>
+
+<p align="center"> <strong>An XML-based framework for web applications</strong>
+</p>
+
+<ul>
+  <li> uses a single XML-based language for :
+       <ul>
+	 <li> document markup (content)
+	 </li>
+	 <li> data
+	 </li>
+	 <li> behavior
+	 </li>
+       </ul>
+  </li>
+  <li> Small, simple document-processing engine
+       <ul>
+	 <li> easily integrated into many platforms
+	 </li>
+       </ul>
+  </li>
+  <li> Versatile site-description package
+  </li>
+  <li> Applications consist entirely of XML documents
+       <ul>
+	 <li> maintain and develop with standard tools
+	 </li>
+	 <li> easily customized
+	 </li>
+	 <li> friendly to text-based version control systems
+	 </li>
+       </ul>
+  </li>
+  <li> Open source at <a href="http://RiSource.org/"><font face="Verdana, Arial, Helvetica, sans-serif" color="#993300">Ri</font><font face="Verdana, Arial, Helvetica, sans-serif" color="black"><i>Source.org</i></font></a>
+  </li>
+</ul>
+</slide>
 
 <set name=label>TOC</set>
 <slide><h2>Table of Contents</h2>
@@ -259,6 +394,7 @@ but new languages mostly look like XML.
 </ol>
 </slide>
 
+</font>
 <hr>
 <b>Copyright &copy; &year; Ricoh Silicon Valley</b><br>
 <b>$Id$</b><br>

@@ -68,11 +68,22 @@
 	for the screen size of the presentation device; the default is 300,
 	which is correct for a large-screen TV pretending to be a 640x480
 	monitor.
-    <p> For 640x480, e.g. a Magio laptop, use <br />
+    <p> For 800x600, e.g. a Magio laptop, use <br />
 	<code>&lt;set name=VAR:hh&gt;445&lt;/set&gt;</code>
     </p>
   </doc>
   <value>300</value>
+</define>
+
+<define entity="slideH">
+  <doc> The height of a slide.  This needs to be tweeked for the screen size
+	of the presentation device; the default is correct for a large-screen
+	TV pretending to be a 640x480 monitor.
+    <p> For 800x600, e.g. a Magio laptop, use <br />
+	<code>&lt;set name=VAR:hh&gt;445&lt;/set&gt;</code>
+    </p>
+  </doc>
+  <value>400</value>
 </define>
 
 <h3>Colors</h3>
@@ -80,10 +91,11 @@
       a slide.
 </doc>
 
-<define entity=topBg><value>lightblue</value></define>
+<define entity=topBg><value>#669966</value></define>
 <define entity=topFg><value>black</value></define>
-<define entity=leftBg><value>#c40026</value></define>
+<define entity=leftBg><value>darkgreen</value></define><!-- #c40026 -->
 <define entity=leftFg><value>blue</value></define>
+<define entity=leftW><value>100</value></define>
 <define entity=ulBg><value>lightblue</value></define>
 <define entity=ulFg><value>#c40026</value></define>
 <define entity=mainBg><value>white</value></define>
@@ -153,6 +165,11 @@
 	The &lt;h2&gt; element is <em>required</em>, since it provides the
 	caption for the slide.  
   </doc>
+  <note> This represents a major change from the way slides used to be done!
+	 We used to have a table with cells for top left, top, left side,
+	 bottom left, and bottom.  We now have a single left edge, which
+	 allows the use of a "binding"-type background.
+  </note>	
 <action>
 <hide><!-- first time through we initialize the variables -->
   <if>&VAR:slide;<else><set name=VAR:slide>0</set></else></if>
@@ -163,45 +180,33 @@
   <if>&VAR:slidelist;<else><set name="VAR:slidelist"> </set></else></if>
 </hide>
 <table width="100%" cellspacing=0 cellpadding=5 border=0>
-<tr><th bgcolor="&ulBg;" fgcolor="&ulFg;" align=center
-       ><a name="&slide;">&slide;</a></th>
-    <th align=left bgcolor="&topBg;" fgcolor="&topFg;" width="100%"><if>
-        <get name=label>
-	<then><a name="&label;">&nbsp;<get name="caption" /></a></then>
-	<else>&nbsp;<get name="caption" /></else></if>
-    </th>
-    <th align=right nobreak bgcolor="&topBg;"><expand>&logo;</expand></th>
-</tr>
-<tr><td bgcolor="&leftBg;" fgcolor="&leftFg;" height="&hh;" valign=top>
-        <if>&next;
-  	    <then><a href="#&next;">&toNext;</a></then>
-  	    <else>&noNext;</else>
-        </if><br />
-	<a href="#TOC">toc</a><br />
-	<if>&prev;
-	    <then><a href="#&prev;">&toPrev;</a></then>
-  	    <else>&noPrev;</else>
-  	</if><br />
-    </td>
-
-    <td bgcolor="&mainBg;" fgcolor="&mainFg;" valign="top" colspan="2">
-&content;
-    </td>
-</tr>  
-<tr><td bgcolor="&leftBg;" fgcolor="&leftFg;" width="25">&nbsp;</td>
-  <td align=left valign=bottom bgcolor="&mainBg;" fgcolor="&mainFg"
-      width="100%"><em>&subCaption;</em>
-  </td>
-  <td align=right bgcolor=white nobreak><if><!-- bogus if to avoid linebreak -->
-     </if><if>&prev;
+  <tr><td xbgcolor="&leftbg;" width="&leftW;" valign="top" align="center"
+          background="Images/bkgnd_grn.gif" rowspan=3><br />
+        <if>&prev;
   	      <then><a href="#&prev;">&toPrev;</a></then>
-  	      <else>&noPrev;</else></if><if>
-     </if><if><test exact match=TOC>&label;></test>
-	      <else><a href="#TOC">&nbsp;&slide;&nbsp;</a></else></if><if>
-     </if><if>&next;
+  	      <else>&noPrev;</else></if><?--
+        --?><if><test exact match=TOC>&label;></test>
+	      <else><a href="#TOC">&nbsp;&slide;&nbsp;</a></else></if><?--
+        --?><if>&next;
 	      <then><a href="#&next;">&toNext;</a></then>
-	      <else>&noNext;</else></if></td>
-</tr>
+	      <else>&noNext;</else></if><br />
+	<a href="#TOC">-&gt;toc</a><br />
+      </td>
+      <th align=left bgcolor="&topBg;" fgcolor="&topFg;">
+	    <a name="&slide;">&nbsp;</a><if>
+	    <get name=label>
+	    <then><a name="&label;">&nbsp;<get name="caption" /></a></then>
+	    <else>&nbsp;<get name="caption" /></else></if>
+      </th>
+  <tr>
+      <td bgcolor="&mainBg;"  valign="top" height="&hh;">
+&content;
+      </td>
+  </tr>  
+  <tr><td align=right valign=bottom bgcolor="&mainBg;"
+	      width="100%"><em>&subCaption;</em>   <expand>&logo;</expand>
+      </td>
+  </tr>
 </table>
 <p /> <hide>
     <if><test zero>&slide;</test><then>
@@ -215,7 +220,7 @@
 </hide><!-- end slide -->
 </action>
 </define>
-
+     
 <dl>
   <dt><!-- this is here just to repair indentation -->
   </dt>
