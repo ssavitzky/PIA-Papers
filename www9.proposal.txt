@@ -1,0 +1,69 @@
+<p> <em>[For submission to <a
+    href="http://www9.org/w9-call-developer-extend.html">WWW9</a> Developer's
+    Day XML track.]</em> 
+</p>
+
+Presentation title: Cross-platform XML-based Web Applications with the PIA
+
+Presenter's name: Stephen Savitzky
+
+Job title and affiliation: 
+        Chief Software Scientist 
+	Ricoh Silicon Valley, Inc.  Calif. Research Center
+Address: 
+	Stephen Savitzky
+	Ricoh Silicon Valley, Inc. 
+	2882 Sand Hill Rd. Suite 115
+	Menlo Park, CA 94025
+Email/Phone/Fax: <steve@rsv.ricoh.com>
+	 voice: 650.496.5710  front desk: 650.496.5700  fax: 650.854.8740 
+
+Abstract
+ Developers face a maddeningly wide array of choices for creating web
+ applications.  In addition to choosing an operating system and web server
+ for deployment, most applications require choosing a database, development
+ environment, scripting language(s), HTML standard, and whether to use
+ Javascript or other client side components.  These choices have direct and,
+ sometimes unintended, consequences for the long-term success of the
+ application.  For example, a Javascript dependent site for stock trading
+ might look great on Internet Explorer 5.0, but may be entirely inaccessible
+ to the growing number of customers who have wireless Web access from a PDA.
+ Even worse, compatibility issues may cause months of reengineering and cost
+ a company their most precious commodity in this web world -- lead time.  As
+ an example, Active Server Pages may make it easier to maintain an online
+ catalog using a tool like Front Page, but may not run on the same
+ operating system as the C based CGI scripts for tracking shopping carts and
+ transactions.
+
+ Despite the growing popularity of Apache, PHP, and other open source tools
+ that operate on multiple platforms, the choices for web application design,
+ development, and deployment continue to proliferate and diverge.  This
+ presentation describes an approach to Web application development that
+ minimizes platform dependencies and maximizes interoperability.  A somewhat
+ unconventional use of XML plays a key role in this design: applications
+ consist primarily "active" XML pages which use a vocabulary of
+ domain-specific markup language tags.  The server interprets these tags to
+ perform processing appropriate to the context, for example to insert the
+ results of a database query or simplify the content for a text only client.
+
+ Except for a few ``primitive'' tags, most tag definitions also consist
+ entirely of XML.  Hence, only a single syntax is used for the entire
+ application.  Moreover, the internal representation and programming model
+ seen by the application is based on DOM parse trees, making it impossible
+ for an application to send an ill-formed page to a client.
+
+ The wide support for XML ensures that these applications can be developed
+ and modified on virtually any existing platform.  To handle the remaining
+ platform dependent issues, namely tag implementation and application
+ configuration, the underlying processing engine is open source.  The PIA is
+ a Java based web server and application framework in which tag actions can
+ be implemented in Java and site configuration information is flexibly
+ specified via XML documents.  The PIA provides a number of features which
+ make it well-suited to prototyping and customizing web applications.
+
+ These sorts of XML based web applications can be deployed on existing Web
+ servers either by incorporating the PIA engine as a module (e.g. servlet),
+ or by creating static versions of the pages with the appropriate
+ substitutions.  As server engines provide more sophisticated native support
+ for XML processing, applications developed using the PIA should enjoy true
+ platform independence.

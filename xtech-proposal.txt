@@ -1,0 +1,91 @@
+
+Presentation title: The PIA, a platform for XML-based Web Applications
+
+Presenter's name: Stephen Savitzky
+
+Job title and affiliation: 
+        Chief Software Scientist 
+	Ricoh Silicon Valley, Inc.  Calif. Research Center
+Address: 
+	Stephen Savitzky
+	Ricoh Silicon Valley, Inc. 
+	2882 Sand Hill Rd. Suite 115
+	Menlo Park, CA 94025
+Email/Phone/Fax: <steve@rsv.ricoh.com>
+	 voice: 650.496.5710  front desk: 650.496.5700  fax: 650.854.8740 
+Biography: 
+Abstract (not less than 500 words): 
+
+     This paper describes a design and development style well-suited to
+     creating customizable Web applications using server-side processing of
+     XML documents.  The fundamental assumption underlying this style is
+     that "Web application maintenance is mostly a matter of document
+     management and should not require specialized programming skills or
+     tools."  The examples and technical details given will focus on our
+     particular platform, the PIA, but the general principles apply
+     generally to other web application platforms.
+
+     The "Platform for Information Applications" (PIA) is an open-source,
+     XML-based system in which both documents (information) and application
+     behavior (processing) are combined in XML "active documents."  This
+     approach is particularly appropriate for applications deployed by
+     smaller organizations without significant IT support; applications are
+     easily customized and extended without the need for programming.
+
+     PIA-based Web applications consist primarily of XML documents written
+     using a set of domain specific tags; our parser also supports legacy
+     HTML documents extended with custom XML tags.  The PIA server engine
+     serves pages in response to client requests by dynamically processing
+     these documents in accordance with developer-defined semantics.  This
+     processing may include simple tag substitution, page transformation,
+     database lookup and insertions, or any other functions appropriate to
+     the application domain.  In effect, the tags provide a specialized
+     vocabulary available to use in customizing the application.
+
+     The PIA's processing is all done on the server side; the client sees
+     only standard HTML, or XML in standard DTD's.  The document-processing
+     engine implements a Turing-complete language with pure XML syntax and
+     LISP-like semantics.  Processing requires only a single pass through
+     the input document, and never builds a complete parse tree; a subset of
+     the DOM is used for intermediate storage where required.  Tag
+     definitions, including the binding of primitive operations to tags,
+     come from an XML ``tagset'' document separate from the document being
+     processed; the result is a blended system with aspects of both style
+     sheets and embedded languages.  In addition, explicitly binding
+     operations to tags provides an extremely flexible security model, with
+     different documents getting different levels of trust.
+
+     In the PIA, semantics for the small set of primitive operations are
+     defined in Java, along with the web server and an off-line command-line
+     processor.  Unusual aspects of the web engine include event-driven
+     ``agents'' implemented in XML, and an XML configuration-file language.
+     A C version of the document-processing engine is in progress, and will
+     eventually be available as an Apache module.
+
+     This approach promises platform independent, easily customizable Web
+     applications.  XML support in the form of editors and other tools
+     already exists on essentially all platforms and continues to grow.
+     Specifying the processing in XML not only makes the logic more
+     accessible to non-programmers but restricts the dependence on a
+     particular computing environment to the implementation of a few tags.
+
+     Open standards are used throughout the PIA: it supports both SAX and
+     DOM interfaces for XML applications, and the Servlet interface on the
+     web server side.  WebDAV support is planned, as is support for XML
+     namespaces.  The entire system is available as open source from
+     http://RiSource.org/PIA.
+     
+Brief Description: 
+
+     The PIA approach to web applications is more fully described in
+     a White Paper located at <http://RiSource.org/Papers/wp-webapp.html>.
+     The present paper will concentrate more on the technical aspects,
+     including the relationship of the PIA approach to document processing
+     to the relevant standards in the XML world: DOM, SAX, namespaces,
+     XSLT, WebDAV, and so on.  In particular, it will include a detailed
+     comparison between the PIA's XML processing and that embodied in
+     style-sheet languages, including XSLT and DSSSL.
+
+[I'm not sure whether the "brief description" is intended to be a briefer
+version of the abstract; in that case the first paragraph of the abstract
+can be used.]
