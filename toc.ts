@@ -14,7 +14,7 @@
 <!-- Portions created by Ricoh Silicon Valley, Inc. are Copyright (C)       -->
 <!-- 1995-2000.  All Rights Reserved.                                       -->
 <!--                                                                        -->
-<!-- Contributor(s):  steve@rsv.ricoh.com                                   -->
+<!-- Contributor(s):  steve@rii.ricoh.com                                   -->
 <!-- ====================================================================== -->
 
 <tagset name="toc" parent="HTML" tagset="xhtml">

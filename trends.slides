@@ -23,12 +23,12 @@
      <td>
 	Stephen Savitzky<br />
 	Chief Software Scientist<br />
-	Ricoh Silicon Valley<br />
-	<font size="-1"><code>&lt;steve@rsv.ricoh.com&gt;</code></font>
+	Ricoh Innovations, Inc.<br />
+	<font size="-1"><code>&lt;steve@rii.ricoh.com&gt;</code></font>
      </td>
      <td align="left" valign="top">
 	<table cellpadding='0' cellspacing='0' border='0'>
-	    <tr nowrap nobr><th><a href='http://rsv.ricoh.com/'><img
+	    <tr nowrap nobr><th><a href='http://rii.ricoh.com/'><img
 		 src='Images/Logos/ricoh.gif' border='0' width='170'
 		 height='48' alt='R I C O H'></a></th></tr> 
 	    <tr nowrap nobr><td nowrap nobr><img
@@ -487,9 +487,9 @@ with a portable, standard processing engine.
 
 
 <hr>
-<b>Copyright &copy; &year; Ricoh Silicon Valley</b><br>
+<b>Copyright &copy; &year; Ricoh Innovations, Inc.</b><br>
 <b>$Id$</b><br>
-<address><a href="http://rsv.ricoh.com/~steve/"
-         >Stephen R. Savitzky</a> &lt;<a href="mailto:steve@rsv.ricoh.com"
-         >steve@rsv.ricoh.com</a>&gt;</address>
+<address><a href="http://rii.ricoh.com/~steve/"
+         >Stephen R. Savitzky</a> &lt;<a href="mailto:steve@rii.ricoh.com"
+         >steve@rii.ricoh.com</a>&gt;</address>
 </body></html>

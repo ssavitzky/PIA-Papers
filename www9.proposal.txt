@@ -15,7 +15,7 @@ Address:
 	Ricoh Silicon Valley, Inc. 
 	2882 Sand Hill Rd. Suite 115
 	Menlo Park, CA 94025
-Email/Phone/Fax: <steve@rsv.ricoh.com>
+Email/Phone/Fax: <steve@rii.ricoh.com>
 	 voice: 650.496.5710  front desk: 650.496.5700  fax: 650.854.8740 
 
 Abstract
