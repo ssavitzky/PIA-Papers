@@ -43,7 +43,8 @@ face="Verdana, Arial, Helvetica, sans-serif" color="black"
 <blockquote>
  <p> The World Wide Web has given rise to a new category of applications:
      programs whose primary user interface is a web browser, and which consist
-     of a large amount of information or ``documents'' mixed in with a small amount of
+     of a large amount of information or ``documents'' mixed in with a small
+     amount of 
      behavior expressed as ``code.''  In effect, applications have become
      specialized web servers.
 
@@ -80,16 +81,17 @@ face="Verdana, Arial, Helvetica, sans-serif" color="black"
      
 
 
- <p> Freely available as open source, the PIA software, written in pure Java, is
-     available from www.RiSource.org and includes
+ <p> Freely available as open source, the PIA software, written in pure Java,
+     is available from <code><a
+     href="http://RiSource.org">RiSource.org</a></code> and includes
      interfaces that conform to all relevant standards, including the W3C's
-     Document Object Model (DOM), and the Simple API for XML (SAX).  
+     Document Object Model (DOM), and the Simple API for XML (SAX).
      RiSource.org also distributes and helps coordinate the development of
      PIA-based applications including as a workflow system, shared calendar,
-     Web site 
-     management tool, and a personal ``browsing assistant.''  
-     <!-- need a good ending here --  perhaps reiterate notion of shared
-     development with participation by non-programmers -->
+     Web site management tool, and a personal ``browsing assistant.''
+
+<!-- need a good ending here -- perhaps reiterate notion of shared development
+     with participation by non-programmers -->
 
  <p> As an open source project the PIA group welcomes contributions, and we
      are especially eager to receive input from non-programmers.  Naturally,
@@ -194,7 +196,8 @@ distributed with the code. [steve] -->
 
 </ol>
 
-<p> Each type of application has different requirements, support, and performance
+<p> Each type of application has different requirements, support, and
+    performance 
     characteristics.  Public and enterprise applications must handle large
     numbers of simultaneous users with 24/7 accessibility.  These applications
     generally have full-time staff devoted to their maintenance.  Group
@@ -261,24 +264,26 @@ distributed with the code. [steve] -->
 
 <ol>
   <li> <strong>Initial Development</strong>
-  [!-- do we need this section?  We could mention how traditional software
-  ends up being 70 percent user interface...
+
+  <!-- do we need this section?  We could mention how traditional software
+  ends up being 70 percent user interface... -->
+
        <p> Web applications require a different kind of development than
            traditional software applications.  Software applications have
            always (of necessity) been developed by programmers, sometimes with
-           the assistance of a few user-interface designers (all too often called in
+           the assistance of a few user-interface designers (all too often
+           called in 
            at the last minute to figure out why nobody wants to <em>use</em>
-           the new software).
-   ---- I'm not sure that everyone would agree with this statement
-       <p> Web applications, on the other hand, are mainly the province of
-	   ``web designers,'' technical writers, and graphic artists.  The
-	   <em>programmers</em> are the ones called in at the last minute, to
-	   write the ``CGI scripts'' and other bits of magic that bring the
-	   designers' ideas to life. 
-  ---GW]
+           the new software).  Most interactive applications end up being
+           about 70% user interface.
+       
+       <p> Web applications, on the other hand, typically exceed 95% 
+	   ``content'' -- as seen by the user, a web application consists
+	   entirely of documents: HTML ``pages'' viewed in a browser.
+	   Scattered through these documents are the buttons and text boxes of
+	   a more traditional user interface.  
 
-       <p> From the client perspective, Web applications consist entirely of
-	   documents:  HTML pages that are viewed in a browser.  The
+       <p> The
 	   developer's perspective depends in part on which technology they
 	   choose.  In the early days of the Web, applications consisted
 	   primarily of standard HTML documents with a few CGI scripts to
@@ -322,41 +327,10 @@ distributed with the code. [steve] -->
 	   which breaks the embedded language) and inaccessible to
 	   non-programmers.
 
-
-
 	   <!-- should have more contrasts later in the paper with templates
 	   including explanation of why templates are not extensible or
 	   portable -->
 
-
-[!-- is this section needed?? -- probably not
-       <p> Web applications consist mainly of documents; these are mostly
-	   written in HTML using ``traditional'' text editing and word
-	   processing tools.  Increasing amounts of XML, the eXtensible Markup
-	   Language, are being used now, in conjunction with ``structured''
-	   editors and style sheets.
-
-       <p> The small amount of processing required for the application is
-	   either contained in separate programs called ``CGI scripts''
-	   (usually written in Perl), program fragments that become part of
-	   the server, such as ``servlets'' or ``modules,'' or little pieces
-	   of code embedded in the HTML pages in the form of ``active server
-	   pages'' (or other names, depending on the programming language
-	   being embedded).
-
-       <p> When processing is separated from the documents, even the smallest
-	   change in a form requires the assistance of a programmer to revise
-	   the processing software.  When processing is embedded in the
-	   document things are better; the web designer can often ``program
-	   by cut-and-paste,'' starting with a base of working documents or a
-	   set of samples.  Still, the processing can be complex, and is
-	   represented in a programming language that bears little or no
-	   resemblance to the HTML the designer is familiar with.  An HTML
-	   editor gives no assistance here -- trying to format an embedded
-	   script as if it were normal text would result in an unreadable
-	   mess. 
-
---]
 
        <p> As described in detail below, the PIA approach uses a type of
 	   extensible server page.  In contrast with current systems, the
@@ -373,10 +347,6 @@ distributed with the code. [steve] -->
 	   <em>intranet</em> server, but the principle is essentially the
 	   same.
 
-       <p> Deployment is often complicated by the fact that CGI scripts, if
-	   the application uses them, usually go in a different location from
-	   the application's documents.
-
        <p> Deployment of a web application is a much more traumatic event than
 	   the deployment of a piece of software.  Software's availability can
 	   be controlled by controlling its distribution.  It goes first to a
@@ -386,7 +356,7 @@ distributed with the code. [steve] -->
 	   up'' to full deployment.
 
 
-<p> [!-- what's the point here? -- that rapid customization is needed. ]
+ <!-- what's the point here?  That rapid customization is needed. -->
 
        <p> A web application is different.  After it is installed on a
 	   public server it may be only a matter of minutes -- days at the
@@ -399,7 +369,9 @@ distributed with the code. [steve] -->
        <p> This means that the maintenance cycle is much shorter for a web
 	   application than for a software application.  The application's
 	   designers may have to respond to problems within minutes, rather
-	   than months. 
+	   than months.  Support for rapid customization is essential.  In
+	   effect, what software developers call ``rapid prototyping'' goes on
+	   even after a web application is released.
 
        <p>
 
@@ -431,8 +403,9 @@ distributed with the code. [steve] -->
 	   harder to maintain than a traditional all-software application.
 	   Sometimes it's easier to scrap it and have a new programming team
 	   rewrite large portions, than to figure out some earlier
-	   programmer's tricks. 
-	   [!-- support with examples --]
+	   programmer's tricks.
+
+       <p> [!-- support with examples --]
 
 	   [!-- focus on maintenance of server pages --]
        <p>
@@ -504,7 +477,7 @@ distributed with the code. [steve] -->
     be very expensive, have their own nonstandard programming component, and
     of course lock the designers in to a single vendor.
 
-<!-- more needed? -->
+<!-- more needed? SS -->
 
 <h3>Customization</h3>
 
@@ -616,6 +589,11 @@ distributed with the code. [steve] -->
        page to the browser, which may then do unpredictable things with it.
        This can't happen in the PIA.
 </ol>
+
+<p> The way the PIA works, by ``expanding'' defined tags, is shown in
+    the following sample:
+
+<p> <img src="/images/sample.png"/>
 
 <p> Let's examine some of the consequences of these features in more detail:
 
@@ -862,11 +840,11 @@ Web applications -->
 	   puts a small ``toolbar'' at the front of every HTML page requested
 	   using the PIA as a proxy.  A more recent application was an
 	   ``ad-buster'' agent that recognizes requests to banner-ad sites and
-	   redirects them.  [!-- also caching --]
+	   redirects them.  
 
        <p> Some of the things that can be done with transaction agents
 	   resemble other innovative proxy-based web applications, for example
-	   IBM's WBI. 
+	   IBM's WBI, or with specialized web caching software.
 
        <p>
 
@@ -895,8 +873,8 @@ Web applications -->
 
 <h3>Conventional platforms</h3>
 
-[!-- we already discussed the conventional platforms of separate code -- may
-be just introduce PHP, Meta-HTML as examples that we compare in detail --]
+<!-- we already discussed the conventional platforms of separate code; may
+be just introduce PHP, Meta-HTML as examples that we compare in detail -->
 
 <p> The conventional platforms for web applications break down into two broad
     categories:  separate code, and embedded code:
@@ -935,9 +913,12 @@ be just introduce PHP, Meta-HTML as examples that we compare in detail --]
 
 <p> Server-side extension languages are complete programming languages that
     are designed to generate web pages; in general ordinary text and HTML tags
-    are treated as ``string constants'' and passed through to the client.
-    [!-- wrong meaning?? , much as 
-    they are in the PIA.  --]
+    are treated as ``constants'' and passed through to the client.
+    <!-- wrong meaning?? , much as they are in the PIA.  -->
+    The PIA falls squarely in this category, but with some significant
+    differences which we will examine in more detail below.  For the moment,
+    let's compare the PIA to two well-known server-side languages, Meta-HTML
+    and PHP.
 
 <ul>
   <li> <strong><a href="http://www.metahtml.com/">Meta-HTML</a></strong><br>
@@ -973,15 +954,54 @@ be just introduce PHP, Meta-HTML as examples that we compare in detail --]
 </ul>
 
 
-[!-- table of features and benefits goes here --]
+
+<table border=3 align=center cellpadding=2>
+<thead>
+ <tr><th>Feature</th><th>Meta-HTML</th><th>PHP3</th><th>PIA</th></tr>
+</thead>
+<tbody>
+ <tr><th align=left>Syntax</th>
+     <td>HTML-like</td>
+     <td>C-like</td>
+     <td>pure XML</td>
+ </tr>
+ <tr><th align=left>Embedded processing</th>
+     <td>yes</td>
+     <td>yes</td>
+     <td>yes</td>
+ </tr>
+ <tr><th align=left>Tagsets</th>
+     <td>yes</td>
+     <td>no</td>
+     <td>yes</td>
+ </tr>
+ <tr><th align=left>redefine document tags?</th>
+     <td>yes</td>
+     <td>no</td>
+     <td>yes</td>
+ </tr>
+ <tr><th align=left>treats documents as:</th>
+     <td>strings</td>
+     <td>strings</td>
+     <td>parse trees</td>
+ </tr>
+ <tr><th align=left></th>
+     <td></td>
+     <td></td>
+     <td></td>
+ </tr>
+</tbody>
+</table>
 
 
 <p> Neither Meta-HTML nor PHP, nor any other server-side scripting system that
     we know of, shows any awareness of the structure of the underlying
     document.  The document is simply treated as a ``character string;'' it is
     possible to generate syntactically incorrect documents, and it is
-    not particularly easy to manipulate the document's parse tree.
-[!-- expand this section -- why is it important?--]
+    not particularly easy to manipulate the document's parse tree.  This makes
+    it difficult to take advantage of the document's structure. 
+
+<!-- expand this section -- why is it important? -->
 
 
 <p> PHP <em>does</em> include an XML parser, which can be used for processing
@@ -993,17 +1013,18 @@ be just introduce PHP, Meta-HTML as examples that we compare in detail --]
 
 <p> The available XML-based approaches to server-side document processing fall
     into two broad categories:  embedded code inside of XML constructs (like
-    PHP), and ``style-sheet'' languages.
+    PHP), and ``style-sheet'' languages.  As we will see, the PIA, which is
+    <em>also</em> XML-based, has aspects of both.
 
 <ul>
   <li> <strong>XSL</strong><br>
 
-       is essentially a translation of the W3C's ``cascading style sheet''
-       language into XML.  An XSL style sheet is a set of rules that can be
-       applied to a document to transform it, usually for presentation.
+       is essentially a translation of a subset of the W3C's ``cascading style
+       sheet'' language into XML.  An XSL style sheet is a set of rules that
+       can be applied to a document to transform it, usually for presentation.
        Unfortunately XSL is not a complete language, and it cannot be embedded
        in a document -- it is applied from the ``outside'' like processing
-       with a tagset.
+       with a tagset.  
 
        <p>
 
@@ -1023,28 +1044,82 @@ be just introduce PHP, Meta-HTML as examples that we compare in detail --]
     and cannot easily be manipulated as data.  XSL, and the closely related
     Cascading Style Sheets of HTML, are not complete programming languages.
     We feel that <em>both</em> expressive power and embeddability are
-    important. 
+    important.  It's worth noting, though, that style-sheet processing could
+    easily be added to the PIA's document processor. 
 
-<!-- difficult to learn, not manipulated has data,
-    difficult to use in practice -->
+<p>
 
-<h3>Summary</h3>
-
-[!-- table of benefits -- ]
-
-<p> We have seen that the PIA offers what appears to be a unique combination
-    of features:
-
-<ul>
-  <li> XML syntax for embeddability
-  <li> The ability to function <em>either</em> embedded in documents, or to
-       process separate documents
-  <li> Treating documents as parse trees (structures) rather than as character
-       strings.
-  <li> Minimal set of primitives, for portability and ease of
-       re-implementation. 
-</ul>
-
+<table border=3 align=center cellpadding=2>
+<thead>
+ <tr><th>Feature</th><th>XSL</th><th>PIA</th></tr>
+</thead>
+<tbody>
+ <tr><th align=left>local transformations</th>
+     <td>no: assumes a complete parse tree</td>
+     <td>yes: documents can be streamed</td>
+ </tr>
+ <tr><th align=left>arithmetic operations</th>
+     <td>counters only</td>
+     <td>yes</td>
+ </tr>
+ <tr><th align=left>text manipulation</th>
+     <td>sorting and concatenation</td>
+     <td>sort, split, join, trim, subst</td>
+ </tr>
+ <tr><th align=left>iteration</th>
+     <td>only over node sets</td>
+     <td>general</td>
+ </tr>
+ <tr><th align=left>tests</th>
+     <td>tree matching</td>
+     <td>numeric, string</td>
+ </tr>
+ <tr><th align=left>embedded expressions</th>
+     <td><code>{<em>xpointer</em>}</code></td>
+     <td><code>&amp;<em>entity</em>;</code></td>
+ </tr>
+ <tr><th align=left>definitions</th>
+     <td>only in stylesheet</td>
+     <td>tagset or document</td>
+ </tr>
+ <tr><th align=left>processing</th>
+     <td>only in stylesheet</td>
+     <td>tagset or document</td>
+ </tr>
+ <tr><th align=left>native code extensions</th>
+     <td>no</td>
+     <td>yes, through tag handlers</td>
+ </tr>
+ <tr><th align=left>interface to files</th>
+     <td>read-only</td>
+     <td>read/write</td>
+ </tr>
+ <tr><th align=left>interface to web docs</th>
+     <td>read-only</td>
+     <td>read/write/query</td>
+ </tr>
+ <tr><th align=left>interface to server</th>
+     <td>no: documents only</td>
+     <td>yes: can operate on transactions</td>
+ </tr>
+ <tr><th align=left>interface to database</th>
+     <td>no</td>
+     <td>yes</td>
+ </tr>
+ <tr><th align=left>&nbsp;</th>
+     <td>&nbsp;</td>
+     <td>&nbsp;</td>
+ </tr>
+ <tr><th align=left>Learnability</th>
+     <td>complex</td>
+     <td>simple</td>
+ </tr>
+ <tr><th align=left>Security</th>
+     <td>N/A</td>
+     <td>flexible</td>
+ </tr>
+</tbody>
+</table>
 
 <hr>
 <h2><a name="technical">Technical details</a></h2>
@@ -1296,18 +1371,86 @@ to be tomorrow, especially integration of key features into apache/PHP, etc. -->
 <h2><a name="conclusions">Conclusions</a></h2>
 
 
-<h3>What's Important about the PIA approach[??]?</h3>
+<h3>What's Important about the PIA approach?</h3>
 
-[!-- need to reiterate the key features and benefits --]
-[!-- what features are necessary for shared development, customization, and
-maintenance.
-platform independence]
 
+<p> We have seen that the PIA offers what appears to be a unique combination
+    of features:
 <ul>
   <li> Turing-complete, XML-syntax document-processing language
   <li> Embedded <em>or</em> separate (style-like) processing
-  <li> Web client/server/proxy based on agents
+  <li> Web client/server/proxy platform based on agents
 </ul>
+
+<p> The following table goes into a little more detail:
+
+<p>
+<table>
+ <tr><th colspan=2 align=left> Server-side Document Processing </th></tr>
+ <tr><td valign=top><em>XML-compliant</em></td>
+     <td> Standard tools (editors, parsers, etc.) can be used for
+	  development.  Processing can be separate or embedded in documents.
+     </td> 
+ </tr>
+ <tr><td valign=top><em>Embeddable</em></td>
+     <td> Documents can contain their own processing, embedded in the portion
+	  of the document that has to be processed.
+     </td>
+ </tr>
+ <tr><td valign=top><em>Separable</em></td>
+     <td> Separate tagsets can be shared among documents.
+     </td>
+ </tr>
+ <tr><td valign=top><em>User-extensible</em></td>
+     <td> User-Defined tags have the same syntax as built-in operations.
+     </td>
+ </tr>
+ <tr><td valign=top><em>Operates on parse trees</em></td>
+     <td> Impossible to generate a syntactically-incorrect output document.
+     </td>
+ </tr>
+ <tr><td valign=top><em>Small set of primitives</em></td>
+     <td> Easily ported to other programming languages.  Easy to learn.
+     </td>
+ </tr>
+ <tr><td valign=top><em>Efficient</em></td>
+     <td> Documents can be streamed through, meaning that the browser can get
+	  the first part of a page while the rest is still being generated.
+     </td>
+ </tr>
+
+ <tr><th colspan=2 align=left> Web-based application platform </th></tr>
+
+ <tr><td valign=top><em>Flexible configuration</em></td>
+     <td> Active documents and data easily separated, but can be shown in the
+	  same URL tree.
+     </td>
+ </tr>
+ <tr><td valign=top><em>XML configuration files</em></td>
+     <td> Full power of document-processing language available at
+	  configuration time.
+     </td>
+ </tr>
+ <tr><td valign=top><em>Java-based</em></td>
+     <td> Platform-agnostic.  Runs on Linux, Unix, Windows.
+     </td>
+ </tr>
+ <tr><td valign=top><em>Agent-based event handling</em></td>
+     <td> Processing can occur based on transaction features (request and
+	  response headers) or time.  Agents can modify transactions.
+     </td>
+ </tr>
+ <tr><td valign=top><em>Client / Server / Proxy</em></td>
+     <td> Web engine operates in multiple modes for maximum flexibility.
+     </td>
+ </tr>
+
+</table>
+
+
+[!-- what features are necessary for shared development, customization, and
+maintenance.  platform independence]
+
 
 <h3>Would the PIA be useful for <em>your</em> web application?</h3>
 
