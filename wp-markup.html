@@ -2,18 +2,17 @@
 <html><head>
 <title>White Paper: Adventures in Active Markup</title>
 </head><body bgcolor="white" fgcolor="black">
-<h2><a href="../"><font face="Verdana, Arial, Helvetica, sans-serif" color="#993300">Ri</font><font face="Verdana, Arial, Helvetica, sans-serif" color="black"><i>Source.org</i></font></a>
+    
+    
+<h1>  <a href="../"><font face="Verdana, Arial, Helvetica, sans-serif" color="#993300">Ri</font><font face="Verdana, Arial, Helvetica, sans-serif" color="black"><i>Source.org</i></font></a>
 / <a href="./">White Papers</a>
-/ Adventures in Active Markup
-</h2>
+/ <br /> Adventures in Active Markup</h1>
 
-<h3>Foreword</h3>
+<h3> Foreword</h3>
 
 <p> This white paper is an attempt at a roadmap for the evolution of the
     various instances of what might be called ``active markup languages'',
-    particularly <a href="http://risource.org/SSML/">SSML</a>, <a
-    href="http://risource.org/PIA/">PIA</a>, and <a
-    href="http://cpia.sourceforge.net/">cPIA</a>.  All three are systems for
+    particularly <a href="http://risource.org/SSML/">SSML</a>, <a href="http://risource.org/PIA/">PIA</a>, and <a href="http://cpia.sourceforge.net/">cPIA</a>.  All three are systems for
     writing web applications as collections of ``active web pages'' that,
     rather than embedding constructs from another programming language, use a
     markup language (HTML or XML) extended to the point where complete
@@ -43,10 +42,16 @@
     machine-readable. 
 </p>
 
-<h3>   <a name="contents">Table of Contents:</a></h3>
-<toc />
+<h3>  <a name="contents">Table of Contents:</a></h3>
+<toc>
+<br />&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section-1">1: Roadmap: the Future of Active Markup</a>
+ <br />&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section-2">2: Comparisons</a>
+  <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1"><a href="#section-2.1">2.1: System-Level Comparison</a></font>
+  <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1"><a href="#section-2.2">2.2: Implementation Comparison</a></font>
+  <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1"><a href="#section-2.3">2.3: Language Comparison</a></font>
+  </toc>
 
-<h2>Roadmap: the Future of Active Markup</h2>
+<h2> <a name="section-1">1:</a> Roadmap: the Future of Active Markup</h2>
 
 <blockquote><em> (I'm going to present the roadmap first.  The reasoning
   behind my suggestions may be a trifle sketchy; it may be necessary to refer
@@ -54,184 +59,42 @@
   below.)
 </em></blockquote>
 
-<p><font color='red'>=== this is bogus, and needs a lot of work ===
-</font></p>
 
-<blockquote><font color='red'>
-  What this section really is, is a general discussion of syntax,
-  architecture, and implementation.  The future is still hazy.
-</font></blockquote>
-
-<p> I think we should work toward the following goals:
+<p> I think that the main long-term goals include the following:
 </p>
 
 <ul>
-  <li> Identification of a <em>common tagset</em> -- a set of active tags that
-       active markup systems can pick and choose from.  Some tags will be
-       unnecessary in some systems; others will be impossible -- for example,
-       systems like SSML that extend the entity syntax to include expressions
-       don't need PIA's &lt;numeric&gt; and &lt;logical&gt; tags; systems like
-       PIA won't be able to implement SSML's looping constructs.
+  <li> Creating a sufficiently large body of sample (application) code to be
+       interesting, useful, and inspiring to the web development community.
   </li>
-  <li> A <em>common architecture</em> or architectural framework for active
-       markup processing, that will make it easier build and document active
-       markup systems.
-  </li>
-  <li> A <em>common code base</em> both at the infrastructure level for
-       parsers, parse trees, and output modules that would allow parsers and
-       tag handlers to be shared among systems, and at the active-document
-       level for web applications and application components.
-  </li>
-  <li> In the longer term, encouragement of a <em>community</em> of
-       active-markup users and developers.
+  <li> Building a community of active markup developers and users. 
   </li>
 </ul>
 
-<h3>Common Tagset</h3>
-
-<p> There are a very small number of choices that distinguish among the
-    existing active-markup systems at the lexical level, e.g.,:
+<p> Long-term <em>research and development</em> goals include:
 </p>
 
 <ul>
-  <li> Strict (PIA) entity syntax / extended (SSML) syntax
+  <li> Making active markup languages sufficiently expressive to be, at least
+       in part, self-implementing.
   </li>
-  <li> Strict XML parser / relaxed parser
+  <li> Converging the implementation code base, eventually using an
+       active-markup version of Literate Programming (the Web/Tangle/Weave
+       approach used by Knuth for TeX): mixing raw code with markup to produce
+       well-documented programs.
   </li>
-</ul>
-
-<blockquote>
-  (It is theoretically possible to automatically translate among these: for
-   example an expression in an extended entity can be eliminated by using
-   &lt;do&gt; to construct the element.)  Whether this would be useful enough
-   to be worth doing is, of course, a separate question.
-</blockquote>
-
-<p> Beyond that, it's a matter of selecting a set of allowable operations: a
-    tagset.  It ought to be possible to develop a set of primitive tags that
-    <em>everyone</em> can agree on (for example, &lt;if&gt;, &lt;get&gt;,
-    &lt;set&gt;, &lt;define&gt; and maybe a few others are already common to
-    both PIA and SSML).
-</p>
-
-<p> The main reason for doing this is not so much to make applications more
-    portable (although the ability to pass active-markup pages around will
-    certainly be a good thing in the long run) as to make the necessary
-    <em>knowledge</em> more portable: just as Java and C++ benefit greatly
-    from their common syntactic and semantic legacy from C, active-markup
-    languages will benefit from a shared core of common syntax that developers
-    and power-users can become familiar and comfortable with.
-</p>
-
-<h3>Common Architecture</h3>
-
-<!-- why?  Mainly, to make it easier to develop and describe AML's -->
-
-<p> There are three ways to structure the internal workings of an
-    active-markup processing system:
-</p>
-
-<ul>
-  <li> Parse the active document and build a parse tree.  Then traverse the
-       parse tree, calling handlers for the active tags and the output routine
-       for the rest.
-  </li>
-  <li> Parse the active document and <em>compile it</em> into a program
-       (possibly in some intermediate language such as byte codes) which can
-       then be executed or interpreted.
-  </li>
-  <li> Parse the active document and call ``event handlers'', SAX-style, on
-       the fly.  The handlers for &lt;define&gt;, &lt;set&gt;, and so on have
-       to build <em>pieces</em> of parse tree, which are stored and later
-       traversed.
+  <li> Building a suite of tools that make web application development with
+       active markup easier.
   </li>
 </ul>
 
-<p> Currently, SSML can do either of the first two.  PIA <em>essentially</em>
-    does the first, except that the nodes the parser constructs are passed
-    directly to the output and never actually linked into a real tree unless
-    the content is needed for an active tag.  The PIA parser, in other words,
-    has the interface of a tree traverser.  (The PIA also contains an
-    ``event-driven'' parser API intended for use with SAX parsers, but it
-    hasn't been tested.)
-</p>
+<a name="comparison"><hr /></a>
+<h2> <a name="section-2">2:</a> Comparisons</h2>
 
-<p> Ultimately one would like to move away from the first method and toward
-    the second and third; the second (compilation) is more efficient for pages
-    that rarely change; the third (event-driven parsing) is more efficient for
-    on-the-fly expansion and allows large pages to be processed in a system
-    with limited memory.
-</p>
-
-<h3>Common Code Base</h3>
-
-<!-- needs a proper overview/intro -->
-
-<!-- this becomes a blurb for the infrastructure level -->
-  <li> A <em>common code base</em>  for parsers, parse trees, and output
-       modules that would allow parsers and tag handlers to be shared among
-       systems.  There will, of necessity, be different implementations for
-       these in different language families (e.g. C, Java, and Perl), but it
-       should at least (eventually) be possible to share modules freely
-       between C and C++.
-  </li>
-
-<h4>Active Markup</h4>
-
-
-<h4>Tag Handlers</h4>
-
-
-<h4>Tree Structure</h4>
-
-<p> All active markup systems need parse trees at one stage or another.  At
-    one point it looked as though the DOM would provide a standardized API
-    that we could simply drop into the PIA, but the DOM turns out to be more
-    applicable to browsers (it's essentially the document model for
-    ECMAscript) than to server-side programs.  Many of its constructs are
-    difficult, if not impossible, to implement efficiently, and its
-    doubly-linked structure allows arbitrary navigation at the expense of
-    efficiency in the sort of top-down traversal used for active markup.
-</p>
-
-<p> My current leaning is toward a more generalized tree structure with a
-    limited number of node types, mapping names to values that may be either
-    strings, lists, or subtrees.  (This is, of course, exactly the sort of
-    structure commonly seen in Perl and used for parse trees in AMP.  I've
-    implemented parse trees in everything from assembly language to Smalltalk;
-    generic nodes simply work better.  In particular, the Java PIA has had
-    <em>two</em> different parse tree implementations over its history; the
-    first was more Perl-like and was much less clumsy to work with than the
-    second, DOM-based one.)
-</p>
-
-<p> Unlike a DOM-like system in which each type of node (Text, Element,
-    Attribute, Comment, ...) is represented by a different class (descending
-    from Node, of course) with its own unique set of operations, a
-    generic-node system makes it particularly easy to add new node types.
-    This makes it potentially applicable to markup languages other than the
-    SGML family (for example LaTeX or WikiText), and to objects other than
-    documents (for example, directories).  It also makes it possible to change
-    the type of a node, simplifying &lt;make&gt; and similar operations.
-</p>
-
-<p> It's worth noting that SSML and AMP already use trees with a single node
-    type (<code>wpt/ssmlparser/XMLNode.h</code> in SSML,
-    <code>lib/XML/Node.pm</code> in AMP).  
-</p>
-
-<h3>Community</h3>
-
-
-
-<h2><a name="comparison">Comparisons</a></h2>
-
-<h3>System-Level Comparison</h3>
+<h3><a name="section-2.1">2.1:</a> System-Level Comparison</h3>
 
 <p> This section compares the four active markup systems <a href="/SSML/">
-      SSML</a>, <a href="/PIA/">PIA</a>,  <a
-      href="http://cpia.sourceforge.net/">cPIA</a>, and <a
-      href="http://www.penguinsong.org/org/projects/Combo/">AMP</a>. 
+      SSML</a>, <a href="/PIA/">PIA</a>,  <a href="http://cpia.sourceforge.net/">cPIA</a>, and <a href="http://www.penguinsong.org/org/projects/Combo/">AMP</a>. 
 </p>
 
 <table border="1">
@@ -308,16 +171,56 @@
 
 </table>
 
-<h3>Architecture Comparison</h3>
+<h3><a name="section-2.2">2.2:</a> Implementation Comparison</h3>
 
-<p> This section compares the architectures of <a href="/SSML/">SSML</a> and
+<p> This section compares the implementations of <a href="/SSML/">SSML</a> and
     <a href="/PIA/">PIA</a>/<a href="http://cpia.sourceforge.net/">cPIA</a>
     (which share their basic structure in spite of having been written in
-    different implementation languages).  <a
-    href="http://www.penguinsong.org/org/projects/Combo/">AMP</a> is mentioned
+    different implementation languages).  <a href="http://www.penguinsong.org/org/projects/Combo/">AMP</a> is mentioned
     briefly. 
 </p>
 
+<h4>The Architecture Space</h4>
+
+<!--     why?  Mainly, to make it easier to develop and describe AML's     -->
+
+<p> There are three ways to structure the internal workings of an
+    active-markup processing system:
+</p>
+
+<ul>
+  <li> Parse the active document and build a parse tree.  Then traverse the
+       parse tree, calling handlers for the active tags and the output routine
+       for the rest.
+  </li>
+  <li> Parse the active document and <em>compile it</em> into a program
+       (possibly in some intermediate language such as byte codes) which can
+       then be executed or interpreted.
+  </li>
+  <li> Parse the active document and call ``event handlers'', SAX-style, on
+       the fly.  The handlers for &lt;define&gt;, &lt;set&gt;, and so on have
+       to build <em>pieces</em> of parse tree, which are stored and later
+       traversed.
+  </li>
+</ul>
+
+<p> Currently, SSML can do either of the first two.  PIA <em>essentially</em>
+    does the first, except that the nodes the parser constructs are passed
+    directly to the output and never actually linked into a real tree unless
+    the content is needed for an active tag.  The PIA parser, in other words,
+    has the interface of a tree traverser.  (The PIA also contains an
+    ``event-driven'' parser API intended for use with SAX parsers, but it
+    hasn't been tested.)
+</p>
+
+<p> Ultimately one would like to move away from the first method and toward
+    the second and third; the second (compilation) is more efficient for pages
+    that rarely change; the third (event-driven parsing) is more efficient for
+    on-the-fly expansion and allows large pages to be processed in a system
+    with limited memory.
+</p>
+
+<h4>How They Work</h4>
 
 <p> SSML has a fairly conventional architecture: it generates a parse tree
     which is passed along to a LISP-like interpretor, which in turn invokes
@@ -351,11 +254,56 @@
     specially-named tags (e.g., <code>!doctype</code> and <code>!--</code>).
 </p>
 
+<h4>Toward a Common Code Base</h4>
 
-<h3>Language Comparison</h3>
+<p> A <em>common code base</em> for parsers, parse trees, and output modules
+    would allow parsers and tag handlers to be shared among systems.
+    There will, of necessity, be different implementations for these in
+    different language families (e.g. C, Java, and Perl), but it should at
+    least (eventually) be possible to share modules freely between C and C++.
+</p>
 
-<p> This section compares the active markup languages of <a
-    href="/SSML/">SSML</a> and the <a href="/PIA/">PIA</a> family.
+<p> All active markup systems need parse trees at one stage or another, so
+    this might be a good place to standardize an API.  At one point it looked
+    as though the DOM would provide a standardized API that we could simply
+    drop into the PIA, but the DOM turns out to be more applicable to browsers
+    (it's essentially the document model for ECMAscript) than to server-side
+    programs.  Many of its constructs are difficult, if not impossible, to
+    implement efficiently, and its doubly-linked structure allows arbitrary
+    navigation at the expense of efficiency in the sort of top-down traversal
+    used for active markup.
+</p>
+
+<p> My current leaning is toward a more generalized tree structure with a
+    limited number of node types, mapping names to values that may be either
+    strings, lists, or subtrees.  (This is, of course, exactly the sort of
+    structure commonly seen in Perl and used for parse trees in AMP.  I've
+    implemented parse trees in everything from assembly language to Smalltalk;
+    generic nodes simply work better.  In particular, the Java PIA has had
+    <em>two</em> different parse tree implementations over its history; the
+    first was more Perl-like and was much less clumsy to work with than the
+    second, DOM-based one.)
+</p>
+
+<p> Unlike a DOM-like system in which each type of node (Text, Element,
+    Attribute, Comment, ...) is represented by a different class (descending
+    from Node, of course) with its own unique set of operations, a
+    generic-node system makes it particularly easy to add new node types.
+    This makes it potentially applicable to markup languages other than the
+    SGML family (for example LaTeX or WikiText), and to objects other than
+    documents (for example, directories).  It also makes it possible to change
+    the type of a node, simplifying &lt;make&gt; and similar operations.
+</p>
+
+<p> It's worth noting that SSML and AMP already use trees with a single node
+    type (<code>wpt/ssmlparser/XMLNode.h</code> in SSML,
+    <code>lib/XML/Node.pm</code> in AMP).  
+</p>
+
+
+<h3><a name="section-2.3">2.3:</a> Language Comparison</h3>
+
+<p> This section compares the active markup languages of <a href="/SSML/">SSML</a> and the <a href="/PIA/">PIA</a> family.
     Linguistically, AMP is a member of the PIA family.
 </p>
 
@@ -371,7 +319,7 @@
   </li>
   <li> Both abuse the XML entity-reference syntax for expansion-time
        variables.  PIA uses strictly-compatible XML entity-reference syntax
-       (<code>&<em>name</em>;</code>); SSML uses an extended syntax
+       (<code>&amp;<em>name</em>;</code>); SSML uses an extended syntax
        <code>&amp;(<em>variable</em>);</code> and
        <code>&amp;{<em>expression</em>};</code>.  SSML's extensions are
        required for compilation, and useful in avoiding name collisions with
@@ -421,8 +369,7 @@
   </li>
   <li> Because it is basically a tree-manipulation language, PIA can be used
        to parse and manipulate arbitrary web pages.  This includes repurposing
-       existing tags (as can be seen in <a
-       href="http://cpia.sourceforge.net/">cPIA</a>, where the &lt;p&gt; tag
+       existing tags (as can be seen in <a href="http://cpia.sourceforge.net/">cPIA</a>, where the &lt;p&gt; tag
        is redefined as a table with a white background).
   </li>
 </ul>
@@ -433,10 +380,49 @@
     tagset-generator with this behavior in a PIA system.)
 </p>
 
+<h4>Toward a Common Tagset</h4>
+
+<p> There are a very small number of choices that distinguish among the
+    existing active-markup systems at the lexical level, e.g.,:
+</p>
+
+<ul>
+  <li> Strict (PIA) entity syntax / extended (SSML) syntax
+  </li>
+  <li> Strict XML parser / relaxed parser
+  </li>
+</ul>
+
+<blockquote>
+  (It is theoretically possible to automatically translate among these: for
+   example an expression in an extended entity can be eliminated by using
+   &lt;do&gt; to construct the element.)  Whether this would be useful enough
+   to be worth doing is, of course, a separate question.
+</blockquote>
+
+<p> Beyond that, it's a matter of selecting a set of allowable operations: a
+    tagset.  It ought to be possible to develop a set of primitive tags that
+    <em>everyone</em> can agree on (for example, &lt;if&gt;, &lt;get&gt;,
+    &lt;set&gt;, &lt;define&gt; and maybe a few others are already common to
+    both PIA and SSML).
+</p>
+
+<p> The main reason for doing this is not so much to make applications more
+    portable (although the ability to pass active-markup pages around will
+    certainly be a good thing in the long run) as to make the necessary
+    <em>knowledge</em> more portable: just as Java and C++ benefit greatly
+    from their common syntactic and semantic legacy from C, active-markup
+    languages will benefit from a shared core of common syntax that developers
+    and power-users can become familiar and comfortable with.
+</p>
+
+
 <hr />
-<b>Copyright &copy; 2002 Ricoh Innovations, Inc.</b><br>
-<b>$Id$</b><br>
-<address><a href="http://rii.ricoh.com/~steve/"
-         >Stephen R. Savitzky</a> &lt;<a href="mailto:steve@rii.ricoh.com"
-         >steve@rii.ricoh.com</a>&gt;</address>
+<b>Copyright &copy; 2002 Ricoh Innovations, Inc.</b><br />
+<b>$Id$</b><br />
+<address><a href="http://rii.ricoh.com/~steve/">Stephen R. Savitzky</a> &lt;<a href="mailto:steve@rii.ricoh.com">steve@rii.ricoh.com</a>&gt;</address>
+
+
+
+
 </body></html>
