@@ -98,8 +98,8 @@ face="Verdana, Arial, Helvetica, sans-serif" color="black"
      contributors will receive <a href="../PIA/Doc/contributors.html">
      public recognition</a> for their work.
 
-<!-- I think the contributors' list belongs in PIA/Doc, since it ought to be
-distributed with the code. [steve] -->
+<!-- The contributors' list is in PIA/Doc, since it ought to be distributed
+with the code. (ss) -->
 
 </blockquote>
 
@@ -405,28 +405,63 @@ distributed with the code. [steve] -->
 	   rewrite large portions, than to figure out some earlier
 	   programmer's tricks.
 
-       <p> [!-- support with examples --]
+       <p> The PIA's document-processing framework, which allows the designer
+	   to define special-purpose tags that are shared among many
+	   documents, simplifies maintenance in several ways:
 
-	   [!-- focus on maintenance of server pages --]
+       <ul>
+	 <li> Definitions are collected into ``tagsets,'' which can contain
+	      documentation for each defined tag.
+	 <li> Tag definitions are easily modified, and the changes are
+	      automatically applied across the entire website or application. 
+	 <li> Specialized tags make the application's documents more compact
+	      and more readable -- for example, simple
+	      <code>&lt;header&gt;</code> and <code>&lt;footer&gt;</code> tags
+	      can replace many lines of complex HTML coding.
+	 <li> Because of the PIA's unified XML syntax, even tag definitions
+	      can be maintained by developers with limited programming
+	      skills. 
+       </ul>
+
+       <p> The line between ``application maintenance'' and ``customization''
+	   is extremely fuzzy for web applications, especially for group or
+	   personal applications.  The PIA helps make many maintenance tasks
+	   more like the kind of customization that users and web developers
+	   are familiar with:  modifying <em>documents</em> rather than
+	   software. 
+
+       <!-- support with examples -->
+       <!-- focus on maintenance of server pages -->
        <p>
 
-  <li> <strong>Further Development</strong>
+  <li> <strong>The Next Project</strong>
 
-[!-- what's the main point we want to make here?  Who maintains the code, how
-       is development shared? --]
+<!-- what's the main point we want to make here?  Who maintains the code, how
+       is development shared?
+
+       (ss) no, that's the previous section.  The point of this section is
+       that tagsets, etc., are portable to the next project.
+       -->
+
        <p> One of the major differences between software and infoware shows up
 	   when a design and development team moves on to its next project.
-	   The software team's next project is almost certain to be a
+	   A software team's next project is almost certain to be a
 	   variation on its previous one -- another compiler, say, or another
 	   printer controller.  The team accumulates knowledge, a suite of
-	   tools, and a collection of re-useable code that grows with each new
+	   tools, and a library of re-useable code that grows with each new
 	   project.
 
-       <p> The web design team, on the other hand, is more likely to move on
-	   to something very different.  A few basic tools and scripts may be
+       <p> A web design team, on the other hand, is more likely to move on to
+	   something very different.  A few basic tools and scripts may be
 	   carried over from one project to the next, but most of the content
-	   -- the information -- will be new. 
+	   -- the information -- will be new.  Many server-side scripting
+	   languages, in fact, were designed by web design consulting
+	   companies in order to provide a framework for code re-use. 
 
+       <p> The PIA's tagsets and configuration files give web designers the
+	   equivalent of the software team's code library.  Entire
+	   sub-applications (for example, a calendar) are also easily portable
+	   to new projects, and very easily customized.
 </ol>
 
 <h3>Tools and Methodologies</h3>
@@ -1448,8 +1483,8 @@ to be tomorrow, especially integration of key features into apache/PHP, etc. -->
 </table>
 
 
-[!-- what features are necessary for shared development, customization, and
-maintenance.  platform independence]
+<!-- what features are necessary for shared development, customization, and
+maintenance.  platform independence -->
 
 
 <h3>Would the PIA be useful for <em>your</em> web application?</h3>
