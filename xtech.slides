@@ -186,48 +186,106 @@ Infrastructure:
 
 <set name="label">form-sample</set>
 <slide><h2>Let's see how we develop a typical page </h2>
-<!-- === needs some kind of heading === -->
+<p> &nbsp;
+</p>
+
+<h3>Day of the week</h3>
 <form action="&url;#form-sample" method="post">
- year: <input name="year" value="&year;" /><br />
- month: <input name="month" value="&month;" /><br />
- day: <input name="day" value="&day;" /><br />
- <input type="submit" value="day of week"/>
-  ... is
- <weekday><if>&queryString;<then>
+<table align="center" border=2>
+  <tr><th colspan="2"><h3 align="center">A Simple Form</h3></th>
+  </tr>
+ <tr>
+   <td>year:</td><td><input name="year" value="&year;" /></td>
+ </tr>
+ <tr>
+   <td>month:</td><td> <input name="month" value="&month;" /></td>
+ </tr>
+ <tr>
+   <td>day:</td><td>  <input name="day" value="&day;" /></td>
+ </tr>
+ <tr>
+   <td><input type="submit" value="day of week"/></td>
+   <td> <weekday><if>&queryString;<then>
        <year><get name="FORM:year" /></year>
        <month><get name="FORM:month" /></month>
        <day><get name="FORM:day" /></day></then></if>
  </weekday><!-- === need link to the calendar page as well === -->
+   </td>
+ </tr>
+</table>
 </form>
 
 </slide>
 
 <slide><h2>Here's the XML for that page</h2>
 
-<!-- with protect markup, the "pretty" doesn't add linebreaks;
-     in fact, it does nothing at all.   But it fits on a smaller screen.
--->
-<small>
-<pretty><protect markup="markup">
-<heading/>
-<form action="&DOC:url;">
-  year: <numeric-input name="year"/>
-  month:
-  <numeric-input name="month" default="&month;"/>
-  day:
-  <numeric-input name="day" default="&day;"/>
-  <form-submit name="day of week" />
-  <if-form-submitted>
-     ... is 
-     <weekday>
-       <year><get name="FORM:year" /></year>
-       <month><get name="FORM:month" /></month>
-       <day><get name="FORM:day" /></day>
-     </weekday>
-  </if-form-submitted>
-</form>
-</protect></pretty>
-</small>
+<define element="x">
+  <action><font color="#009900"><b>&content;</b></font></action>
+</define>
+
+<pre>
+<x>&lt;h3></x>Day of the week<x>&lt;/h3></x>
+<x>&lt;form action="&amp;DOC:url;"></x>
+  &lt;heading>A Simple Form&lt;/heading> 
+  &lt;numeric-input name="year" default="&amp;year;"/>
+  &lt;numeric-input name="month" default="&amp;month;"/>
+  &lt;numeric-input name="day" default="&amp;day;"/>
+  &lt;form-submit name="day of week" />
+  &lt;if-form-submitted>
+     &lt;weekday>
+       &lt;year>&amp;FORM:year;&lt;/year>
+       &lt;month>&amp;FORM:month;&lt;/month>
+       &lt;day>&amp;FORM:day;&lt;/day>
+     &lt;/weekday>
+  &lt;/if-form-submitted>
+&lt;/form>
+</pre>
+<x>parts look like plain HTML</x>...
+</slide>
+
+<slide><h2>Here's the XML for that page</h2>
+
+<pre>
+&lt;h3>Day of the week&lt;/h3>
+&lt;form action="&amp;DOC:url;">
+  <x>&lt;heading>A Simple Form&lt;/heading> 
+  &lt;numeric-input name="year" default="&amp;year;"/>
+  &lt;numeric-input name="month" default="&amp;month;"/>
+  &lt;numeric-input name="day" default="&amp;day;"/>
+  &lt;form-submit name="day of week" /></x>
+  &lt;if-form-submitted>
+     &lt;weekday>
+       &lt;year>&amp;FORM:year;&lt;/year>
+       &lt;month>&amp;FORM:month;&lt;/month>
+       &lt;day>&amp;FORM:day;&lt;/day>
+     &lt;/weekday>
+  &lt;/if-form-submitted>
+<x>&lt;/form></x>
+</pre>
+<x>other parts are application-specific</x>...
+</slide>
+
+
+<slide><h2>Here's the XML for that page</h2>
+
+<pre>
+&lt;h3>Day of the week&lt;/h3>
+&lt;form action="&amp;DOC:url;">
+  &lt;heading>A Simple Form&lt;/heading> 
+  &lt;numeric-input name="year" default="&amp;year;"/>
+  &lt;numeric-input name="month" default="&amp;month;"/>
+  &lt;numeric-input name="day" default="&amp;day;"/>
+  &lt;form-submit name="day of week" />
+  <x>&lt;if-form-submitted>
+     &lt;weekday>
+       &lt;year>&amp;FORM:year;&lt;/year>
+       &lt;month>&amp;FORM:month;&lt;/month>
+       &lt;day>&amp;FORM:day;&lt;/day>
+     &lt;/weekday>
+  &lt;/if-form-submitted></x>
+&lt;/form>
+</pre>
+<x>some tags perform processing</x>...
 </slide>
 
 
@@ -242,24 +300,23 @@ Infrastructure:
 <p> here's a typical tag definition
 </p>
 <pre>
-<font color="#009900">&lt;define element="if-form-submitted"</font>
-        quoted="yes">
-  &lt;doc> expand the content if responding
+<x>&lt;define element="if-form-submitted"</x>
+        quoted="yes"&gt;
+  &lt;doc&gt; expand the content if responding
 	to a form submission (query)
-  &lt;/doc>
-  &lt;action>
-    &lt;if>&lt;get name="queryString"/>
-        &lt;then>
-	  &lt;expand>&lt;get name="content"/>
-          &lt;/expand>
-	&lt;/then>
-    &lt;/if>
-  &lt;/action>
-&lt;/define>
+  &lt;/doc&gt;
+  &lt;action&gt;
+    &lt;if&gt;&lt;get name="queryString"/&gt;
+        &lt;then&gt;
+	  &lt;expand&gt;&lt;get name="content"/&gt;
+          &lt;/expand&gt;
+	&lt;/then&gt;
+    &lt;/if&gt;
+  &lt;/action&gt;
+&lt;/define&gt;
 </pre>
 
 <p> A tagset is simply another XML document </p>
-
 </slide>
 
 <slide><h2>Some tags are ``primitives'' </h2>
@@ -269,7 +326,7 @@ defined in terms of XML.)
 
 <pre>
 &lt;define element="if"
-        <font color="#009900">class="ifHandler"</font>>
+        <font color="#009900"><b>class="ifHandler"</b></font>&gt;
   &lt;doc> Expand the "then" sub-element
 	if the condition is true
 	(i.e. expands to something
@@ -279,7 +336,7 @@ defined in terms of XML.)
 </pre>
 
 <p> <font color="#009900"><code>class</code> attribute specifies the Java
-    ``handler'' class for this primitive.
+    ``handler'' class for this primitive.</font>
 </p>
 </slide>
 
@@ -292,7 +349,8 @@ defined in terms of XML.)
   </li>
   <li> &lt;if&gt; (<small> &lt;test&gt;  &lt;then&gt;  &lt;else&gt; </small>)
   </li>
-  <li> &lt;repeat&gt; (<small> &lt;for&gt; &lt;foreach&gt; &lt;while&gt;
+  <li> &lt;repeat&gt;
+       (<small> &lt;for&gt; &lt;foreach&gt; &lt;while&gt;
        &lt;until&gt; &lt;first&gt; &lt;finally&gt; </small>)
   </li>
   <li> &lt;extract&gt; (<small> &lt;from&gt; &lt;child&gt; &lt;name&gt;
@@ -314,7 +372,7 @@ defined in terms of XML.)
   <li> &lt;date&gt; / &lt;url&gt; 
   </li>
 </ul>
-<p> About 30 primitive operations, comprising a </em>complete<em> language. 
+<p> About 30 primitive operations, comprising a <em>complete</em> language. 
 </p>
 </slide>
 
@@ -360,21 +418,21 @@ defined in terms of XML.)
 <div align="center">Where to find the files</div>
 
 <pre>
-<font color="#009900">&lt;Container file="~/Calendar"
-	   virtual="/PIA/Apps/Calendar"></font>
+<font color="#009900"><b>&lt;Container file="~/Calendar"
+	   virtual="/PIA/Apps/Calendar"&gt;</b></font>
 
   &lt;Ext name="xh"	
        type="text/html"
-       tagset="Calendar-xhtml"	/>
+       tagset="Calendar-xhtml" /&gt;
 
-  &lt;AGENT name="Calendar" time="0042">
-     &lt;initialize>
-        &lt;user-message>  Calendar initialized
-	&lt;/user-message>
-     &lt;/initialize>
-     &lt;daily-action>
-  &lt;/AGENT>
-&lt;/Container>
+  &lt;AGENT name="Calendar" time="0042"&gt;
+     &lt;initialize&gt;
+        &lt;user-message&gt;  Calendar initialized
+	&lt;/user-message&gt;
+     &lt;/initialize&gt;
+     &lt;daily-action&gt;
+  &lt;/AGENT&gt;
+&lt;/Container&gt;
 </pre>
 
 </slide>
@@ -383,20 +441,20 @@ defined in terms of XML.)
 <div align="center">how to map file types to tagsets</div>
 <pre>
 &lt;Container file="~/Calendar"
-	   virtual="~/PIA/Apps/Calendar">
-<font color="#009900">
+	   virtual="~/PIA/Apps/Calendar"&gt;
+<font color="#009900"><b>
   &lt;Ext name="xh"	
        type="text/html"
-       tagset="Calendar-xhtml"	/></font>
+       tagset="Calendar-xhtml"/&gt;</b></font>
 
-  &lt;AGENT name="Calendar" hour="00">
-     &lt;initialize>
-        &lt;user-message>  Calendar initialized
-	&lt;/user-message>
-     &lt;/initialize>
-     &lt;daily-action>
-  &lt;/AGENT>
-&lt;/Container>
+  &lt;AGENT name="Calendar" hour="00"&gt;
+     &lt;initialize&gt;
+        &lt;user-message&gt;  Calendar initialized
+	&lt;/user-message&gt;
+     &lt;/initialize&gt;
+     &lt;daily-action&gt;
+  &lt;/AGENT&gt;
+&lt;/Container&gt;
 </pre>
 </slide>
 
@@ -409,14 +467,14 @@ defined in terms of XML.)
   &lt;Ext name="xh"	
        type="text/html"
        tagset="Calendar-xhtml"	/>
-<font color="#009900">
+<font color="#009900"><b>
   &lt;AGENT name="Calendar" hour="00">
      &lt;initialize>
         &lt;user-message>  Calendar initialized
 	&lt;/user-message>
      &lt;/initialize>
      &lt;daily-action>
-  &lt;/AGENT></font>
+  &lt;/AGENT></b></font>
 &lt;/Container>
 </pre>
 </slide>
@@ -439,7 +497,7 @@ defined in terms of XML.)
 	 </li>
 	 <li> Most other platforms use strings:
 	      <tt><font color="#CC0000">
-	      &lt;h1&gt;&lt;em&gt;...&lt;/h1&gt;(oops!) &lt;/em&gt;
+	        &lt;h1&gt;&lt;em&gt;...&lt;/h1&gt;(oops!) &lt;/em&gt;
 	      </font></tt>
 	 </li>
 	 <li> Like the difference between ``GOTO's'' and structured
@@ -560,25 +618,25 @@ defined in terms of XML.)
   </tr>
   <tr>
     <th align="left"> syntax
-    </td>
-    <td> XML
     </th>
+    <td> XML
+    </td>
     <td> C-like
     </td>
   </tr>
   <tr>
     <th align="left"> semantics
-    </td>
-    <td> macro expansions
     </th>
+    <td> macro expansions
+    </td>
     <td> procedural
     </td>
   </tr>
   <tr>
     <th align="left"> secure imported documents
-    </td>
-    <td> yes: restrict tags
     </th>
+    <td> yes: restrict tags
+    </td>
     <td> no
     </td>
   </tr>
@@ -597,9 +655,9 @@ defined in terms of XML.)
   </tr>
   <tr>
     <th align="left"> complete scripting language
-    </td>
-    <td> yes
     </th>
+    <td> yes
+    </td>
     <td> no
     </td>
   </tr>
@@ -607,7 +665,7 @@ defined in terms of XML.)
     <td align="right"> numeric expressions
     </td>
     <td> yes
-    </th>
+    </td>
     <td> no
     </td>
   </tr>
@@ -615,7 +673,7 @@ defined in terms of XML.)
     <td align="right"> text processing
     </td>
     <td> yes
-    </th>
+    </td>
     <td> no
     </td>
   </tr>
@@ -623,31 +681,31 @@ defined in terms of XML.)
     <td align="right"> variables
     </td>
     <td> yes
-    </th>
+    </td>
     <td> no
     </td>
   </tr>
   <tr>
     <th align="left"> local substitutions
-    </td>
-    <td> yes
     </th>
+    <td> yes
+    </td>
     <td> no
     </td>
   </tr>
   <tr>
     <th align="left"> embed actions in documents
-    </td>
-    <td> yes
     </th>
+    <td> yes
+    </td>
     <td> no
     </td>
   </tr>
   <tr>
     <th align="left"> supports legacy (HTML) docs
-    </td>
-    <td> yes
     </th>
+    <td> yes
+    </td>
     <td> no
     </td>
   </tr>
