@@ -1,0 +1,1650 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<title>The PIA, an XML-based platform for Web Applications</title>
+</head><body marginwidth="0">
+
+<h1>The PIA, an XML-based platform for Web Applications</h1>
+
+<p> 
+    <table width="100%">
+      <tr>
+	<td align="left"><a href="#TOC">TOC</a></td>
+	<td align="right"><a href="#0">Start here &gt;&gt;</a></td>
+      </tr>
+    </table>
+  
+</p>
+  
+<!--  Slides for XTech2000  -->
+<p> Automatically generated
+    
+    2000-02-29 18:34 by steve
+</p>
+
+
+
+
+<table width="100%" cellspacing="0" cellpadding="5" border="0">
+  <tr><td bgcolor="#669966" width="100" valign="top" align="center" background="Images/bkgnd_grn.gif" rowspan="4"><br />
+        &nbsp;&nbsp;<a href="#TOC">&nbsp;0&nbsp;</a><a href="#1">&gt;&gt;</a><br />
+	<a href="#TOC">contents</a><br />
+	<a href="#0">start</a><br />
+      </td>
+      <th align="left" bgcolor="white" fgcolor="black">
+	    <a name="0">&nbsp;</a>&nbsp;
+      </th>
+  </tr>
+  <!--  this green stripe occupies 11 pixels vertically  -->
+  <tr><td bgcolor="#669966" height="3"><img src="Images/trans1x1.gif" /></td>
+  </tr>
+  <tr><!--  this table cell contains the actual content of the slide  -->
+      <td bgcolor="white" valign="top" height="500">
+<!--  title slide: no top caption.  -->
+<p> &nbsp;</p>
+<div align="center" valign="center">
+<font size="+2"> <strong>The PIA</strong></font><br />
+<font size="+2"> <strong>an XML-based platform for Web Applications</strong></font><br />
+<p><img src="Images/Logos/pia150.gif" /></p>
+<table border="0" cellspacing="5">
+  <tr>
+     <td>
+	Stephen Savitzky<br />
+	Chief Software Scientist<br />
+	Ricoh Silicon Valley<br />
+	<font size="-1"><code>&lt;steve@rsv.ricoh.com&gt;</code></font>
+     </td>
+     <td align="left" valign="top">
+	<table cellpadding="0" cellspacing="0" border="0">
+	    <tr nowrap="nowrap" nobr="nobr"><th><a href="http://rsv.ricoh.com/"><img src="Images/Logos/ricoh.gif" border="0" width="170" height="48" alt="R I C O H"></a></th></tr> 
+	    <tr nowrap="nowrap" nobr="nobr"><td nowrap="nowrap" nobr="nobr"><img src="Images/Logos/blackline.gif" height="2" width="170"></td></tr> 
+	    <tr nowrap="nowrap" nobr="nobr"><th align="left" valign="top"><img src="Images/Logos/ricoh-silicon-valley.gif" border="0" alt="RICOH SILICON VALLEY" width="170" height="21"></th></tr>
+	</table>
+     </td>
+  </tr>
+</table>
+</div>
+
+      </td>
+  </tr>  
+  <tr><td align="right" valign="bottom" bgcolor="white" width="100%"><em>The PIA, an XML-based platform for Web Applications</em>   <img src="Images/logo16.png" height="16" width="16" alt="&nbsp;">
+      </td>
+  </tr>
+</table>
+<p /><!--  end slide  -->
+
+
+
+
+<table width="100%" cellspacing="0" cellpadding="5" border="0">
+  <tr><td bgcolor="#669966" width="100" valign="top" align="center" background="Images/bkgnd_grn.gif" rowspan="4"><br />
+        <a href="#0">&lt;&lt;</a><a href="#TOC">&nbsp;1&nbsp;</a><a href="#2">&gt;&gt;</a><br />
+	<a href="#TOC">contents</a><br />
+	<a href="#0">start</a><br />
+      </td>
+      <th align="left" bgcolor="white" fgcolor="black">
+	    <a name="1">&nbsp;</a>&nbsp;Outline
+      </th>
+  </tr>
+  <!--  this green stripe occupies 11 pixels vertically  -->
+  <tr><td bgcolor="#669966" height="3"><img src="Images/trans1x1.gif" /></td>
+  </tr>
+  <tr><!--  this table cell contains the actual content of the slide  -->
+      <td bgcolor="white" valign="top" height="500">
+
+<p> &nbsp;</p>
+<ol>
+  <li> Introduction: The need for cross-platform web applications
+  </li>
+  <li> How the PIA Works: using XML in a unique way
+  </li>
+  <li> Additional PIA features
+  </li>
+</ol>
+
+      </td>
+  </tr>  
+  <tr><td align="right" valign="bottom" bgcolor="white" width="100%"><em>The PIA, an XML-based platform for Web Applications</em>   <img src="Images/logo16.png" height="16" width="16" alt="&nbsp;">
+      </td>
+  </tr>
+</table>
+<p /><!--  end slide  -->
+
+
+
+
+<table width="100%" cellspacing="0" cellpadding="5" border="0">
+  <tr><td bgcolor="#669966" width="100" valign="top" align="center" background="Images/bkgnd_grn.gif" rowspan="4"><br />
+        <a href="#1">&lt;&lt;</a><a href="#TOC">&nbsp;2&nbsp;</a><a href="#3">&gt;&gt;</a><br />
+	<a href="#TOC">contents</a><br />
+	<a href="#0">start</a><br />
+      </td>
+      <th align="left" bgcolor="white" fgcolor="black">
+	    <a name="2">&nbsp;</a>&nbsp;Major Trends in Web Applications
+      </th>
+  </tr>
+  <!--  this green stripe occupies 11 pixels vertically  -->
+  <tr><td bgcolor="#669966" height="3"><img src="Images/trans1x1.gif" /></td>
+  </tr>
+  <tr><!--  this table cell contains the actual content of the slide  -->
+      <td bgcolor="white" valign="top" height="500">
+
+<p> &nbsp;</p>
+
+Web Applications
+<ul>
+  <li> Increasing Interactivity and Customizability
+  </li>
+  <li> Proliferation of Clients
+  </li>
+</ul>
+
+Infrastructure:
+<ul>
+  <li> Proliferation of Platforms = ( server, OS, language )
+  </li>
+  <li> Proliferation of Development Environments
+  </li>
+  <li> Increasing use of Collaborative Development
+  </li>
+  <li> Increasing use of Open source
+  </li>
+  <li> Increasing use of XML
+  </li>
+</ul>
+
+      </td>
+  </tr>  
+  <tr><td align="right" valign="bottom" bgcolor="white" width="100%"><em>The PIA, an XML-based platform for Web Applications</em>   <img src="Images/logo16.png" height="16" width="16" alt="&nbsp;">
+      </td>
+  </tr>
+</table>
+<p /><!--  end slide  -->
+
+
+
+
+<table width="100%" cellspacing="0" cellpadding="5" border="0">
+  <tr><td bgcolor="#669966" width="100" valign="top" align="center" background="Images/bkgnd_grn.gif" rowspan="4"><br />
+        <a href="#2">&lt;&lt;</a><a href="#TOC">&nbsp;3&nbsp;</a><a href="#4">&gt;&gt;</a><br />
+	<a href="#TOC">contents</a><br />
+	<a href="#0">start</a><br />
+      </td>
+      <th align="left" bgcolor="white" fgcolor="black">
+	    <a name="3">&nbsp;</a>&nbsp;Challenges for Web Application Developers
+      </th>
+  </tr>
+  <!--  this green stripe occupies 11 pixels vertically  -->
+  <tr><td bgcolor="#669966" height="3"><img src="Images/trans1x1.gif" /></td>
+  </tr>
+  <tr><!--  this table cell contains the actual content of the slide  -->
+      <td bgcolor="white" valign="top" height="500">
+
+<ul>
+  <li> Which platform?
+  </li>
+  <li> Which development environment?
+  </li>
+  <li> How do programmers and content authors collaborate?
+  </li>
+  <li> How to maintain / customize applications?
+  </li>
+</ul>
+    <img src="Images/platform-cube.png" align="right" />
+
+      </td>
+  </tr>  
+  <tr><td align="right" valign="bottom" bgcolor="white" width="100%"><em>The PIA, an XML-based platform for Web Applications</em>   <img src="Images/logo16.png" height="16" width="16" alt="&nbsp;">
+      </td>
+  </tr>
+</table>
+<p /><!--  end slide  -->
+
+
+
+
+<table width="100%" cellspacing="0" cellpadding="5" border="0">
+  <tr><td bgcolor="#669966" width="100" valign="top" align="center" background="Images/bkgnd_grn.gif" rowspan="4"><br />
+        <a href="#3">&lt;&lt;</a><a href="#TOC">&nbsp;4&nbsp;</a><a href="#5">&gt;&gt;</a><br />
+	<a href="#TOC">contents</a><br />
+	<a href="#0">start</a><br />
+      </td>
+      <th align="left" bgcolor="white" fgcolor="black">
+	    <a name="4">&nbsp;</a>&nbsp;The Typical Web Application
+      </th>
+  </tr>
+  <!--  this green stripe occupies 11 pixels vertically  -->
+  <tr><td bgcolor="#669966" height="3"><img src="Images/trans1x1.gif" /></td>
+  </tr>
+  <tr><!--  this table cell contains the actual content of the slide  -->
+      <td bgcolor="white" valign="top" height="500">
+
+<p> <img src="Images/web-app.png" />
+</p>
+<p> HTML documents for content, ``code'' for actions. 
+</p>
+
+      </td>
+  </tr>  
+  <tr><td align="right" valign="bottom" bgcolor="white" width="100%"><em>The PIA, an XML-based platform for Web Applications</em>   <img src="Images/logo16.png" height="16" width="16" alt="&nbsp;">
+      </td>
+  </tr>
+</table>
+<p /><!--  end slide  -->
+
+
+
+
+<table width="100%" cellspacing="0" cellpadding="5" border="0">
+  <tr><td bgcolor="#669966" width="100" valign="top" align="center" background="Images/bkgnd_grn.gif" rowspan="4"><br />
+        <a href="#4">&lt;&lt;</a><a href="#TOC">&nbsp;5&nbsp;</a><a href="#6">&gt;&gt;</a><br />
+	<a href="#TOC">contents</a><br />
+	<a href="#0">start</a><br />
+      </td>
+      <th align="left" bgcolor="white" fgcolor="black">
+	    <a name="5">&nbsp;</a>&nbsp;PIA: an XML-Based Web Application Framework
+      </th>
+  </tr>
+  <!--  this green stripe occupies 11 pixels vertically  -->
+  <tr><td bgcolor="#669966" height="3"><img src="Images/trans1x1.gif" /></td>
+  </tr>
+  <tr><!--  this table cell contains the actual content of the slide  -->
+      <td bgcolor="white" valign="top" height="500">
+
+<p> <img src="Images/pia-app.png" />
+</p>
+<p> XML documents for <em>both</em> content and actions.
+</p>
+
+      </td>
+  </tr>  
+  <tr><td align="right" valign="bottom" bgcolor="white" width="100%"><em>The PIA, an XML-based platform for Web Applications</em>   <img src="Images/logo16.png" height="16" width="16" alt="&nbsp;">
+      </td>
+  </tr>
+</table>
+<p /><!--  end slide  -->
+
+
+
+
+<table width="100%" cellspacing="0" cellpadding="5" border="0">
+  <tr><td bgcolor="#669966" width="100" valign="top" align="center" background="Images/bkgnd_grn.gif" rowspan="4"><br />
+        <a href="#5">&lt;&lt;</a><a href="#TOC">&nbsp;6&nbsp;</a><a href="#7">&gt;&gt;</a><br />
+	<a href="#TOC">contents</a><br />
+	<a href="#0">start</a><br />
+      </td>
+      <th align="left" bgcolor="white" fgcolor="black">
+	    <a name="6">&nbsp;</a>&nbsp;A new design approach
+      </th>
+  </tr>
+  <!--  this green stripe occupies 11 pixels vertically  -->
+  <tr><td bgcolor="#669966" height="3"><img src="Images/trans1x1.gif" /></td>
+  </tr>
+  <tr><!--  this table cell contains the actual content of the slide  -->
+      <td bgcolor="white" valign="top" height="500">
+
+
+<ul>
+  <li> Uses a <strong>single XML-based language</strong> for :
+       <ul>
+	 <li> document markup (content) and data
+	 </li>
+	 <li> -- the ``conventional'' use for XML
+	 </li>
+	 <li> behavior -- <em>very unconventional</em>
+	 </li>
+       </ul>
+  </li>
+  <li> <strong>XML is a representation for parse trees</strong>
+  </li>
+  <li> The unique part is specifying behavior as well as style<br />
+       by assigning <em>actions</em> to tags.
+       <ul>
+	 <li> Can design an application-specific tag set
+	 </li>
+	 <li> Can process same document in multiple ways
+	 </li>
+       </ul>
+  </li>
+  <li> <em>in effect, we've extended a stylesheet processor<br />
+       to interpret a <strong>complete</strong> scripting language.</em>
+       <ul>
+	 <li> ... no !~+-*^%$#@ operators, no ( parentheses )
+	 </li>
+       </ul>
+  </li>
+  <li> We also use document elements as data structures.<br />
+       <em>what one might call <strong>document-oriented</strong>,<br />
+       as opposed to object-oriented, programming.</em>
+  </li>
+</ul>
+
+      </td>
+  </tr>  
+  <tr><td align="right" valign="bottom" bgcolor="white" width="100%"><em>The PIA, an XML-based platform for Web Applications</em>   <img src="Images/logo16.png" height="16" width="16" alt="&nbsp;">
+      </td>
+  </tr>
+</table>
+<p /><!--  end slide  -->
+
+
+
+
+
+
+
+<table width="100%" cellspacing="0" cellpadding="5" border="0">
+  <tr><td bgcolor="#669966" width="100" valign="top" align="center" background="Images/bkgnd_grn.gif" rowspan="4"><br />
+        <a href="#6">&lt;&lt;</a><a href="#TOC">&nbsp;7&nbsp;</a><a href="#8">&gt;&gt;</a><br />
+	<a href="#TOC">contents</a><br />
+	<a href="#0">start</a><br />
+      </td>
+      <th align="left" bgcolor="white" fgcolor="black">
+	    <a name="7">&nbsp;</a><a name="form-sample">&nbsp;Let's see how we develop a typical page</a>
+      </th>
+  </tr>
+  <!--  this green stripe occupies 11 pixels vertically  -->
+  <tr><td bgcolor="#669966" height="3"><img src="Images/trans1x1.gif" /></td>
+  </tr>
+  <tr><!--  this table cell contains the actual content of the slide  -->
+      <td bgcolor="white" valign="top" height="500">
+
+<p> &nbsp;
+</p>
+
+<h3>Day of the week</h3>
+<form action="&url;#form-sample" method="post">
+<table align="center" border="2">
+  <tr><th colspan="2"><h3 align="center">A Simple Form</h3></th>
+  </tr>
+ <tr>
+   <td>year:</td><td><input name="year" value="2000" /></td>
+ </tr>
+ <tr>
+   <td>month:</td><td> <input name="month" value="02" /></td>
+ </tr>
+ <tr>
+   <td>day:</td><td>  <input name="day" value="29" /></td>
+ </tr>
+ <tr>
+   <td><input type="submit" value="day of week" /></td>
+   <td> Tuesday<!--  === need link to the calendar page as well ===  -->
+   </td>
+ </tr>
+</table>
+</form>
+
+
+      </td>
+  </tr>  
+  <tr><td align="right" valign="bottom" bgcolor="white" width="100%"><em>The PIA, an XML-based platform for Web Applications</em>   <img src="Images/logo16.png" height="16" width="16" alt="&nbsp;">
+      </td>
+  </tr>
+</table>
+<p /><!--  end slide  -->
+
+
+
+
+<table width="100%" cellspacing="0" cellpadding="5" border="0">
+  <tr><td bgcolor="#669966" width="100" valign="top" align="center" background="Images/bkgnd_grn.gif" rowspan="4"><br />
+        <a href="#7">&lt;&lt;</a><a href="#TOC">&nbsp;8&nbsp;</a><a href="#9">&gt;&gt;</a><br />
+	<a href="#TOC">contents</a><br />
+	<a href="#0">start</a><br />
+      </td>
+      <th align="left" bgcolor="white" fgcolor="black">
+	    <a name="8">&nbsp;</a>&nbsp;Here's the XML for that page
+      </th>
+  </tr>
+  <!--  this green stripe occupies 11 pixels vertically  -->
+  <tr><td bgcolor="#669966" height="3"><img src="Images/trans1x1.gif" /></td>
+  </tr>
+  <tr><!--  this table cell contains the actual content of the slide  -->
+      <td bgcolor="white" valign="top" height="500">
+
+
+
+
+
+
+
+
+<pre>
+<font color="#009900"><b>&lt;h3&gt;</b></font>Day of the week<font color="#009900"><b>&lt;/h3&gt;</b></font>
+<font color="#009900"><b>&lt;form action="&amp;DOC:url;"&gt;</b></font>
+  &lt;heading&gt;A Simple Form&lt;/heading&gt; 
+  &lt;numeric-input name="year" default="&amp;year;"/&gt;
+  &lt;numeric-input name="month" default="&amp;month;"/&gt;
+  &lt;numeric-input name="day" default="&amp;day;"/&gt;
+  &lt;form-submit name="day of week" /&gt;
+  &lt;if-form-submitted&gt;
+     &lt;weekday&gt;
+       &lt;year&gt;&amp;FORM:year;&lt;/year&gt;
+       &lt;month&gt;&amp;FORM:month;&lt;/month&gt;
+       &lt;day&gt;&amp;FORM:day;&lt;/day&gt;
+     &lt;/weekday&gt;
+  &lt;/if-form-submitted&gt;
+&lt;/form&gt;
+</pre>
+<font color="#009900"><b>parts look like plain HTML</b></font>...
+
+      </td>
+  </tr>  
+  <tr><td align="right" valign="bottom" bgcolor="white" width="100%"><em>The PIA, an XML-based platform for Web Applications</em>   <img src="Images/logo16.png" height="16" width="16" alt="&nbsp;">
+      </td>
+  </tr>
+</table>
+<p /><!--  end slide  -->
+
+
+
+
+<table width="100%" cellspacing="0" cellpadding="5" border="0">
+  <tr><td bgcolor="#669966" width="100" valign="top" align="center" background="Images/bkgnd_grn.gif" rowspan="4"><br />
+        <a href="#8">&lt;&lt;</a><a href="#TOC">&nbsp;9&nbsp;</a><a href="#10">&gt;&gt;</a><br />
+	<a href="#TOC">contents</a><br />
+	<a href="#0">start</a><br />
+      </td>
+      <th align="left" bgcolor="white" fgcolor="black">
+	    <a name="9">&nbsp;</a>&nbsp;Here's the XML for that page
+      </th>
+  </tr>
+  <!--  this green stripe occupies 11 pixels vertically  -->
+  <tr><td bgcolor="#669966" height="3"><img src="Images/trans1x1.gif" /></td>
+  </tr>
+  <tr><!--  this table cell contains the actual content of the slide  -->
+      <td bgcolor="white" valign="top" height="500">
+
+
+<pre>
+&lt;h3&gt;Day of the week&lt;/h3&gt;
+&lt;form action="&amp;DOC:url;"&gt;
+  <font color="#009900"><b>&lt;heading&gt;A Simple Form&lt;/heading&gt; 
+  &lt;numeric-input name="year" default="&amp;year;"/&gt;
+  &lt;numeric-input name="month" default="&amp;month;"/&gt;
+  &lt;numeric-input name="day" default="&amp;day;"/&gt;
+  &lt;form-submit name="day of week" /&gt;</b></font>
+  &lt;if-form-submitted&gt;
+     &lt;weekday&gt;
+       &lt;year&gt;&amp;FORM:year;&lt;/year&gt;
+       &lt;month&gt;&amp;FORM:month;&lt;/month&gt;
+       &lt;day&gt;&amp;FORM:day;&lt;/day&gt;
+     &lt;/weekday&gt;
+  &lt;/if-form-submitted&gt;
+<font color="#009900"><b>&lt;/form&gt;</b></font>
+</pre>
+<font color="#009900"><b>other parts are application-specific</b></font>...
+
+      </td>
+  </tr>  
+  <tr><td align="right" valign="bottom" bgcolor="white" width="100%"><em>The PIA, an XML-based platform for Web Applications</em>   <img src="Images/logo16.png" height="16" width="16" alt="&nbsp;">
+      </td>
+  </tr>
+</table>
+<p /><!--  end slide  -->
+
+
+
+
+
+<table width="100%" cellspacing="0" cellpadding="5" border="0">
+  <tr><td bgcolor="#669966" width="100" valign="top" align="center" background="Images/bkgnd_grn.gif" rowspan="4"><br />
+        <a href="#9">&lt;&lt;</a><a href="#TOC">&nbsp;10&nbsp;</a><a href="#11">&gt;&gt;</a><br />
+	<a href="#TOC">contents</a><br />
+	<a href="#0">start</a><br />
+      </td>
+      <th align="left" bgcolor="white" fgcolor="black">
+	    <a name="10">&nbsp;</a>&nbsp;Here's the XML for that page
+      </th>
+  </tr>
+  <!--  this green stripe occupies 11 pixels vertically  -->
+  <tr><td bgcolor="#669966" height="3"><img src="Images/trans1x1.gif" /></td>
+  </tr>
+  <tr><!--  this table cell contains the actual content of the slide  -->
+      <td bgcolor="white" valign="top" height="500">
+
+
+<pre>
+&lt;h3&gt;Day of the week&lt;/h3&gt;
+&lt;form action="&amp;DOC:url;"&gt;
+  &lt;heading&gt;A Simple Form&lt;/heading&gt; 
+  &lt;numeric-input name="year" default="&amp;year;"/&gt;
+  &lt;numeric-input name="month" default="&amp;month;"/&gt;
+  &lt;numeric-input name="day" default="&amp;day;"/&gt;
+  &lt;form-submit name="day of week" /&gt;
+  <font color="#009900"><b>&lt;if-form-submitted&gt;
+     &lt;weekday&gt;
+       &lt;year&gt;&amp;FORM:year;&lt;/year&gt;
+       &lt;month&gt;&amp;FORM:month;&lt;/month&gt;
+       &lt;day&gt;&amp;FORM:day;&lt;/day&gt;
+     &lt;/weekday&gt;
+  &lt;/if-form-submitted&gt;</b></font>
+&lt;/form&gt;
+</pre>
+<font color="#009900"><b>some tags perform processing</b></font>...
+
+      </td>
+  </tr>  
+  <tr><td align="right" valign="bottom" bgcolor="white" width="100%"><em>The PIA, an XML-based platform for Web Applications</em>   <img src="Images/logo16.png" height="16" width="16" alt="&nbsp;">
+      </td>
+  </tr>
+</table>
+<p /><!--  end slide  -->
+
+
+
+
+
+<table width="100%" cellspacing="0" cellpadding="5" border="0">
+  <tr><td bgcolor="#669966" width="100" valign="top" align="center" background="Images/bkgnd_grn.gif" rowspan="4"><br />
+        <a href="#10">&lt;&lt;</a><a href="#TOC">&nbsp;11&nbsp;</a><a href="#12">&gt;&gt;</a><br />
+	<a href="#TOC">contents</a><br />
+	<a href="#0">start</a><br />
+      </td>
+      <th align="left" bgcolor="white" fgcolor="black">
+	    <a name="11">&nbsp;</a>&nbsp;Processing is controlled by a tagset
+      </th>
+  </tr>
+  <!--  this green stripe occupies 11 pixels vertically  -->
+  <tr><td bgcolor="#669966" height="3"><img src="Images/trans1x1.gif" /></td>
+  </tr>
+  <tr><!--  this table cell contains the actual content of the slide  -->
+      <td bgcolor="white" valign="top" height="500">
+
+<p> ... that contains definitions for all the tags
+</p>
+<p> <img src="Images/pia-app.png" />
+</p>
+
+      </td>
+  </tr>  
+  <tr><td align="right" valign="bottom" bgcolor="white" width="100%"><em>The PIA, an XML-based platform for Web Applications</em>   <img src="Images/logo16.png" height="16" width="16" alt="&nbsp;">
+      </td>
+  </tr>
+</table>
+<p /><!--  end slide  -->
+
+
+
+
+<table width="100%" cellspacing="0" cellpadding="5" border="0">
+  <tr><td bgcolor="#669966" width="100" valign="top" align="center" background="Images/bkgnd_grn.gif" rowspan="4"><br />
+        <a href="#11">&lt;&lt;</a><a href="#TOC">&nbsp;12&nbsp;</a><a href="#13">&gt;&gt;</a><br />
+	<a href="#TOC">contents</a><br />
+	<a href="#0">start</a><br />
+      </td>
+      <th align="left" bgcolor="white" fgcolor="black">
+	    <a name="12">&nbsp;</a>&nbsp;The tagset specifies what each tag does
+      </th>
+  </tr>
+  <!--  this green stripe occupies 11 pixels vertically  -->
+  <tr><td bgcolor="#669966" height="3"><img src="Images/trans1x1.gif" /></td>
+  </tr>
+  <tr><!--  this table cell contains the actual content of the slide  -->
+      <td bgcolor="white" valign="top" height="500">
+
+<p> here's a typical tag definition
+</p>
+<pre>
+<font color="#009900"><b>&lt;define element="if-form-submitted"
+        syntax="quoted"&gt;</b></font>
+  <font color="#000099"><b>&lt;doc&gt; expand the content if responding
+	to a form submission (query)
+  &lt;/doc&gt;</b></font>
+  <font color="#990000"><b>&lt;action&gt;
+    &lt;if&gt;&lt;get name="queryString"/&gt;
+        &lt;then&gt;
+	  &lt;expand&gt;&lt;get name="content"/&gt;
+          &lt;/expand&gt;
+	&lt;/then&gt;
+    &lt;/if&gt;
+  &lt;/action&gt;</b></font>
+<font color="#009900"><b>&lt;/define&gt;</b></font>
+</pre>
+
+<p> A tagset is simply another XML document </p>
+
+      </td>
+  </tr>  
+  <tr><td align="right" valign="bottom" bgcolor="white" width="100%"><em>The PIA, an XML-based platform for Web Applications</em>   <img src="Images/logo16.png" height="16" width="16" alt="&nbsp;">
+      </td>
+  </tr>
+</table>
+<p /><!--  end slide  -->
+
+
+
+
+<table width="100%" cellspacing="0" cellpadding="5" border="0">
+  <tr><td bgcolor="#669966" width="100" valign="top" align="center" background="Images/bkgnd_grn.gif" rowspan="4"><br />
+        <a href="#12">&lt;&lt;</a><a href="#TOC">&nbsp;13&nbsp;</a><a href="#14">&gt;&gt;</a><br />
+	<a href="#TOC">contents</a><br />
+	<a href="#0">start</a><br />
+      </td>
+      <th align="left" bgcolor="white" fgcolor="black">
+	    <a name="13">&nbsp;</a>&nbsp;Some tags are ``primitives''
+      </th>
+  </tr>
+  <!--  this green stripe occupies 11 pixels vertically  -->
+  <tr><td bgcolor="#669966" height="3"><img src="Images/trans1x1.gif" /></td>
+  </tr>
+  <tr><!--  this table cell contains the actual content of the slide  -->
+      <td bgcolor="white" valign="top" height="500">
+
+
+(A <em>primitive</em> is a tag defined by implementation code rather than
+defined in terms of XML.)
+
+<pre>
+&lt;define element="if"
+        <font color="#009900"><b>class="ifHandler"</b></font>&gt;
+  &lt;doc&gt; Expand the "then" sub-element
+	if the condition is true
+	(i.e. expands to something
+	other than whitespace).
+  &lt;/doc&gt;
+&lt;/define&gt;
+</pre>
+
+<p> <font color="#009900"><code>class</code> attribute specifies the Java
+    ``handler'' class for this primitive.</font>
+</p>
+
+      </td>
+  </tr>  
+  <tr><td align="right" valign="bottom" bgcolor="white" width="100%"><em>The PIA, an XML-based platform for Web Applications</em>   <img src="Images/logo16.png" height="16" width="16" alt="&nbsp;">
+      </td>
+  </tr>
+</table>
+<p /><!--  end slide  -->
+
+
+
+
+
+<table width="100%" cellspacing="0" cellpadding="5" border="0">
+  <tr><td bgcolor="#669966" width="100" valign="top" align="center" background="Images/bkgnd_grn.gif" rowspan="4"><br />
+        <a href="#13">&lt;&lt;</a><a href="#TOC">&nbsp;14&nbsp;</a><a href="#15">&gt;&gt;</a><br />
+	<a href="#TOC">contents</a><br />
+	<a href="#0">start</a><br />
+      </td>
+      <th align="left" bgcolor="white" fgcolor="black">
+	    <a name="14">&nbsp;</a>&nbsp;The set of primitives is small
+      </th>
+  </tr>
+  <!--  this green stripe occupies 11 pixels vertically  -->
+  <tr><td bgcolor="#669966" height="3"><img src="Images/trans1x1.gif" /></td>
+  </tr>
+  <tr><!--  this table cell contains the actual content of the slide  -->
+      <td bgcolor="white" valign="top" height="500">
+
+<p> &nbsp; </p>
+<ul>
+  <li> &lt;define&gt;
+       (<small>&lt;action&gt;  &lt;value&gt;  &lt;doc&gt;</small> )
+  </li>
+  <li> &lt;if&gt; (<small> &lt;test&gt;  &lt;then&gt;  &lt;else&gt; </small>)
+  </li>
+  <li> &lt;repeat&gt;
+       (<small> &lt;for&gt; &lt;foreach&gt; &lt;while&gt;
+       &lt;until&gt; &lt;first&gt; &lt;finally&gt; </small>)
+  </li>
+  <li> &lt;extract&gt; (<small> &lt;from&gt; &lt;child&gt; &lt;name&gt;
+       ... </small> )
+  </li>
+  <li> &lt;make&gt; / &lt;do&gt; / &lt;namespace&gt; / &lt;properties&gt; /
+       &lt;tagset&gt; 
+  </li>
+  <li> &lt;get&gt; / &lt;set&gt; / &lt;let&gt; / &lt;bind&gt;
+  </li>
+  <li> &lt;include&gt; / &lt;write&gt; / &lt;status&gt; / &lt;connect&gt;
+  </li>
+  <li> &lt;numeric&gt; / &lt;logical&gt; / &lt;text&gt; 
+  </li>
+  <li> &lt;protect&gt; / &lt;expand&gt; / &lt;hide&gt;
+  </li>
+  <li> &lt;sql&gt; / &lt;sign&gt; / &lt;sendmail&gt; 
+  </li>
+  <li> &lt;date&gt; / &lt;url&gt; 
+  </li>
+</ul>
+<p> About 30 primitive operations, comprising a <em>complete</em> language. 
+</p>
+
+      </td>
+  </tr>  
+  <tr><td align="right" valign="bottom" bgcolor="white" width="100%"><em>The PIA, an XML-based platform for Web Applications</em>   <img src="Images/logo16.png" height="16" width="16" alt="&nbsp;">
+      </td>
+  </tr>
+</table>
+<p /><!--  end slide  -->
+
+
+
+
+
+<table width="100%" cellspacing="0" cellpadding="5" border="0">
+  <tr><td bgcolor="#669966" width="100" valign="top" align="center" background="Images/bkgnd_grn.gif" rowspan="4"><br />
+        <a href="#14">&lt;&lt;</a><a href="#TOC">&nbsp;15&nbsp;</a><a href="#16">&gt;&gt;</a><br />
+	<a href="#TOC">contents</a><br />
+	<a href="#0">start</a><br />
+      </td>
+      <th align="left" bgcolor="white" fgcolor="black">
+	    <a name="15">&nbsp;</a>&nbsp;Many domain-specific vocabularies
+      </th>
+  </tr>
+  <!--  this green stripe occupies 11 pixels vertically  -->
+  <tr><td bgcolor="#669966" height="3"><img src="Images/trans1x1.gif" /></td>
+  </tr>
+  <tr><!--  this table cell contains the actual content of the slide  -->
+      <td bgcolor="white" valign="top" height="500">
+
+<dl>
+  <dt> For office forms
+  </dt>
+  <dd> &lt;numeric-input&gt; / &lt;text-input&gt; / &lt;selection&gt;
+       / &lt;signature&gt; / &lt;forms-pending&gt; &lt;notify&gt;
+
+       <pre>&lt;numeric-input name="month" 
+               default="&amp;month;"
+               min="1" "max="12" /&gt;       </pre>
+  </dd>
+  <dt> For a datebook
+  </dt>
+  <dd> &lt;weekday&gt; / &lt;calendar-row&gt; / &lt;show-month&gt; /
+       &lt;show-one-day&gt; / &lt;get-appointments&gt;
+
+       <pre>&lt;get-appointments
+             day="&amp;day;" 
+             month="&amp;month;" 
+             year="&amp;year;"</pre>
+  </dd>
+</dl>
+
+      </td>
+  </tr>  
+  <tr><td align="right" valign="bottom" bgcolor="white" width="100%"><em>The PIA, an XML-based platform for Web Applications</em>   <img src="Images/logo16.png" height="16" width="16" alt="&nbsp;">
+      </td>
+  </tr>
+</table>
+<p /><!--  end slide  -->
+
+
+
+
+
+<table width="100%" cellspacing="0" cellpadding="5" border="0">
+  <tr><td bgcolor="#669966" width="100" valign="top" align="center" background="Images/bkgnd_grn.gif" rowspan="4"><br />
+        <a href="#15">&lt;&lt;</a><a href="#TOC">&nbsp;16&nbsp;</a><a href="#17">&gt;&gt;</a><br />
+	<a href="#TOC">contents</a><br />
+	<a href="#0">start</a><br />
+      </td>
+      <th align="left" bgcolor="white" fgcolor="black">
+	    <a name="16">&nbsp;</a>&nbsp;Now let's look at data
+      </th>
+  </tr>
+  <!--  this green stripe occupies 11 pixels vertically  -->
+  <tr><td bgcolor="#669966" height="3"><img src="Images/trans1x1.gif" /></td>
+  </tr>
+  <tr><!--  this table cell contains the actual content of the slide  -->
+      <td bgcolor="white" valign="top" height="500">
+
+<p> &nbsp;
+</p>
+<ul>
+  <li> An application is more than just a single page
+  </li>
+  <li> We have to define the site structure<br />
+       <code>http://risource.org/Calendar/month</code><br />
+       <code>http://risource.org/Calendar/1999</code><br />
+  </li>
+  <li> ... and define which tag definitions to use for each document
+  </li>
+  <li> The PIA also does <em>this</em> using XML
+  </li>
+</ul>
+
+
+      </td>
+  </tr>  
+  <tr><td align="right" valign="bottom" bgcolor="white" width="100%"><em>The PIA, an XML-based platform for Web Applications</em>   <img src="Images/logo16.png" height="16" width="16" alt="&nbsp;">
+      </td>
+  </tr>
+</table>
+<p /><!--  end slide  -->
+
+
+
+
+
+<table width="100%" cellspacing="0" cellpadding="5" border="0">
+  <tr><td bgcolor="#669966" width="100" valign="top" align="center" background="Images/bkgnd_grn.gif" rowspan="4"><br />
+        <a href="#16">&lt;&lt;</a><a href="#TOC">&nbsp;17&nbsp;</a><a href="#18">&gt;&gt;</a><br />
+	<a href="#TOC">contents</a><br />
+	<a href="#0">start</a><br />
+      </td>
+      <th align="left" bgcolor="white" fgcolor="black">
+	    <a name="17">&nbsp;</a>&nbsp;Site Structure may get complicated
+      </th>
+  </tr>
+  <!--  this green stripe occupies 11 pixels vertically  -->
+  <tr><td bgcolor="#669966" height="3"><img src="Images/trans1x1.gif" /></td>
+  </tr>
+  <tr><!--  this table cell contains the actual content of the slide  -->
+      <td bgcolor="white" valign="top" height="500">
+
+<img src="Images/site.png" />
+
+
+      </td>
+  </tr>  
+  <tr><td align="right" valign="bottom" bgcolor="white" width="100%"><em>The PIA, an XML-based platform for Web Applications</em>   <img src="Images/logo16.png" height="16" width="16" alt="&nbsp;">
+      </td>
+  </tr>
+</table>
+<p /><!--  end slide  -->
+
+
+
+
+<table width="100%" cellspacing="0" cellpadding="5" border="0">
+  <tr><td bgcolor="#669966" width="100" valign="top" align="center" background="Images/bkgnd_grn.gif" rowspan="4"><br />
+        <a href="#17">&lt;&lt;</a><a href="#TOC">&nbsp;18&nbsp;</a><a href="#19">&gt;&gt;</a><br />
+	<a href="#TOC">contents</a><br />
+	<a href="#0">start</a><br />
+      </td>
+      <th align="left" bgcolor="white" fgcolor="black">
+	    <a name="18">&nbsp;</a>&nbsp;Site structure defined by XML
+      </th>
+  </tr>
+  <!--  this green stripe occupies 11 pixels vertically  -->
+  <tr><td bgcolor="#669966" height="3"><img src="Images/trans1x1.gif" /></td>
+  </tr>
+  <tr><!--  this table cell contains the actual content of the slide  -->
+      <td bgcolor="white" valign="top" height="500">
+
+<div align="center">Where to find the files</div>
+
+<pre>
+<font color="#009900"><b>&lt;Container file="~/Calendar"
+	   virtual="/PIA/Apps/Calendar"&gt;</b></font>
+
+  &lt;Ext name="xh"	
+       type="text/html"
+       tagset="Calendar-xhtml" /&gt;
+
+  &lt;AGENT name="Calendar" time="0042"&gt;
+     &lt;initialize&gt;
+        &lt;user-message&gt;  Calendar initialized
+	&lt;/user-message&gt;
+     &lt;/initialize&gt;
+     &lt;daily-action&gt;
+  &lt;/AGENT&gt;
+&lt;/Container&gt;
+</pre>
+
+
+      </td>
+  </tr>  
+  <tr><td align="right" valign="bottom" bgcolor="white" width="100%"><em>The PIA, an XML-based platform for Web Applications</em>   <img src="Images/logo16.png" height="16" width="16" alt="&nbsp;">
+      </td>
+  </tr>
+</table>
+<p /><!--  end slide  -->
+
+
+
+
+<table width="100%" cellspacing="0" cellpadding="5" border="0">
+  <tr><td bgcolor="#669966" width="100" valign="top" align="center" background="Images/bkgnd_grn.gif" rowspan="4"><br />
+        <a href="#18">&lt;&lt;</a><a href="#TOC">&nbsp;19&nbsp;</a><a href="#20">&gt;&gt;</a><br />
+	<a href="#TOC">contents</a><br />
+	<a href="#0">start</a><br />
+      </td>
+      <th align="left" bgcolor="white" fgcolor="black">
+	    <a name="19">&nbsp;</a>&nbsp;Site structure defined by XML
+      </th>
+  </tr>
+  <!--  this green stripe occupies 11 pixels vertically  -->
+  <tr><td bgcolor="#669966" height="3"><img src="Images/trans1x1.gif" /></td>
+  </tr>
+  <tr><!--  this table cell contains the actual content of the slide  -->
+      <td bgcolor="white" valign="top" height="500">
+
+<div align="center">how to map file types to tagsets</div>
+<pre>
+&lt;Container file="~/Calendar"
+	   virtual="~/PIA/Apps/Calendar"&gt;
+<font color="#009900"><b>
+  &lt;Ext name="xh"	
+       type="text/html"
+       tagset="Calendar-xhtml"/&gt;</b></font>
+
+  &lt;AGENT name="Calendar" hour="00"&gt;
+     &lt;initialize&gt;
+        &lt;user-message&gt;  Calendar initialized
+	&lt;/user-message&gt;
+     &lt;/initialize&gt;
+     &lt;daily-action&gt;
+  &lt;/AGENT&gt;
+&lt;/Container&gt;
+</pre>
+
+      </td>
+  </tr>  
+  <tr><td align="right" valign="bottom" bgcolor="white" width="100%"><em>The PIA, an XML-based platform for Web Applications</em>   <img src="Images/logo16.png" height="16" width="16" alt="&nbsp;">
+      </td>
+  </tr>
+</table>
+<p /><!--  end slide  -->
+
+
+
+
+<table width="100%" cellspacing="0" cellpadding="5" border="0">
+  <tr><td bgcolor="#669966" width="100" valign="top" align="center" background="Images/bkgnd_grn.gif" rowspan="4"><br />
+        <a href="#19">&lt;&lt;</a><a href="#TOC">&nbsp;20&nbsp;</a><a href="#21">&gt;&gt;</a><br />
+	<a href="#TOC">contents</a><br />
+	<a href="#0">start</a><br />
+      </td>
+      <th align="left" bgcolor="white" fgcolor="black">
+	    <a name="20">&nbsp;</a>&nbsp;Site structure defined by XML
+      </th>
+  </tr>
+  <!--  this green stripe occupies 11 pixels vertically  -->
+  <tr><td bgcolor="#669966" height="3"><img src="Images/trans1x1.gif" /></td>
+  </tr>
+  <tr><!--  this table cell contains the actual content of the slide  -->
+      <td bgcolor="white" valign="top" height="500">
+
+<div align="center">Agent runs at midnight</div>
+<pre>
+&lt;Container file="~/Calendar"
+	   virtual="~/PIA/Apps/Calendar"&gt;
+
+  &lt;Ext name="xh"	
+       type="text/html"
+       tagset="Calendar-xhtml"	/&gt;
+<font color="#009900"><b>
+  &lt;AGENT name="Calendar" hour="00"&gt;
+     &lt;initialize&gt;
+        &lt;user-message&gt;  Calendar initialized
+	&lt;/user-message&gt;
+     &lt;/initialize&gt;
+     &lt;daily-action&gt;
+  &lt;/AGENT&gt;</b></font>
+&lt;/Container&gt;
+</pre>
+<p> <em>Not</em> using a DTD or PI's in the document.
+</p>
+
+      </td>
+  </tr>  
+  <tr><td align="right" valign="bottom" bgcolor="white" width="100%"><em>The PIA, an XML-based platform for Web Applications</em>   <img src="Images/logo16.png" height="16" width="16" alt="&nbsp;">
+      </td>
+  </tr>
+</table>
+<p /><!--  end slide  -->
+
+
+
+
+
+<table width="100%" cellspacing="0" cellpadding="5" border="0">
+  <tr><td bgcolor="#669966" width="100" valign="top" align="center" background="Images/bkgnd_grn.gif" rowspan="4"><br />
+        <a href="#20">&lt;&lt;</a><a href="#TOC">&nbsp;21&nbsp;</a><a href="#22">&gt;&gt;</a><br />
+	<a href="#TOC">contents</a><br />
+	<a href="#0">start</a><br />
+      </td>
+      <th align="left" bgcolor="white" fgcolor="black">
+	    <a name="21">&nbsp;</a>&nbsp;Tree-Structured Data Guarantees Well-formedness
+      </th>
+  </tr>
+  <!--  this green stripe occupies 11 pixels vertically  -->
+  <tr><td bgcolor="#669966" height="3"><img src="Images/trans1x1.gif" /></td>
+  </tr>
+  <tr><!--  this table cell contains the actual content of the slide  -->
+      <td bgcolor="white" valign="top" height="500">
+
+<p> &nbsp; </p>
+
+<p> <strong>The PIA's internal representation is parse trees</strong>
+</p>
+<ul>
+  <li> W3C's <a href="http://www.w3.org/DOM/">DOM</a>
+       (Document Object Model) -- widely available.
+  </li>
+  <li> All operations preserve structure
+  </li>
+       <ul>
+	 <li> Impossible to produce ill-formed output
+	 </li>
+	 <li> Most other platforms use strings:<br />
+	      <tt><font color="#CC0000">
+	        &lt;h1&gt;&lt;em&gt;...&lt;/h1&gt;(oops!) &lt;/em&gt;
+	      </font></tt>
+	 </li>
+	 <li> Like the difference between ``GOTO's'' and structured
+	      programming. 
+	 </li>
+       </ul>
+  <li> XML documents have a natural tree structure<br />
+       that is exactly what the author intended<br />
+       and that the PIA's operations understand.
+  </li>
+</ul>
+
+      </td>
+  </tr>  
+  <tr><td align="right" valign="bottom" bgcolor="white" width="100%"><em>The PIA, an XML-based platform for Web Applications</em>   <img src="Images/logo16.png" height="16" width="16" alt="&nbsp;">
+      </td>
+  </tr>
+</table>
+<p /><!--  end slide  -->
+
+
+
+
+
+
+<table width="100%" cellspacing="0" cellpadding="5" border="0">
+  <tr><td bgcolor="#669966" width="100" valign="top" align="center" background="Images/bkgnd_grn.gif" rowspan="4"><br />
+        <a href="#21">&lt;&lt;</a><a href="#TOC">&nbsp;22&nbsp;</a><a href="#23">&gt;&gt;</a><br />
+	<a href="#TOC">contents</a><br />
+	<a href="#0">start</a><br />
+      </td>
+      <th align="left" bgcolor="white" fgcolor="black">
+	    <a name="22">&nbsp;</a>&nbsp;Platform-Neutral Processing
+      </th>
+  </tr>
+  <!--  this green stripe occupies 11 pixels vertically  -->
+  <tr><td bgcolor="#669966" height="3"><img src="Images/trans1x1.gif" /></td>
+  </tr>
+  <tr><!--  this table cell contains the actual content of the slide  -->
+      <td bgcolor="white" valign="top" height="500">
+
+<p> &nbsp; </p>
+<ul>
+  <li> Easy to merge two PIA-based applications
+  </li>
+  <li> ... or to mix with an existing application on any platform
+  </li>
+  <li> Standard API's for server-based platforms
+       <ul>
+	 <li> Apache module
+	 </li>
+	 <li> Java Servlet
+	 </li>
+	 <li> Cocoon Processor
+	 </li>
+       </ul>
+  </li>
+</ul>
+
+      </td>
+  </tr>  
+  <tr><td align="right" valign="bottom" bgcolor="white" width="100%"><em>The PIA, an XML-based platform for Web Applications</em>   <img src="Images/logo16.png" height="16" width="16" alt="&nbsp;">
+      </td>
+  </tr>
+</table>
+<p /><!--  end slide  -->
+
+
+
+
+<table width="100%" cellspacing="0" cellpadding="5" border="0">
+  <tr><td bgcolor="#669966" width="100" valign="top" align="center" background="Images/bkgnd_grn.gif" rowspan="4"><br />
+        <a href="#22">&lt;&lt;</a><a href="#TOC">&nbsp;23&nbsp;</a><a href="#24">&gt;&gt;</a><br />
+	<a href="#TOC">contents</a><br />
+	<a href="#0">start</a><br />
+      </td>
+      <th align="left" bgcolor="white" fgcolor="black">
+	    <a name="23">&nbsp;</a>&nbsp;Portable Implementation
+      </th>
+  </tr>
+  <!--  this green stripe occupies 11 pixels vertically  -->
+  <tr><td bgcolor="#669966" height="3"><img src="Images/trans1x1.gif" /></td>
+  </tr>
+  <tr><!--  this table cell contains the actual content of the slide  -->
+      <td bgcolor="white" valign="top" height="500">
+
+<p> &nbsp; </p>
+<ul>
+  <li> Reference version written in Java for portability
+  </li>
+  <li> simple processing core
+       <ul>
+	 <li> Small number of primitive tag handlers
+	 </li>
+	 <li> Easy re-implemented in other languages
+	 </li>
+	 <li> (C port already in progress)
+	 </li>
+       </ul>
+  </li>
+  <li> Standard API's for non-server applications
+       <ul>
+	 <li> SAX (Simple API for XML)
+	 </li>
+	 <li> DOM (Document Object Model)
+	 </li>
+       </ul>
+  </li>
+</ul>
+
+      </td>
+  </tr>  
+  <tr><td align="right" valign="bottom" bgcolor="white" width="100%"><em>The PIA, an XML-based platform for Web Applications</em>   <img src="Images/logo16.png" height="16" width="16" alt="&nbsp;">
+      </td>
+  </tr>
+</table>
+<p /><!--  end slide  -->
+
+
+
+
+<table width="100%" cellspacing="0" cellpadding="5" border="0">
+  <tr><td bgcolor="#669966" width="100" valign="top" align="center" background="Images/bkgnd_grn.gif" rowspan="4"><br />
+        <a href="#23">&lt;&lt;</a><a href="#TOC">&nbsp;24&nbsp;</a><a href="#25">&gt;&gt;</a><br />
+	<a href="#TOC">contents</a><br />
+	<a href="#0">start</a><br />
+      </td>
+      <th align="left" bgcolor="white" fgcolor="black">
+	    <a name="24">&nbsp;</a>&nbsp;Other PIA Components
+      </th>
+  </tr>
+  <!--  this green stripe occupies 11 pixels vertically  -->
+  <tr><td bgcolor="#669966" height="3"><img src="Images/trans1x1.gif" /></td>
+  </tr>
+  <tr><!--  this table cell contains the actual content of the slide  -->
+      <td bgcolor="white" valign="top" height="500">
+
+<p> &nbsp; </p>
+<p> (You can read about these on <a href="http://RiSource.org/PIA/">the web
+    site</a>)
+</p>
+<ul>
+  <li> Pluggable parsers and formatters
+       <ul>
+	 <li> HTML as well as XML
+	 </li>
+	 <li> Coexists well with other platforms
+	 </li>
+       </ul>
+  </li>
+  <li> Versatile site structure definition package
+       <ul>
+	 <li> Includes XML (WebDAV-ready) metadata
+	 </li>
+	 <li> Provides ``symbolic links'' or aliases
+	 </li>
+	 <li> Allows read-only directories with local overrides
+	 </li>
+	 <li> Hides file extensions (<code>foo</code>, not
+	      <code>foo.html</code>) 
+	 </li>
+       </ul>
+  </li>
+  <li> Server / proxy with XML ``agents''
+       <ul>
+	 <li> Useful for prototyping and testing
+	 </li>
+	 <li> Good platform for single user/small group applications
+	 </li>
+	 <li> Written in Java for portability
+	 </li>
+       </ul>
+  </li>
+  <li> Offline document processor
+  </li>
+</ul>
+
+      </td>
+  </tr>  
+  <tr><td align="right" valign="bottom" bgcolor="white" width="100%"><em>The PIA, an XML-based platform for Web Applications</em>   <img src="Images/logo16.png" height="16" width="16" alt="&nbsp;">
+      </td>
+  </tr>
+</table>
+<p /><!--  end slide  -->
+
+
+
+
+
+<table width="100%" cellspacing="0" cellpadding="5" border="0">
+  <tr><td bgcolor="#669966" width="100" valign="top" align="center" background="Images/bkgnd_grn.gif" rowspan="4"><br />
+        <a href="#24">&lt;&lt;</a><a href="#TOC">&nbsp;25&nbsp;</a><a href="#26">&gt;&gt;</a><br />
+	<a href="#TOC">contents</a><br />
+	<a href="#0">start</a><br />
+      </td>
+      <th align="left" bgcolor="white" fgcolor="black">
+	    <a name="25">&nbsp;</a>&nbsp;Summary: Answering the Challenges
+      </th>
+  </tr>
+  <!--  this green stripe occupies 11 pixels vertically  -->
+  <tr><td bgcolor="#669966" height="3"><img src="Images/trans1x1.gif" /></td>
+  </tr>
+  <tr><!--  this table cell contains the actual content of the slide  -->
+      <td bgcolor="white" valign="top" height="500">
+
+<ul>
+  <li> Which platform?
+       <ul>
+	 <li> Whichever one you prefer: PIA applications are portable.
+	 </li> 
+	 <li> Open Source processing engine
+	 </li>
+	 <ul>
+	   <li> eliminates dependence on proprietary technology
+	   </li><li> can be integrated with any server engine 
+	   </li><li> or other XML applications
+	 </li></ul> 
+       </ul>
+  </li>
+  <li> How to collaborate?
+       <ul>
+	 <li> Shared editing of XML documents 
+	 </li>
+	 <li> using domain-specific tags provided by programmers
+	 </li>
+	 <li> Integrating applications by merging documents
+	 </li>
+	 <li> Open source developer community at
+	      <a href="http://RiSource.org/"><font face="Verdana, Arial, Helvetica, sans-serif" color="#993300">Ri</font><font face="Verdana, Arial, Helvetica, sans-serif" color="black"><i>Source.org</i></font></a>
+	 </li>
+       </ul>
+  </li>
+  <li> Which development environment?
+       <ul>
+	 <li> Whichever one makes sense <em>for each collaborator</em>.
+	 </li>
+       </ul>
+  </li>
+  <li> How to maintain / customize applications?
+       <ul>
+	 <li> Modify, extend the XML documents 
+	 </li>
+	 <li> supported by mainstream editors and specialized clients
+	 </li>
+       </ul>
+  </li>
+</ul>
+
+      </td>
+  </tr>  
+  <tr><td align="right" valign="bottom" bgcolor="white" width="100%"><em>The PIA, an XML-based platform for Web Applications</em>   <img src="Images/logo16.png" height="16" width="16" alt="&nbsp;">
+      </td>
+  </tr>
+</table>
+<p /><!--  end slide  -->
+
+
+
+
+<table width="100%" cellspacing="0" cellpadding="5" border="0">
+  <tr><td bgcolor="#669966" width="100" valign="top" align="center" background="Images/bkgnd_grn.gif" rowspan="4"><br />
+        <a href="#25">&lt;&lt;</a><a href="#TOC">&nbsp;26&nbsp;</a><a href="#27">&gt;&gt;</a><br />
+	<a href="#TOC">contents</a><br />
+	<a href="#0">start</a><br />
+      </td>
+      <th align="left" bgcolor="white" fgcolor="black">
+	    <a name="26">&nbsp;</a>&nbsp;Status and Resources
+      </th>
+  </tr>
+  <!--  this green stripe occupies 11 pixels vertically  -->
+  <tr><td bgcolor="#669966" height="3"><img src="Images/trans1x1.gif" /></td>
+  </tr>
+  <tr><!--  this table cell contains the actual content of the slide  -->
+      <td bgcolor="white" valign="top" height="500">
+
+<p> &nbsp;
+</p>
+<ul>
+  <li> Open source at <a href="http://RiSource.org/"><font face="Verdana, Arial, Helvetica, sans-serif" color="#993300">Ri</font><font face="Verdana, Arial, Helvetica, sans-serif" color="black"><i>Source.org</i></font></a><a href="http://RiSource.org/PIA/">/PIA/</a> 
+       <ul>
+	 <li> Version 2.1 (first stable release) released 2000-2-29
+	 </li>
+	 <li> Interactive demo/tutorial server at
+	      <a href="http://pia.rsv.ricoh.com/Tutorial/home">pia.rsv.ricoh.com/Tutorial/home</a>
+	 </li>
+	 <li> Open-source collaboration on web applications
+	 </li>
+	 <li> Free collection of customizable apps
+	 </li>
+       </ul>
+  </li>
+  <li> C port in progress via <a href="http://www.sourcexchange.com/">SOURCEXCHANGE</a>.
+       
+       <ul>
+	 <li> Current status at <a href="http://sourcexchange.com/ProjectDetail?projectID=6">
+	      sourcexchange.com/ProjectDetail?projectID=6</a>
+	 </li>
+       </ul>
+  </li>
+</ul>
+
+      </td>
+  </tr>  
+  <tr><td align="right" valign="bottom" bgcolor="white" width="100%"><em>The PIA, an XML-based platform for Web Applications</em>   <img src="Images/logo16.png" height="16" width="16" alt="&nbsp;">
+      </td>
+  </tr>
+</table>
+<p /><!--  end slide  -->
+
+
+
+
+
+<table width="100%" cellspacing="0" cellpadding="5" border="0">
+  <tr><td bgcolor="#669966" width="100" valign="top" align="center" background="Images/bkgnd_grn.gif" rowspan="4"><br />
+        <a href="#26">&lt;&lt;</a><a href="#TOC">&nbsp;27&nbsp;</a><a href="#28">&gt;&gt;</a><br />
+	<a href="#TOC">contents</a><br />
+	<a href="#0">start</a><br />
+      </td>
+      <th align="left" bgcolor="white" fgcolor="black">
+	    <a name="27">&nbsp;</a>&nbsp;Appendix: PIA Features
+      </th>
+  </tr>
+  <!--  this green stripe occupies 11 pixels vertically  -->
+  <tr><td bgcolor="#669966" height="3"><img src="Images/trans1x1.gif" /></td>
+  </tr>
+  <tr><!--  this table cell contains the actual content of the slide  -->
+      <td bgcolor="white" valign="top" height="500">
+
+<p> &nbsp;</p>
+<ul>
+  <li> Uses a single XML-based language for :
+       <ul>
+	 <li> document markup (content)
+	 </li>
+	 <li> data -- the ``conventional'' use for XML
+	 </li>
+	 <li> behavior -- <em>very unconventional</em><br />
+
+	      <em>in a way, we are abusing a stylesheet language to make it
+	      interpret scripts</em>
+	 </li>
+       </ul>
+  </li>
+  <li> Applications consist entirely of XML documents
+       <ul>
+	 <li> Makes applications portable
+	 </li>
+	 <li> Supports collaborative (open source) development
+	 </li>
+       </ul>
+  </li>
+  <li> Small, simple document-processing engine<br />
+       Versatile site-description package
+       <ul>
+	 <li> easily integrated into many platforms
+	 </li>
+	 <li> Open source code available on the net
+	 </li>
+       </ul>
+  </li>
+</ul>
+
+      </td>
+  </tr>  
+  <tr><td align="right" valign="bottom" bgcolor="white" width="100%"><em>The PIA, an XML-based platform for Web Applications</em>   <img src="Images/logo16.png" height="16" width="16" alt="&nbsp;">
+      </td>
+  </tr>
+</table>
+<p /><!--  end slide  -->
+
+
+
+
+
+<table width="100%" cellspacing="0" cellpadding="5" border="0">
+  <tr><td bgcolor="#669966" width="100" valign="top" align="center" background="Images/bkgnd_grn.gif" rowspan="4"><br />
+        <a href="#27">&lt;&lt;</a><a href="#TOC">&nbsp;28&nbsp;</a><a href="#29">&gt;&gt;</a><br />
+	<a href="#TOC">contents</a><br />
+	<a href="#0">start</a><br />
+      </td>
+      <th align="left" bgcolor="white" fgcolor="black">
+	    <a name="28">&nbsp;</a>&nbsp;Comparison to PHP3
+      </th>
+  </tr>
+  <!--  this green stripe occupies 11 pixels vertically  -->
+  <tr><td bgcolor="#669966" height="3"><img src="Images/trans1x1.gif" /></td>
+  </tr>
+  <tr><!--  this table cell contains the actual content of the slide  -->
+      <td bgcolor="white" valign="top" height="500">
+
+<p> and other platforms that embed code in web pages
+</p>
+
+<table border="1">
+  <tr>
+    <th></th> <th align="left">PIA</th> <th align="left">PHP3</th>
+  </tr>
+  <tr>
+    <th align="left"> data representation
+    </th>
+    <td> parse trees
+    </td>
+    <td> strings
+    </td>
+  </tr>
+  <tr>
+    <th align="left"> can serve invalid pages
+    </th>
+    <td> no
+    </td>
+    <td> yes
+    </td>
+  </tr>
+  <tr>
+    <th align="left"> domain-specific tags
+    </th>
+    <td> yes
+    </td>
+    <td> no
+    </td>
+  </tr>
+  <tr>
+    <th align="left"> syntax
+    </th>
+    <td> XML
+    </td>
+    <td> C-like
+    </td>
+  </tr>
+  <tr>
+    <th align="left"> semantics
+    </th>
+    <td> macro expansions
+    </td>
+    <td> procedural
+    </td>
+  </tr>
+  <tr>
+    <th align="left"> separate actions from documents
+    </th>
+    <td> optional <br />
+	 (design decision)
+    </td>
+    <td> no
+    </td>
+  </tr>
+  <tr>
+    <th align="left"> secure imported documents
+    </th>
+    <td> yes: restrict tags
+    </td>
+    <td> no
+    </td>
+  </tr>
+</table>
+
+
+      </td>
+  </tr>  
+  <tr><td align="right" valign="bottom" bgcolor="white" width="100%"><em>The PIA, an XML-based platform for Web Applications</em>   <img src="Images/logo16.png" height="16" width="16" alt="&nbsp;">
+      </td>
+  </tr>
+</table>
+<p /><!--  end slide  -->
+
+
+
+
+<table width="100%" cellspacing="0" cellpadding="5" border="0">
+  <tr><td bgcolor="#669966" width="100" valign="top" align="center" background="Images/bkgnd_grn.gif" rowspan="4"><br />
+        <a href="#28">&lt;&lt;</a><a href="#TOC">&nbsp;29&nbsp;</a><a href="#30">&gt;&gt;</a><br />
+	<a href="#TOC">contents</a><br />
+	<a href="#0">start</a><br />
+      </td>
+      <th align="left" bgcolor="white" fgcolor="black">
+	    <a name="29">&nbsp;</a>&nbsp;Comparison to XSLT
+      </th>
+  </tr>
+  <!--  this green stripe occupies 11 pixels vertically  -->
+  <tr><td bgcolor="#669966" height="3"><img src="Images/trans1x1.gif" /></td>
+  </tr>
+  <tr><!--  this table cell contains the actual content of the slide  -->
+      <td bgcolor="white" valign="top" height="500">
+
+<p> and other stylesheet-based publishing systems
+</p>
+
+<table border="1">
+  <tr>
+    <th></th>
+    <th align="left">PIA</th> <th align="left">XSLT</th>
+  </tr>
+  <tr>
+    <th align="left"> complete scripting language
+    </th>
+    <td> yes
+    </td>
+    <td> no
+    </td>
+  </tr>
+  <tr>
+    <td align="right"> numeric expressions
+    </td>
+    <td> yes
+    </td>
+    <td> no
+    </td>
+  </tr>
+  <tr>
+    <td align="right"> text processing
+    </td>
+    <td> yes
+    </td>
+    <td> no
+    </td>
+  </tr>
+  <tr>
+    <td align="right"> variables
+    </td>
+    <td> yes
+    </td>
+    <td> no
+    </td>
+  </tr>
+  <tr>
+    <th align="left"> local substitutions
+    </th>
+    <td> yes
+    </td>
+    <td> no (XPointer is <br />
+	 non- local)
+    </td>
+  </tr>
+  <tr>
+    <th align="left"> embed actions in documents
+    </th>
+    <td> optional <br />
+	 (design decision)
+    </td>
+    <td> no
+    </td>
+  </tr>
+  <tr>
+    <th align="left"> supports legacy (HTML) docs
+    </th>
+    <td> yes
+    </td>
+    <td> no
+    </td>
+  </tr>
+</table>
+
+      </td>
+  </tr>  
+  <tr><td align="right" valign="bottom" bgcolor="white" width="100%"><em>The PIA, an XML-based platform for Web Applications</em>   <img src="Images/logo16.png" height="16" width="16" alt="&nbsp;">
+      </td>
+  </tr>
+</table>
+<p /><!--  end slide  -->
+
+
+
+
+
+<table width="100%" cellspacing="0" cellpadding="5" border="0">
+  <tr><td bgcolor="#669966" width="100" valign="top" align="center" background="Images/bkgnd_grn.gif" rowspan="4"><br />
+        <a href="#29">&lt;&lt;</a><a href="#TOC">&nbsp;30&nbsp;</a><a href="#31">&gt;&gt;</a><br />
+	<a href="#TOC">contents</a><br />
+	<a href="#0">start</a><br />
+      </td>
+      <th align="left" bgcolor="white" fgcolor="black">
+	    <a name="30">&nbsp;</a><a name="TOC">&nbsp;Table of Contents</a>
+      </th>
+  </tr>
+  <!--  this green stripe occupies 11 pixels vertically  -->
+  <tr><td bgcolor="#669966" height="3"><img src="Images/trans1x1.gif" /></td>
+  </tr>
+  <tr><!--  this table cell contains the actual content of the slide  -->
+      <td bgcolor="white" valign="top" height="500">
+
+<ol>
+  <li> <a href="#1">Outline</a></li>
+<li> <a href="#2">Major Trends in Web Applications</a></li>
+<li> <a href="#3">Challenges for Web Application Developers</a></li>
+<li> <a href="#4">The Typical Web Application</a></li>
+<li> <a href="#5">PIA: an XML-Based Web Application Framework</a></li>
+<li> <a href="#6">A new design approach</a></li>
+<li> <a href="#7">Let's see how we develop a typical page</a></li>
+<li> <a href="#8">Here's the XML for that page</a></li>
+<li> <a href="#9">Here's the XML for that page</a></li>
+<li> <a href="#10">Here's the XML for that page</a></li>
+<li> <a href="#11">Processing is controlled by a tagset</a></li>
+<li> <a href="#12">The tagset specifies what each tag does</a></li>
+<li> <a href="#13">Some tags are ``primitives''</a></li>
+<li> <a href="#14">The set of primitives is small</a></li>
+<li> <a href="#15">Many domain-specific vocabularies</a></li>
+<li> <a href="#16">Now let's look at data</a></li>
+<li> <a href="#17">Site Structure may get complicated</a></li>
+<li> <a href="#18">Site structure defined by XML</a></li>
+<li> <a href="#19">Site structure defined by XML</a></li>
+<li> <a href="#20">Site structure defined by XML</a></li>
+<li> <a href="#21">Tree-Structured Data Guarantees Well-formedness</a></li>
+<li> <a href="#22">Platform-Neutral Processing</a></li>
+<li> <a href="#23">Portable Implementation</a></li>
+<li> <a href="#24">Other PIA Components</a></li>
+<li> <a href="#25">Summary: Answering the Challenges</a></li>
+<li> <a href="#26">Status and Resources</a></li>
+<li> <a href="#27">Appendix: PIA Features</a></li>
+<li> <a href="#28">Comparison to PHP3</a></li>
+<li> <a href="#29">Comparison to XSLT</a></li>
+</ol>
+
+      </td>
+  </tr>  
+  <tr><td align="right" valign="bottom" bgcolor="white" width="100%"><em>The PIA, an XML-based platform for Web Applications</em>   <img src="Images/logo16.png" height="16" width="16" alt="&nbsp;">
+      </td>
+  </tr>
+</table>
+<p /><!--  end slide  -->
+
+
+<hr />
+<b>Copyright &copy; 2000 Ricoh Silicon Valley</b><br />
+<b>$Id$</b><br />
+<address><a href="http://rsv.ricoh.com/~steve/">Stephen R. Savitzky</a> &lt;<a href="mailto:steve@rsv.ricoh.com">steve@rsv.ricoh.com</a>&gt;</address>
+</body></html>

@@ -8,20 +8,7 @@
     <if> &docName; <then>from <a href="&docName;">&docName;</a></then></if>
     &year;-&month;-&day; &hour;:&minute; by &user.name;
 </p>
-<pre>
-5 min: introduction.
-	mention that it's an
-        unconventional application for XML
-
-10 min: an actual (tiny) application.
-	tagsets, application-specific tags
-	site structure
-
-5 min: other aspects
-	both embedded-code and defined tags
-	support for legacy HTML; other parsers
-	ability to repurpose code
-</pre>
+<set name="hh">500</set>
 
 <slide><!-- title slide: no top caption. -->
 <p> &nbsp;</p>
@@ -58,9 +45,9 @@
 <slide><h2>Outline</h2>
 <p> &nbsp;</p>
 <ol>
-  <li> Introduction: trends in web applications
+  <li> Introduction: The need for cross-platform web applications
   </li>
-  <li> How the PIA Works
+  <li> How the PIA Works: using XML in a unique way
   </li>
   <li> Additional PIA features
   </li>
@@ -72,7 +59,7 @@
 
 Web Applications
 <ul>
-  <li> Increasing Customization and Interaction
+  <li> Increasing Interactivity and Customizability
   </li>
   <li> Proliferation of Clients
   </li>
@@ -97,9 +84,9 @@ Infrastructure:
 <ul>
   <li> Which platform?
   </li>
-  <li> How do programmers and content authors collaborate?
-  </li>
   <li> Which development environment?
+  </li>
+  <li> How do programmers and content authors collaborate?
   </li>
   <li> How to maintain / customize applications?
   </li>
@@ -121,68 +108,45 @@ Infrastructure:
 </p>
 </slide>
 
-<!-- === the next two slides may want to go further toward the end -->
-<slide><h2>The PIA's Answers</h2>
-<p> &nbsp;</p>
-<ul>
-  <li> Which platform?
-       <ul>
-	 <li> Whichever one you prefer: PIA applications are portable.
-	 </li>
-       </ul>
-  </li>
-  <li> How do programmers and content authors collaborate?
-       <ul>
-	 <li> Programmers create tag vocabularies
-	 </li>
-	 <li> Authors use these tags to create active documents
-	 </li>
-       </ul>
-  </li>
-  <li> Which development environment?
-       <ul>
-	 <li> Whichever one makes sense <em>for each collaborator</em>
-	 </li>
-	 <li> XML is tool-friendly; many good editors exist.
-	 </li>
-       </ul>
-  </li>
-  <li> How to maintain / customize applications?
-       <ul>
-	 <li> Edit simple XML documents with domain-specific markup.
-	 </li>
-	 <li> XML minimizes need for special skills, IT support. 
-	 </li>
-	 <li> PIA's processing engine is open source<br />
-	      ... for easy customization of the code.
-	 </li>
-       </ul>
-  </li>
-</ul>
-</slide>
-
-
 <slide><h2>A new design approach</h2>
 
-<p> <strong>We use XML for everything.</strong>
-</p>
-
 <ul>
+  <li> Uses a <strong>single XML-based language</strong> for :
+       <ul>
+	 <li> document markup (content) and data
+	 </li>
+	 <li> -- the ``conventional'' use for XML
+	 </li>
+	 <li> behavior -- <em>very unconventional</em>
+	 </li>
+       </ul>
+  </li>
+  <li> <strong>XML is a representation for parse trees</strong>
+  </li>
   <li> The unique part is specifying behavior as well as style<br />
        by assigning <em>actions</em> to tags.
+       <ul>
+	 <li> Can design an application-specific tag set
+	 </li>
+	 <li> Can process same document in multiple ways
+	 </li>
+       </ul>
   </li>
-  <li> <em>in effect, we're abusing a stylesheet processor to interpret a
-       scripting language.</em>
+  <li> <em>in effect, we've extended a stylesheet processor<br />
+       to interpret a <strong>complete</strong> scripting language.</em>
+       <ul>
+	 <li> ... no !~+-*^%$#@ operators, no ( parentheses )
+	 </li>
+       </ul>
   </li>
-  <li> We also use document elements as data structures.
-  </li>
-  <li> There is no separate scripting language.
+  <li> We also use document elements as data structures.<br />
+       <em>what one might call <strong>document-oriented</strong>,<br />
+       as opposed to object-oriented, programming.</em>
   </li>
 </ul>
-
-<p> <strong>So, how does this work?</strong>
-</p>
 </slide>
+
+
 
 <set name="label">form-sample</set>
 <slide><h2>Let's see how we develop a typical page </h2>
@@ -221,6 +185,14 @@ Infrastructure:
 
 <define element="x">
   <action><font color="#009900"><b>&content;</b></font></action>
+</define>
+
+<define element="y">
+  <action><font color="#000099"><b>&content;</b></font></action>
+</define>
+
+<define element="z">
+  <action><font color="#990000"><b>&content;</b></font></action>
 </define>
 
 <pre>
@@ -300,20 +272,20 @@ Infrastructure:
 <p> here's a typical tag definition
 </p>
 <pre>
-<x>&lt;define element="if-form-submitted"</x>
-        quoted="yes"&gt;
-  &lt;doc&gt; expand the content if responding
+<x>&lt;define element="if-form-submitted"
+        syntax="quoted"&gt;</x>
+  <y>&lt;doc&gt; expand the content if responding
 	to a form submission (query)
-  &lt;/doc&gt;
-  &lt;action&gt;
+  &lt;/doc&gt;</y>
+  <z>&lt;action&gt;
     &lt;if&gt;&lt;get name="queryString"/&gt;
         &lt;then&gt;
 	  &lt;expand&gt;&lt;get name="content"/&gt;
           &lt;/expand&gt;
 	&lt;/then&gt;
     &lt;/if&gt;
-  &lt;/action&gt;
-&lt;/define&gt;
+  &lt;/action&gt;</z>
+<x>&lt;/define&gt;</x>
 </pre>
 
 <p> A tagset is simply another XML document </p>
@@ -402,24 +374,36 @@ defined in terms of XML.)
 </slide>
 
 
-<slide><h2>Site Structure</h2>
-<!-- === needs a figure instead === -->
-
+<slide><h2>Now let's look at data</h2>
+<p> &nbsp;
+</p>
 <ul>
-  <li> ``real'' directory is read-write, for user data
+  <li> An application is more than just a single page
   </li>
-  <li> ``virtual'' directory for read-only files<br />
-       (can be shared by all users)
+  <li> We have to define the site structure<br />
+       <code>http://risource.org/Calendar/month</code><br />
+       <code>http://risource.org/Calendar/1999</code><br />
+  </li>
+  <li> ... and define which tag definitions to use for each document
+  </li>
+  <li> The PIA also does <em>this</em> using XML
   </li>
 </ul>
+
+</slide>
+
+
+<slide><h2>Site Structure may get complicated</h2>
+<img src="Images/site.png" />
+
 </slide>
 
 <slide><h2>Site structure defined by XML</h2>
 <div align="center">Where to find the files</div>
 
 <pre>
-<font color="#009900"><b>&lt;Container file="~/Calendar"
-	   virtual="/PIA/Apps/Calendar"&gt;</b></font>
+<x>&lt;Container file="~/Calendar"
+	   virtual="/PIA/Apps/Calendar"&gt;</x>
 
   &lt;Ext name="xh"	
        type="text/html"
@@ -467,35 +451,36 @@ defined in terms of XML.)
   &lt;Ext name="xh"	
        type="text/html"
        tagset="Calendar-xhtml"	/>
-<font color="#009900"><b>
+<x>
   &lt;AGENT name="Calendar" hour="00">
      &lt;initialize>
         &lt;user-message>  Calendar initialized
 	&lt;/user-message>
      &lt;/initialize>
      &lt;daily-action>
-  &lt;/AGENT></b></font>
+  &lt;/AGENT></x>
 &lt;/Container>
 </pre>
+<p> <em>Not</em> using a DTD or PI's in the document.
+</p>
 </slide>
 
 
-<slide><h2>Tree-Structured Data</h2>
+<slide><h2>Tree-Structured Data Guarantees Well-formedness</h2>
 <p> &nbsp; </p>
 
 <p> <strong>The PIA's internal representation is parse trees</strong>
 </p>
 <ul>
-  <li> Infrastructure widely available:<br />
-       closely related to W3C's <a href="http://www.w3.org/DOM/">DOM</a>
-       (Document Object Model)
+  <li> W3C's <a href="http://www.w3.org/DOM/">DOM</a>
+       (Document Object Model) -- widely available.
   </li>
-  <li> All operations preserve the consistancy of the document's structure
+  <li> All operations preserve structure
   </li>
        <ul>
-	 <li> Impossible to produce ill-structured output
+	 <li> Impossible to produce ill-formed output
 	 </li>
-	 <li> Most other platforms use strings:
+	 <li> Most other platforms use strings:<br />
 	      <tt><font color="#CC0000">
 	        &lt;h1&gt;&lt;em&gt;...&lt;/h1&gt;(oops!) &lt;/em&gt;
 	      </font></tt>
@@ -512,17 +497,14 @@ defined in terms of XML.)
 </slide>
 
 
-<slide><h2>Platform-Neutral</h2>
+
+<slide><h2>Platform-Neutral Processing</h2>
 <p> &nbsp; </p>
 <ul>
-  <li> Reference version written in Java for portability
+  <li> Easy to merge two PIA-based applications
   </li>
-       <ul>
-	 <li> simple, portable processing core
-	 </li>
-	 <li> Small number of primitive tag handlers
-	 </li>
-       </ul>
+  <li> ... or to mix with an existing application on any platform
+  </li>
   <li> Standard API's for server-based platforms
        <ul>
 	 <li> Apache module
@@ -530,6 +512,24 @@ defined in terms of XML.)
 	 <li> Java Servlet
 	 </li>
 	 <li> Cocoon Processor
+	 </li>
+       </ul>
+  </li>
+</ul>
+</slide>
+
+<slide><h2>Portable Implementation</h2>
+<p> &nbsp; </p>
+<ul>
+  <li> Reference version written in Java for portability
+  </li>
+  <li> simple processing core
+       <ul>
+	 <li> Small number of primitive tag handlers
+	 </li>
+	 <li> Easy re-implemented in other languages
+	 </li>
+	 <li> (C port already in progress)
 	 </li>
        </ul>
   </li>
@@ -546,10 +546,13 @@ defined in terms of XML.)
 
 <slide><h2>Other PIA Components</h2>
 <p> &nbsp; </p>
+<p> (You can read about these on <a href="http://RiSource.org/PIA/">the web
+    site</a>)
+</p>
 <ul>
   <li> Pluggable parsers and formatters
        <ul>
-	 <li> HTML parser as well as XML
+	 <li> HTML as well as XML
 	 </li>
 	 <li> Coexists well with other platforms
 	 </li>
@@ -579,6 +582,129 @@ defined in terms of XML.)
        </ul>
   </li>
   <li> Offline document processor
+  </li>
+</ul>
+</slide>
+
+
+<slide><h2>Summary: Answering the Challenges</h2>
+<ul>
+  <li> Which platform?
+       <ul>
+	 <li> Whichever one you prefer: PIA applications are portable.
+	 </li> 
+	 <li> Open Source processing engine
+	 </li>
+	 <ul>
+	   <li> eliminates dependence on proprietary technology
+	   <li> can be integrated with any server engine 
+	   <li> or other XML applications
+	 </ul> 
+       </ul>
+  </li>
+  <li> How to collaborate?
+       <ul>
+	 <li> Shared editing of XML documents 
+	 </li>
+	 <li> using domain-specific tags provided by programmers
+	 </li>
+	 <li> Integrating applications by merging documents
+	 </li>
+	 <li> Open source developer community at
+	      <a href="http://RiSource.org/"><font
+	      face="Verdana, Arial, Helvetica, sans-serif"
+	      color="#993300">Ri</font><font
+	      face="Verdana, Arial, Helvetica, sans-serif"
+	      color="black"><i>Source.org</i></font></a>
+	 </li>
+       </ul>
+  </li>
+  <li> Which development environment?
+       <ul>
+	 <li> Whichever one makes sense <em>for each collaborator</em>.
+	 </li>
+       </ul>
+  </li>
+  <li> How to maintain / customize applications?
+       <ul>
+	 <li> Modify, extend the XML documents 
+	 </li>
+	 <li> supported by mainstream editors and specialized clients
+	 </li>
+       </ul>
+  </li>
+</ul>
+</slide>
+
+<slide><h2>Status and Resources</h2>
+<p> &nbsp;
+</p>
+<ul>
+  <li> Open source at <a href="http://RiSource.org/"><font
+          face="Verdana, Arial, Helvetica, sans-serif"
+          color="#993300">Ri</font><font
+          face="Verdana, Arial, Helvetica, sans-serif"
+          color="black"><i>Source.org</i></font></a><a
+          href="http://RiSource.org/PIA/">/PIA/</a> 
+       <ul>
+	 <li> Version 2.1 (first stable release) released 2000-2-29
+	 </li>
+	 <li> Interactive demo/tutorial server at
+	      <a href="http://pia.rsv.ricoh.com/Tutorial/home"
+	      >pia.rsv.ricoh.com/Tutorial/home</a>
+	 </li>
+	 <li> Open-source collaboration on web applications
+	 </li>
+	 <li> Free collection of customizable apps
+	 </li>
+       </ul>
+  </li>
+  <li> C port in progress via <a
+       href="http://www.sourcexchange.com/">SOURCEXCHANGE</a>.
+       
+       <ul>
+	 <li> Current status at <a
+	      href="http://sourcexchange.com/ProjectDetail?projectID=6">
+	      sourcexchange.com/ProjectDetail?projectID=6</a>
+	 </li>
+       </ul>
+  </li>
+</ul>
+</slide>
+
+
+<slide><h2>Appendix: PIA Features</h2>
+<p> &nbsp;</p>
+<ul>
+  <li> Uses a single XML-based language for :
+       <ul>
+	 <li> document markup (content)
+	 </li>
+	 <li> data -- the ``conventional'' use for XML
+	 </li>
+	 <li> behavior -- <em>very unconventional</em><br />
+
+	      <em>in a way, we are abusing a stylesheet language to make it
+	      interpret scripts</em>
+	 </li>
+       </ul>
+  </li>
+  <li> Applications consist entirely of XML documents
+       <ul>
+	 <li> Makes applications portable
+	 </li>
+	 <li> Supports collaborative (open source) development
+	 </li>
+       </ul>
+  </li>
+  <li> Small, simple document-processing engine<br />
+       Versatile site-description package
+       <ul>
+	 <li> easily integrated into many platforms
+	 </li>
+	 <li> Open source code available on the net
+	 </li>
+       </ul>
   </li>
 </ul>
 </slide>
@@ -630,6 +756,15 @@ defined in terms of XML.)
     <td> macro expansions
     </td>
     <td> procedural
+    </td>
+  </tr>
+  <tr>
+    <th align="left"> separate actions from documents
+    </th>
+    <td> optional <br />
+	 (design decision)
+    </td>
+    <td> no
     </td>
   </tr>
   <tr>
@@ -690,13 +825,15 @@ defined in terms of XML.)
     </th>
     <td> yes
     </td>
-    <td> no
+    <td> no (XPointer is <br />
+	 non- local)
     </td>
   </tr>
   <tr>
     <th align="left"> embed actions in documents
     </th>
-    <td> yes
+    <td> optional <br />
+	 (design decision)
     </td>
     <td> no
     </td>
@@ -710,84 +847,6 @@ defined in terms of XML.)
     </td>
   </tr>
 </table>
-</slide>
-
-<slide><h2>Summary: PIA Features</h2>
-<p> &nbsp;</p>
-<ul>
-  <li> Uses a single XML-based language for :
-       <ul>
-	 <li> document markup (content)
-	 </li>
-	 <li> data -- the ``conventional'' use for XML
-	 </li>
-	 <li> behavior -- <em>very unconventional</em><br />
-
-	      <em>in a way, we are abusing a stylesheet language to make it
-	      interpret scripts</em>
-	 </li>
-       </ul>
-  </li>
-  <li> Applications consist entirely of XML documents
-       <ul>
-	 <li> Makes applications portable
-	 </li>
-	 <li> Supports collaborative (open source) development
-	 </li>
-       </ul>
-  </li>
-  <li> Small, simple document-processing engine<br />
-       Versatile site-description package
-       <ul>
-	 <li> easily integrated into many platforms
-	 </li>
-	 <li> Open source code available on the net
-	 </li>
-       </ul>
-  </li>
-  <li> <a href="http://RiSource.org/"><font
-          face="Verdana, Arial, Helvetica, sans-serif"
-          color="#993300">Ri</font><font
-          face="Verdana, Arial, Helvetica, sans-serif"
-          color="black"><i>Source.org</i></font></a>
-       to coordinate open source community development
-  </li>
-</ul>
-</slide>
-
-
-<slide><h2>Status and Resources</h2>
-<ul>
-  <li> Open source at <a href="http://RiSource.org/"><font
-          face="Verdana, Arial, Helvetica, sans-serif"
-          color="#993300">Ri</font><font
-          face="Verdana, Arial, Helvetica, sans-serif"
-          color="black"><i>Source.org</i></font></a><a
-          href="http://RiSource.org/PIA/">/PIA/</a> 
-       <ul>
-	 <li> Version 2.1 (first stable release) released 2000-2-28
-	 </li>
-	 <li> Interactive demo/tutorial server at
-	      <a href="http://pia.rsv.ricoh.com/Tutorial/home"
-	      >pia.rsv.ricoh.com/Tutorial/home</a>
-	 </li>
-	 <li> Open-source collaboration on web applications
-	 </li>
-	 <li> Free collection of customizable apps
-	 </li>
-       </ul>
-  </li>
-  <li> C port in progress via <a
-       href="http://www.sourcexchange.com/">SOURCEXCHANGE</a>.
-       
-       <ul>
-	 <li> Current status at <a
-	      href="http://sourcexchange.com/ProjectDetail?projectID=6">
-	      sourcexchange.com/ProjectDetail?projectID=6</a>
-	 </li>
-       </ul>
-  </li>
-</ul>
 </slide>
 
 <set name="label">TOC</set>

@@ -93,15 +93,22 @@
 
 <slide><h2>Many challenges facing application developers</h2>
 <ul>
- <li> Multiplication of platforms/clients
- <li> Applications growing in complexity
- <li> Increasing interaction between applications
- <li> Maintenance and customization
+  <li> Multiplication of platforms/clients
+  </li>
+  <li> Applications growing in complexity
+  </li>
+  <li> Increasing interaction between applications
+  </li>
+  <li> Maintenance and customization
+  </li>
 </ul>				      
 
 <h4>Need for new design methodology</h4>
 <ul>
-<li> Based on common standards and open source
+  <li> Based on common standards and open source
+  </li>
+  <li> that supports open source development.
+  </li>
 </ul>
 
 </slide>
@@ -136,7 +143,8 @@
 
 </table>
 <ul>
-<li> Where applications might be deployed.
+  <li> Where applications might be deployed.
+  </li>
 </ul>
 </slide>
 
@@ -242,8 +250,10 @@
 </table>
 
 <ul>
-<li> Open Source operating systems and languages favored for Web development
-<li> ...but the market is fragmented
+  <li> Open Source operating systems and languages favored for Web development
+  </li>
+  <li> ...but the market is fragmented
+  </li>
 </ul>
 </slide>
 
@@ -326,11 +336,11 @@ src="Images/Logos/xmlorg_top_logo.gif"
   </tr>
  
 </table>
-<ul>
-  <li> 
+<dl>
+  <dd> 
        <table>
 	 <tr>
-	   <td>
+	   <td valign="top">
 		<ul>
 		  <li> writers
 		  </li>
@@ -340,7 +350,7 @@ src="Images/Logos/xmlorg_top_logo.gif"
 		  </li>
 		</ul>
 	   </td>
-	   <td>
+	   <td valign="top">
 		<ul>
 		  <li> web designers
 		  </li>
@@ -352,8 +362,8 @@ src="Images/Logos/xmlorg_top_logo.gif"
 	   </td>
 	 </tr>
       </table>
-  </li>
-</ul>
+  </dd>
+</dl>
 <ul>
   <li> Each brings their own tools and skills.
   </li>
@@ -383,7 +393,7 @@ with a portable, standard processing engine.
 </slide>
 
 
-<slide><h2>The PIA's Answers</h2>
+<slide><h2>The PIA's Answers: cross-platform XML</h2>
 <p> &nbsp;</p>
 <ul>
   <li> Which platform?
@@ -394,8 +404,11 @@ with a portable, standard processing engine.
 	 </li>
 	 <ul>
 	   <li> eliminates dependence on proprietary technology
+	   </li>
 	   <li> can be integrated with any server engine 
+	   </li>
 	   <li> or approximated with existing XML support
+	   </li>
 	 </ul> 
        </ul>
   </li>
