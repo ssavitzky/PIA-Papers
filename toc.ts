@@ -64,9 +64,9 @@
     <set name="VAR:h2"><numeric op="sum">1 <get name="VAR:h2"/></numeric></set>
     <set name="VAR:h3">0</set>
     <set name="VAR:toc"><get name="VAR:toc"/>
- <br />&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section-&h2;">&h2;: &content;</a>
+ <br />&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section-&h2;">&h2;: <text op="trim">&content;</text></a>
     </set>
-    </hide> <a name="section-&h2;">&h2;:</a> &content;<hide>
+    </hide> <a name="section-&h2;">&h2;:</a> <text op="trim">&content;</text><hide>
   </hide></action>
 </define>
 
@@ -79,9 +79,9 @@
 	<else><hide>
 	      <set name="VAR:h3"><numeric op="sum">1 <get name="VAR:h3"/></numeric></set>
 	      <set name="VAR:toc"><get name="VAR:toc"/>
-  <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1"><a href="#section-&h2;.&h3;">&h2;.&h3;: &content;</a></font>
+  <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1"><a href="#section-&h2;.&h3;">&h2;.&h3;: <text op="trim">&content;</text></a></font>
 	      </set>
-	      </hide><a name="section-&h2;.&h3;">&h2;.&h3;:</a> &content;</else>
+	      </hide><a name="section-&h2;.&h3;">&h2;.&h3;:</a> <text op="trim">&content;</text></else>
   </if></action>
 </define>
 
@@ -96,7 +96,7 @@
 <define element="a">
   <doc> If this is a name anchor for a section number, delete it.
   </doc>
-  <action> <if><test match="section-">&attributes:name;</test>
+  <action><if><test match="section-">&attributes:name;</test>
     <else><if>&attributes:name;
 	<then><a name="&attributes:name;">&content;</a></then>
 	<else><a href="&attributes:href;">&content;</a></else>
