@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<title>Trends in Web Applications</title>
+</head><body>
+<h1>Trends in Web Applications</h1>
+<!-- Slides for a brief presentation -->
+
+<slide>
+</slide>
+
+<slide><h2>What is a Web Application?</h2>
+<ul>
+  <li> Web site or part of a web site
+  </li>
+  <li> Performs some distinct function, e.g.
+       <ul>
+	 <li> maintaining a calendar
+	 </li>
+	 <li> ordering groceries
+	 </li>
+	 <li> controlling a printer
+	 </li>
+       </ul>
+  </li>
+</ul>
+</slide>
+
+<slide><h2>Widening Range of Platforms</h2>
+
+<p> <strong>platform = ( server, OS, language )</strong> 
+</p>
+<p> <img src="Images/widening.png" />
+</p>
+</slide>
+
+<slide><h2>Proliferation of Servers and OS's</h2>
+
+<table align="center">
+  <tr><th>Market Share for Top Servers Across All Domains</th></tr>
+  <tr><td align="center">
+         <img src="Images/overallc.gif"
+         alt="" />
+      </td>
+  </tr>
+  <tr><td align="right"><font size="-1">Source: <a
+	href="http://www.netcraft.com/">Netcraft</a> Web Server Survey, <a
+	href="http://www.netcraft.com/survey/"
+	>http://www.netcraft.com/survey/</a><br />
+        Note: Apache and Microsoft are composites of several versions.
+      </font>
+      </td>
+  </tr>
+</table>
+</slide>
+
+
+<slide><h2>Proliferation of Languages</h2>
+<p> Making a web site <strong>active</strong> requires a server-side language:
+</p>
+<div align=center>
+C<br />
+C + PERL<br />
+C + PERL + MetaHTML<br />
+C + PERL + MetaHTML + PHP3 + ASP + Java<br />
+C + PERL + MetaHTML + PHP3 + ASP + Java + JSP + DSSSL + XSLT + PIA<br />
+...
+</div>
+<p align="right"> There is no sign of consolidation,<br />
+but new languages mostly look like XML.
+</p>
+</slide>
+
+<slide><h2>Increasing Use of XML</h2>
+<p> Perhaps the one area of convergence:
+</p>
+<ul>
+  <li> XML is a standardized syntax
+  </li>
+  <li> ... with no associated semantics
+  </li>
+  <li> Good for:
+       <ul>
+	 <li> text with markup
+	 </li>
+	 <li> data
+	 </li>
+       </ul>
+  </li>
+  <li> Easy for computers to read and write
+  </li>
+  <li> not so easy for humans,
+  </li>
+  <li> ... but the tools are getting better
+  </li>
+</ul>
+</slide>
+
+
+<slide><h2>Proliferation of Clients</h2>
+<ul>
+  <li> More and more browsers
+       <ul>
+	 <li> each new version is <em>very</em> different
+	 </li>
+	 <li> many old versions still around
+	 </li>
+       </ul>
+  </li>
+  <li> Not just browsers
+       <ul>
+	 <li> ``Thin'' clients
+	 </li>
+	 <li> Mobile clients
+	 </li>
+	 <li> Specialized applications
+	 </li>
+       </ul>
+  </li>
+</ul>
+</slide>
+
+<slide><h2>Increasing Collaboration</h2>
+<ul>
+  <li> Many people work on a web application
+       <ul>
+	 <li> ...over time
+	 </li>
+	 <li> ...at the same time
+	 </li>
+       </ul>
+  </li>
+  <li> Some have specialized skills
+       <ul>
+	 <li> writers
+	 </li>
+	 <li> artists
+	 </li>
+	 <li> application designers
+	 </li>
+	 <li> web designers
+	 </li>
+	 <li> program designers
+	 </li>
+       </ul>
+  </li>
+</ul>
+</slide>
+
+<slide><h2>Increasing Customization and Interaction</h2>
+<ul>
+  <li> Web applications are ``just'' documents<br />
+       ... and so are easy to edit
+  </li>
+  <li> End users have many skills, <br />
+       ... but web application design not usually one of them
+  </li>
+  <li> Some web applications are <em>designed for interaction</em>.
+       <ul>
+	 <li> news sites
+	      (e.g. <a href="http://www.linuxtoday.com/">Linux Today</a>)
+	 </li>
+	 <li> discussion sites
+	      (e.g. <a href="http://slashdot.org/">Slashdot</a>)
+	 </li>
+	 <li> collaborative writing
+	      (e.g. <a href="http://c2.com/cgi/wiki?WikiWikiWeb">Wiki Wiki
+	      Web</a>) 
+	 </li>
+       </ul>
+  </li>
+</ul>
+</slide>
+
+<slide><h2>Proliferation of Development Environments</h2>
+<ul>
+  <li> From ``notepad'' and <code>emacs</code>
+  </li>
+  <li> ... to integrated HTML editors
+  </li>
+  <li> ... ... to publishing frameworks
+  </li>
+       <p> 
+       </p>
+  <li> Different developers have different preferences
+  </li>
+  <li> Customizing and interacting users may have simpler needs<br />
+       ... or they may be computer experts themselves.
+  </li>
+</ul>
+</slide>
+
+
+<slide><h2>Shifting Balance; Wider Range</h2>
+<ul>
+  <li> Much processing is moving to the server
+  </li>
+  <li> ... but clients are getting more capable
+  </li>
+  <li> Server-side languages are proliferating
+  </li>
+  <li> ... but the new ones are all based on XML
+  </li>
+  <li> Developers are getting more skilled
+  </li>
+  <li> ... but end users are doing more customization
+  </li>
+</ul>
+</slide>
+
+
+<slide><h2>Requirements for Web Applications</h2>
+<ul>
+  <li> Cross Platform 
+  </li>
+  <li> Client Neutral
+  </li>
+  <li> Scalable
+  </li>
+  <li> Stable Interfaces
+       <ul>
+	 <li> interfaces must not change if implementation changes.
+	 </li>
+       </ul>
+  </li>
+  <li> Customizable
+  </li>
+</ul>
+</slide>
+
+<slide><h2>Requirements for Application Development</h2>
+<ul>
+  <li> Support wide range of skill levels
+       <ul>
+	 <li> allow customization by non-experts
+	 </li>
+       </ul>
+  </li>
+  <li> Strong support for markup languages (XML, HTML)
+  </li>
+  <li> Support for distributed development
+  </li>
+  <li> Platform neutral
+  </li>
+  <li> Tool neutral
+       <ul>
+	 <li> support for adding new tools
+	 </li>
+	 <li> tools should preserve source-level formatting
+	 </li>
+       </ul>
+  </li>
+</ul>
+</slide>
+
+<set name=label>TOC</set>
+<slide><h2>Table of Contents</h2>
+<ol>
+  &slidelist;
+</ol>
+</slide>
+
+<hr>
+<b>Copyright &copy; &year; Ricoh Silicon Valley</b><br>
+<b>$Id$</b><br>
+<address><a href="http://rsv.ricoh.com/~steve/"
+         >Stephen R. Savitzky</a> &lt;<a href="mailto:steve@rsv.ricoh.com"
+         >steve@rsv.ricoh.com</a>&gt;</address>
+</body></html>
