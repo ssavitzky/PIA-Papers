@@ -123,10 +123,11 @@
 
 <p> In addition, this survey is somewhat misleading in two different ways.
     First, it groups servers together by vendor (so that the ``Microsoft''
-    category, at nearly 25%, covers a total of five different server
-    versions).  Second, it covers only publicly-accessible web sites.  The
-    second is the more important effect:  the majority of web applications at
-    the moment are <em>intranet</em> sites, hidden behind corporate firewalls.
+    category, at nearly 25%, covers a total of five different server versions
+    on several different operating systems).  Second, it covers only
+    publicly-accessible web sites.  The second is the more important effect:
+    the majority of web applications at the moment are <em>intranet</em>
+    sites, hidden behind corporate firewalls.
 </p>
 
 <p> Moreover, ``traditional'' web servers are unlikely to dominate the field
@@ -159,6 +160,10 @@
     double duty as web browser and front panel.
 </p>
 
+<p> The <a href="http://www.upsdell.com/BrowserNews/stat_browser.htm">Browser
+    Trends</a> page at <a href="http://www.upsdell.com/BrowserNews">Browser
+    News</a> shows a month-by-month history of browser usage since 1998.
+</p>
 
 <h4>Proxies</h4>
 
@@ -216,6 +221,10 @@
     sufficiently clever server could accomplish the same thing by caching.
 </p>
 
+<h2><em>[the web application space]</em></h2>
+
+<em>[3-d plot of servers, OS's, clients, and web app. technologies]</em>
+
 
 <h2>The need for Cross-Platform Applications</h2>
 
@@ -271,10 +280,22 @@
 </p>
 
 <hr />
+<h2><em>[What a web application looks like]</em></h2>
+
+<em>
+The usual processing diagram, showing tagsets and documents.<br />
+
+What it takes to port an application to another platform (without the PIA):
+move the documents; translate the logic to target language. <br />
+
+The structure of the PIA:  engine and primitive tags with handlers in Java.
+Need only port the engine and the primitives. 
+</em>
+
+<hr />
 <h2>The PIA Web Application Framework</h2>
 
 <h3>PIA-based Web Applications</h3>
-
 
 <p> The PIA is primarily designed for web applications that are
     ``document-oriented'' -- both the ``content'' or data, and the processing
@@ -388,47 +409,119 @@
     possible to build mixed systems that satisfy requirements (e.g. for
     performance or interoperability) that cannot easily be met by the PIA
     alone.  It also makes it easy to fit the PIA into existing systems, adding
-    new capabilities without forcing major changes. 
+    new capabilities without forcing a change of platform.
 </p>
 
 <h3>Java-based Systems</h3>
 
-<pre>
-	<em>[for each platform, what's required.  Identify easy targets]</em>
+<p> Since the PIA's reference implementation is written in Java, and since it
+    uses standard API's internally, it is easily incorporated into other
+    Java-based application platforms.
+</p>
 
-    Servlet engines
+<h4>Servlet engines</h4>
 
-	This is one of the easiest.  There are two servlet classes provided;
-	one is just the document processor, the other includes the site
-	package.  <em>[give sample code]</em>
+<p> The most common Java-based application platforms are web servers that use
+    the Servlet (<code><a
+    href="http://www.javasoft.com/products/servlet/2.2/javadoc/index.html"
+    >javax.servlet</a></code> package) API.  Servlets provide a standard
+    internal interface between a web server and Java code, and are a natural
+    fit to the PIA. 
+</p>
 
-    Cocoon
+<p> The PIA provides two different Servlet implementations:
+</p>
 
-	Equally easy: Processor class.  <em>[less clear how to integrate the
-	site package with Cocoon's processing model]</em>
+<ol>
+  <li> A simple servlet that simply processes an input file using the PIA's
+       document processing system.  This can be used to embed PIA processing
+       in an existing static website or servlet-based application
+  </li>
+  <li> A more elaborate servlet that supports the PIA's site description
+       mechanism as well.  This can be used to ``wrap'' an entire PIA-based
+       application inside an existing servlet engine.
+  </li>
+</ol>
 
-    SAX-based systems
+<h4>Cocoon</h4>
 
-	SAX is an API that interfaces between an application and a parser; the
-	PIA can operate on either side of the interface. 
+<p> <a href="http://xml.apache.org/cocoon/">Cocoon</a> is a pure-XML engine
+    based on XML-to-XML transformation engines called ``processors.''  The
+    standard Processor in Cocoon is an implementation of the XML
+    tree-transformation stylesheet language XSLT.  The PIA's document
+    processor fits naturally into the Cocoon environment.
+</p>
 
-    DOM-based systems
 
-	The PIA can read and write DOM trees.  The site package can provide
-	a complete site map or any subtree of it in the form of a DOM tree. 
+<h4>SAX- and DOM-based systems</h4>
 
-</pre>
+<p> There are two main interfaces used in Java for manipulating XML and HTML
+    files: 
+</p>
+
+<ol>
+  <li> DOM (the Document Object Model) is a set of standardized interfaces by
+       which an application can access a document's parse tree.  The PIA uses
+       an extended implementation of the DOM as its internal representation,
+       (as does Cocoon, in fact), making it particularly simple to interface
+       to DOM-based applications. 
+  </li>
+  <li> SAX (Simple API for XML) is an ``event-driven'' interface, in which a
+       simple parser (the ``driver'') calls a method on the application class
+       for each ``event'' -- a block of text or the start or end of a tagged
+       element.  The PIA's document processor can function as either a SAX
+       driver <em>or</em> a SAX application (or both), so it can easily be
+       ``spliced in'' to an existing SAX tool chain.
+  </li>
+</ol>
 
 <h3>C-based systems</h3>
 
-<pre>
-    Apache
+<p> C is still by far the most widespread, most portable, and most completely
+    standardized programming language currently in use.  It is particularly
+    common to find a C compiler, and very little else, on the small or unusual
+    processors used in embedded systems.  Also, many major pieces of software
+    are written in C; in particular, the <a href="http://www.apache.org/"
+    >Apache</a> web server.
+</p>
 
-    Other C-based systems
+<p> In order to better integrate with Apache, and in order to better serve the
+    embedded system and network appliance markets, we have started an effort
+    to re-implement the PIA's document processor in C.  In addition to
+    improved interoperability, we expect this implementation to have
+    <em>substantially</em> better performance than the Java version.
+</p>
 
-    C++ systems
-</pre>
+<p> Since Apache dominates the server market, with almost 60% of the installed
+    base, we consider integration into Apache particularly important for the
+    PIA.
+</p>
 
+<h3>Systems of Cooperating Servers</h3>
+
+<p> Some servers, notably Apache, have the ability to invisibly route or proxy
+    selected URL's to another server.  In fact, this ability is used inside
+    Apache for its interfaces to Java and PERL.  It requires only a single
+    line in Apache's configuration file, plus two parameters in the PIA's
+    configuration file, to use the PIA in this mode.
+</p>
+
+<p> One advantage of using the PIA ``inside'' another server is that static
+    pages can usually be served more efficiently by the other server.  Another
+    is that a server such as Apache can provide services, such as virtual
+    hosting and access to privileged ports, that are difficult for the PIA.
+</p>
+
+<blockquote>
+  <p> One example is access to privileged ports, including port 80.  On Unix
+      machines, only the ``superuser'' can access port 80, so a web server is
+      expected to be started by the superuser and to change its user ID,
+      typically to something safe like ``<code>nobody</code>,'' after opening
+      its port.  Doing this in Java requires a non-portable native method.  It
+      was far simpler to start the PIA under its own user ID and let Apache
+      ``front'' for it.
+  </p>
+</blockquote>
 
 <hr />
 <p>
