@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html><head>
 <title>The PIA, an XML-based platform for Web Applications</title>
-</head><body>
+</head><body marginwidth="0">
 <h1>The PIA, an XML-based platform for Web Applications</h1>
 <!-- Slides for XTech2000 -->
 <p> Automatically generated
@@ -10,7 +10,8 @@
 </p>
 <pre>
 5 min: introduction.
-	mention that it's an unconventional application for XML
+	mention that it's an
+        unconventional application for XML
 
 10 min: an actual (tiny) application.
 	tagsets, application-specific tags
@@ -198,14 +199,14 @@ Infrastructure:
 </slide>
 
 <slide><h2>Let's look at a (small) PIA application</h2>
-
+<!-- === a collection of screen shots would be better === -->
 <font size="-2">
 <include src="Images/month.html"/>
 </font>
 </slide>
 
 <set name="label">form-sample</set>
-<slide><h2>Let's add a form</h2>
+<slide><h2>Let's see how we develop a typical page </h2>
 <!-- === needs a heading.  Might want to do an include here === -->
 <form action="&url;#form-sample" method="post">
  year: <input name="year" value="&year;" /><br />
@@ -222,12 +223,12 @@ Infrastructure:
 
 </slide>
 
-<slide><h2>Here's some code</h2>
+<slide><h2>Here's the XML</h2>
 
 <!-- with protect markup, the "pretty" doesn't add linebreaks;
      in fact, it does nothing at all.   But it fits on a smaller screen.
 -->
-
+<small>
 <pretty><protect markup="markup">
 <form action="&DOC:url;">
   year: <numeric-input name="year"/>
@@ -245,13 +246,12 @@ Infrastructure:
      </weekday>
   </if-query>
 </form>
-
 </protect></pretty>
-
+</small>
 </slide>
 
 
-<slide><h2>XML all the way down</h2>
+<slide><h2>The tagset specifies what each tag does </h2>
 
 <pretty><protect markup>
 <define element="if-query">
@@ -271,22 +271,75 @@ Infrastructure:
 
 </slide>
 
+<slide><h2>Some tags are ``primitives'' </h2>
+
+(A <em>primitive</em> is a tag defined by implementation code rather than
+defined in terms of XML.)
+
+<pretty><protect markup>
+<define element="if" class="org.risource.dps.handle.ifHandler">
+  <doc> Expand the "then" sub-element if the condition is true
+	(i.e. expands to something other than whitespace).
+  </doc>
+</define>
+</protect></pretty>
+
+</slide>
+
+
+<slide><h2>The set of primitives is small</h2>
+<p> &nbsp; </p>
+<ul>
+  <li> &lt;define&gt;
+       (<small>&lt;action&gt;  &lt;value&gt;  &lt;doc&gt;</small> )
+  </li>
+  <li> &lt;if&gt; (<small> &lt;test&gt;  &lt;then&gt;  &lt;else&gt; </small>)
+  </li>
+  <li> &lt;repeat&gt; (<small> &lt;for&gt; &lt;foreach&gt; &lt;while&gt;
+       &lt;until&gt; &lt;first&gt; &lt;finally&gt; </small>)
+  </li>
+  <li> &lt;extract&gt; (<small> &lt;from&gt; &lt;child&gt; &lt;name&gt;
+       ... </small> )
+  </li>
+  <li> &lt;make&gt; / &lt;do&gt; / &lt;namespace&gt; / &lt;tagset&gt;
+  </li>
+  <li> &lt;get&gt; / &lt;set&gt; / &lt;let&gt; / &lt;bind&gt;
+  </li>
+  <li> &lt;include&gt; / &lt;write&gt; / &lt;status&gt; / &lt;connect&gt;
+  </li>
+  <li> &lt;numeric&gt; / &lt;logical&gt; / &lt;text&gt; 
+  </li>
+  <li> &lt;protect&gt; / &lt;expand&gt; / &lt;hide&gt;
+  </li>
+  <li> &lt;sql&gt; / &lt;sign&gt; / &lt;sendmail&gt; 
+  </li>
+  <li> &lt;date&gt; / &lt;url&gt; 
+  </li>
+</ul>
+<p> Less than 30 primitive operations, comprising a complete language. 
+</p>
+</slide>
+
 
 <slide><h2>Site Structure</h2>
 
 <h3>Listing for <a href="/Agents/SimpleCalendar/">/Calendar/</a></h3>
-<ul><li> <a href="/Agents/SimpleCalendar/../">../</a>
-<li> <a href="/Agents/SimpleCalendar/1999/">1999/</a> <em>[in ~/Calendar]</em>
-<li> <a href="/Agents/SimpleCalendar/2000/">2000/</a> <em>[in ~/Calendar]</em>
-<li> <a href="/Agents/SimpleCalendar/Every/">Every/</a> <em>[in ~/Calendar]</em>
-<li> <a href="/Agents/SimpleCalendar/SimpleCalendar-xhtml.ts">SimpleCalendar-xhtml.ts</a>
-     <em>[the tagset file]</em>
-<li> <a href="/Agents/SimpleCalendar/_subsite.xcf">_subsite.xcf</a>
-     <em>[the site description file]</em>
-<li> <a href="/Agents/SimpleCalendar/about.xh">about.xh</a>
-<li> <a href="/Agents/SimpleCalendar/home.xh">home.xh</a>
-<li> <a href="/Agents/SimpleCalendar/month.xh">month.xh</a>
-<li> <a href="/Agents/SimpleCalendar/year.xh">year.xh</a>
+<ul>
+  <li> <a href="/Agents/SimpleCalendar/../">../</a></li>
+  <li> <a href="/Agents/SimpleCalendar/1999/">1999/</a>
+       <em>[in ~/Calendar]</em></li>
+  <li> <a href="/Agents/SimpleCalendar/2000/">2000/</a>
+       <em>[in ~/Calendar]</em>
+  <li> <a href="/Agents/SimpleCalendar/Every/">Every/</a>
+       <em>[in ~/Calendar]</em></li>
+  <li> <a href="/Agents/SimpleCalendar/SimpleCalendar-xhtml.ts">SimpleCalendar-xhtml.ts</a>
+       <em>[the tagset file]</em></li>
+  <li> <a href="/Agents/SimpleCalendar/_subsite.xcf">_subsite.xcf</a>
+       <em>[the site description file]</em></li>
+  <li> <a href="/Agents/SimpleCalendar/about.xh">about.xh</a></li>
+  <li> <a href="/Agents/SimpleCalendar/home.xh">home.xh</a></li>
+  <li> <a href="/Agents/SimpleCalendar/month.xh">month.xh</a></li>
+  <li> <a href="/Agents/SimpleCalendar/year.xh">year.xh</a></li>
 </ul>
 <a name='paths'><a href="file:/home/lsteve/.pia/Agents/SimpleCalendar">/home/lsteve/Calendar</a>, <a href="file:/home/lsteve/PIA/Agents/SimpleCalendar">/home/lsteve/PIA/Agents/SimpleCalendar</a></a>
 
@@ -316,38 +369,6 @@ Infrastructure:
 &lt;/Container>
 </pre>
 </small>
-</slide>
-
-
-<slide><h2>Small set of primitives</h2>
-<p> &nbsp; </p>
-<ul>
-  <li> &lt;define&gt; ( &lt;action&gt;  &lt;value&gt;  &lt;doc&gt; )
-  </li>
-  <li> &lt;if&gt; (  &lt;test&gt;  &lt;then&gt;  &lt;else&gt; )
-  </li>
-  <li> &lt;repeat&gt; ( &lt;for&gt; &lt;foreach&gt; &lt;while&gt;
-       &lt;until&gt; &lt;first&gt; &lt;finally&gt; )
-  </li>
-  <li> &lt;extract&gt; ( &lt;from&gt; &lt;child&gt; &lt;name&gt; ... )
-  </li>
-  <li> &lt;make&gt; / &lt;do&gt; / &lt;namespace&gt; / &lt;tagset&gt;
-  </li>
-  <li> &lt;get&gt; / &lt;set&gt; / &lt;let&gt; / &lt;bind&gt;
-  </li>
-  <li> &lt;include&gt; / &lt;write&gt; / &lt;status&gt; / &lt;connect&gt;
-  </li>
-  <li> &lt;numeric&gt; / &lt;logical&gt; / &lt;text&gt; 
-  </li>
-  <li> &lt;protect&gt; / &lt;expand&gt; / &lt;hide&gt;
-  </li>
-  <li> &lt;sql&gt; / &lt;sign&gt; / &lt;sendmail&gt; 
-  </li>
-  <li> &lt;date&gt; / &lt;url&gt; 
-  </li>
-</ul>
-<p> Less than 30 primitive operations, comprising a complete language. 
-</p>
 </slide>
 
 
