@@ -31,7 +31,9 @@ MYPATH=Doc
 
 .SUFFIXES: .slides .html
 
-PROCESS=$(PIADIR)/bin/process
+#PROCESS=$(PIADIR)/bin/process
+PROCESS=process
+
 SLIDES_TS = $(PIADIR)/Tagsets/slides.ts
 
 %.html: %.slides $(SLIDES_TS) slides.ts
