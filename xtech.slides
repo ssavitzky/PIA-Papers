@@ -168,7 +168,8 @@ Infrastructure:
 </p>
 
 <ul>
-  <li> The unique part is specifying behavior by assigning actions to tags.
+  <li> The unique part is specifying behavior as well as style<br />
+       by assigning <em>actions</em> to tags.
   </li>
   <li> <em>in effect, we're abusing a stylesheet processor to interpret a
        scripting language.</em>
