@@ -122,7 +122,7 @@
 
 
 <slide><h2>Proliferation of Clients</h2>
-<ul><!-- === pictures === -->
+<ul>
   <li> Browsers, of course
        <table>
 	 <tr>
@@ -163,7 +163,7 @@
 </slide>
 
 
-<slide><h2>Increasing Customization and Interaction</h2>
+<slide><h2>Increasing Interaction and Customization</h2>
 <p> &nbsp;
 </p>
 <ul>
@@ -186,7 +186,7 @@
        </ul>
        <p>&nbsp;</p>
   </li>
-  <li> Others are designed to be <em>customized</em>
+  <li> Some are designed to be <em>customized</em>
        <ul>
 	 <li> customizable portals
 	      (e.g. <a href="http://my.yahoo.com/">My Yahoo</a>)
@@ -213,7 +213,6 @@
 	href="http://www.netcraft.com/">Netcraft</a> Web Server Survey, <a
 	href="http://www.netcraft.com/survey/"
 	>http://www.netcraft.com/survey/</a><br />
-        Note: Apache and Microsoft are composites of several versions.
       </font>
       </td>
   </tr>
@@ -224,6 +223,11 @@ There are open source operating systems and languages, too.
 
 <slide><h2>The Rise of XML</h2>
 <p> &nbsp;</p>
+<p align="left">
+<a href="http://www.xml.com/"><img border="0"
+src="Images/Logos/xml_com_logo_99.gif"
+/></a>
+</p>
 <ul>
   <li> eXtensible Markup Language is the successor to HTML
   </li>
@@ -237,6 +241,11 @@ There are open source operating systems and languages, too.
   <li> Easy to process
   </li>
 </ul>
+<p align="right">
+<a href="http://www.xml.org/"><img border="0"
+src="Images/Logos/xmlorg_top_logo.gif"
+/></a>
+</p>
 </slide>
 
 
@@ -269,7 +278,9 @@ There are open source operating systems and languages, too.
 <font size="-1">
     Any point in the three-dimensional space defined by the server, operating
     system, and implementation language represents a ``platform'' on which a
-    web appliation can be built.
+    web appliation can be built. <br />
+    &nbsp; Merging multiple apps into a website may mean moving them from one
+    platform to another.
 </font>
     </td>
   </tr>
@@ -360,13 +371,13 @@ with a portable, standard processing engine.
   </li>
   <li> How to collaborate?
        <ul>
-	 <li> Use XML files as standard file format
+	 <li> No code: applications are XML with domain-specific tags.
 	 </li>
        </ul>
   </li>
   <li> Which development environment?
        <ul>
-	 <li> Whichever one makes sense: they all support XML
+	 <li> Whichever one makes sense <em>for each collaborator</em>.
 	 </li>
        </ul>
   </li>
@@ -376,13 +387,8 @@ with a portable, standard processing engine.
 	 </li>
 	 <li> XML minimizes need for special skills, IT support. 
 	 </li>
-       </ul>
-  </li>
-  <li> How to maintain / customize the PIA's core software?
-       <ul>
-	 <li> The PIA's processing engine is open source
-	 </li>
-	 <li> ... for easy collaboration on the code
+	 <li> The PIA's processing engine is open source<br />
+	       ... for easy customization of the code
 	 </li>
        </ul>
   </li>
