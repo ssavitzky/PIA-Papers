@@ -325,7 +325,7 @@
     advantages: 
 </p>
 
-<ol>
+<ul>
   <li> It provides a complete set of processing operations, represented as XML
        ``tags,'' rather than providing a limited set (e.g. the
        tree-transformation operations of XSLT) or relying on ``escapes'' into
@@ -355,9 +355,24 @@
   <li> The reference implementation is written in Java, which is itself
        platform-neutral. 
   </li>
-</ol>
+</ul>
 
-<h3>The PIA and Other Platforms</h3>
+<p> The PIA application platform also provides some additional functionality
+    beyond the simple XML-based document-processing engine:
+</p>
+
+<ul>
+  <li> The PIA includes a web server engine (written in Java) that allows
+       ``agents'' written in XML to operate on HTTP requests and responses.
+       This can be useful when writing proxy-based applications.  The build-in
+       server is also useful for testing web applications.
+  </li>
+  <li> The PIA also includes an extremely versatile scheme for defining the
+       structure of a web site, using XML description files.
+  </li>
+</ul>
+
+<h2>The PIA and Other Platforms</h2>
 
 <blockquote><em>
   A detailed discussion of the relationship between the PIA and other web
@@ -367,16 +382,19 @@
   platforms. 
 </em></blockquote>
 
+<p> Because of its implementation, the PIA's document-processing engine (and
+    to a lesser extent its site-description mechanism) are particularly easy
+    to incorporate into other web application platforms.  This makes it
+    possible to build mixed systems that satisfy requirements (e.g. for
+    performance or interoperability) that cannot easily be met by the PIA
+    alone.  It also makes it easy to fit the PIA into existing systems, adding
+    new capabilities without forcing major changes. 
+</p>
+
+<h3>Java-based Systems</h3>
+
 <pre>
-
-Integrating the PIA into other web application platforms
-
-	In most cases either the DPS, the site package, or both can be
-	incorporated into an application, as required.
-
 	<em>[for each platform, what's required.  Identify easy targets]</em>
-
-  Java-based systems
 
     Servlet engines
 
@@ -399,12 +417,16 @@ Integrating the PIA into other web application platforms
 	The PIA can read and write DOM trees.  The site package can provide
 	a complete site map or any subtree of it in the form of a DOM tree. 
 
-  C-based systems
+</pre>
 
+<h3>C-based systems</h3>
+
+<pre>
     Apache
 
-    Expat-based systems
+    Other C-based systems
 
+    C++ systems
 </pre>
 
 
