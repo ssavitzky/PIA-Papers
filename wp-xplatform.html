@@ -280,17 +280,121 @@
 </p>
 
 <hr />
-<h2><em>[What a web application looks like]</em></h2>
+<h2>Web Applications: an Overview</h2>
 
 <em>
 The usual processing diagram, showing tagsets and documents.<br />
 
-What it takes to port an application to another platform (without the PIA):
-move the documents; translate the logic to target language. <br />
-
-The structure of the PIA:  engine and primitive tags with handlers in Java.
-Need only port the engine and the primitives. 
+Starting points for figures can be found in
+<a href="file:/pia1/pia/Doc/Slides/review97/Figures/"
+>/pia1/pia/Doc/Slides/review97/Figures/</a>.  I could have sworn that we had
+better ones, but it looks like we haven't been keeping up.<br />
 </em>
+
+<h3>Moving a Web Application</h3>
+
+<h4>The General Case</h4>
+
+<p> In general, a web application consists of several components; some are
+    much easier to move between platforms than others:
+</p>
+
+<ul>
+  <li> <strong>Static documents:</strong>  these are inherently
+       platform-independent.  Unfortunately, their <em>names</em> may not be. 
+  </li>
+  <li> <strong>Site Structure:</strong> Filenames and other aspects of a
+       site's structure can vary in several ways among platforms:
+       <ol>
+	 <li> <strong>File Types:</strong> different platforms have different
+	      ways of indicating the MIME type of a document.  For example,
+	      Unix normally uses an extension of <code>.html</code> to
+	      indicate a <code>text/html</code> document; Windows uses
+	      <code>.htm</code>.  MacOS uses a file type stored in the file's
+	      resource fork.
+	 </li>
+	 <li> <strong>Case Sensitivity:</strong> Unix filenames are case
+	      sensitive.  It is possible to distinguish, for example,
+	      <code>Polish.html</code> and <code>polish.html</code>.  On other
+	      operating systems one of these documents would have to be
+	      renamed. 
+	 </li>
+	 <li> <strong>Name Length:</strong> Most modern operating systems
+	      permit long names for files, but many older systems do not.  DOS
+	      is notorious for its ``8+3'' limitation; it also had a
+	      limitation on <em>depth</em> (the length of a pathname) which
+	      Windows 95 does its best to conceal from the user.
+	 </li>
+	 <li> <strong>Character Set:</strong> Operating systems differ in the
+	      set of characters permitted in filenames.  Letters, digits, and
+	      hyphens are safe. 
+	 </li>
+       </ol>
+
+       By planning ahead it is possible to avoid many of these problems.  As
+       well as avoiding unusual characters and case sensitivity in filenames,
+       it is usually possible to avoid exposing filename extensions to
+       the client.  This can be done either by having the server select an
+       appropriate extension based on content negotiation, or by using 
+       directories as ``documents'' with the actual content in, e.g., the
+       directory's <code>index.html</code> file.
+  </li>
+  <li> <strong>Active Documents:</strong> The most important documents in a
+       web application (as opposed to a simple web site) are the active ones:
+       the documents that do the work.  These include both CGI scripts and,
+       more recently, documents with embedded code such as HHP3, ASP and JSP.
+       When moving an application to a different platform, these active
+       documents often have to be translated.  At least, some of the more
+       common scripting languages and document formats are operating-system
+       independent: a CGI script written in PERL or Python will usually be
+       fairly portable.
+  </li>
+  <li> <strong>Server Features:</strong> Many, perhaps most, web servers have
+       special features that an application may make use of.  Different
+       servers may have different ways of keeping names and passwords for
+       authentication, for example.  Some, such as Apache, may perform URL
+       rewriting or invisible proxying.  Almost all modern servers have an API
+       that allows efficient calls to code in some underlying programming
+       language (C, Java, etc.).  These code modules are far more efficient
+       than separate CGI scripts, but are also far less portable.
+  </li>
+  <li> <strong>Operating Environment:</strong> Some web applications interact
+       strongly with their underlying operating systems and applications.
+       Active documents running on a Microsoft platform can use COM to obtain
+       services from standard applications; CGI scripts on Unix can use a
+       command line for the same purpose. 
+  </li>
+</ul>
+
+<h4>Moving a PIA Application</h4>
+
+<p> The structure of the PIA makes it particularly easy to move an application
+    from one platform to another.  Because the only non-XML components of a
+    typical PIA application are the processing engine and the low-level or
+    ``primitive'' tag handlers, the worst case is that this small amount of
+    code may have to be rewritten to fit into the new platform.
+</p>
+
+<p> The <em>usual</em> case is much better, because the PIA's document
+    processor and tag handlers are already written in popular programming
+    languages (Java and C) using standard interfaces (SAX and DOM), and so are
+    already able to fit in to the most popular web application platforms.
+    This means that porting a <em>typical</em> application may only involve
+    rewriting a few custom tag handlers (perhaps with operating system
+    dependencies) and possibly translating the application's configuration
+    files. 
+</p>
+
+<p> Portability of document names and site structure are not a significant
+    problem with ``pure'' PIA applications because the PIA's site
+    configuration mechanism encourages the use of names without extensions,
+    and allows arbitrary mapping of URL's onto files and directories.  This
+    means that an application's files and directories can be renamed to fit
+    the platform without changing the URL's exposed to the clients.  Moving
+    a PIA application to a platform that doesn't include the PIA's site
+    configuration package is fairly simple in platforms like Apache that
+    include a URL rewriting mechanism.
+</p>
 
 <hr />
 <h2>The PIA Web Application Framework</h2>
