@@ -1,12 +1,20 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html><head>
 <title>Trends in Web Applications</title>
-</head><body bgcolor=white >
+</head><body marginwidth="0">
 <h1>Trends in Web Applications</h1>
 <!-- Slides for a brief presentation on trends -->
 
+<hide>
+  <p> If you can see this, you are looking at the ``<code>.slides</code>''
+      source file for this slide presentation.  The HTML version should be
+      available at <a href="trends.html"><code>trends.html</code></a>.
+  </p>
+</hide>
+
 <font size="+2"></font><!-- HTML doesn't like <p> inside <font> -->
 <slide><!-- title slide: no top caption. -->
+<p> &nbsp;</p>
 <div align='center' valign='center'>
 <font size='+2'> <strong>Trends in Web Applications</strong></font><br />
 <p><img src="Images/Logos/pia150.gif" /></p>
@@ -20,9 +28,15 @@
      </td>
      <td align="left" valign="top">
 	<table cellpadding='0' cellspacing='0' border='0'>
-	    <tr nowrap nobr><th><a href='http://rsv.ricoh.com/'><img src='Images/Logos/ricoh.gif' border='0' width='170' height='48' alt='R I C O H'></a></th></tr> 
-	    <tr nowrap nobr><td nowrap nobr><img src='Images/Logos/blackline.gif' height='2' width='170'></td></tr> 
-	    <tr nowrap nobr><th align='left' valign='top'><img src='Images/Logos/ricoh-silicon-valley.gif' alt='RICOH SILICON VALLEY' border='0' width='170' height='21'></th></tr>
+	    <tr nowrap nobr><th><a href='http://rsv.ricoh.com/'><img
+		 src='Images/Logos/ricoh.gif' border='0' width='170'
+		 height='48' alt='R I C O H'></a></th></tr> 
+	    <tr nowrap nobr><td nowrap nobr><img
+		 src='Images/Logos/blackline.gif'
+		 height='2' width='170'></td></tr> 
+	    <tr nowrap nobr><th align='left' valign='top'><img
+		 src='Images/Logos/ricoh-silicon-valley.gif' border='0' 
+		 alt='RICOH SILICON VALLEY' width='170' height='21'></th></tr>
 	</table>
      </td>
   </tr>
@@ -32,34 +46,44 @@
 
 <slide><h2>The Triumph of the Web</h2>
 <ul>
-  <li> The web is the preeminent medium for communication between people and
+  <li> The web is the preeminent medium for communication 
        <table>
 	 <tr>
-	   <th align="left" colspan=2> businesses</th>
+	   <th align="left" colspan=2>between people and businesses</th>
 	 </tr>
 	 <tr>
 	   <td colspan=2>
 	      <a href="http://yahoo.com/">
-	         <img src="Images/Logos/yahoo.gif" border="0" /></a>
+	         <img src="Images/Logos/yahoo.gif" border="0" alt="yahoo!"/></a>
 	      <a href="http://etrade.com/">
-	         <img src="Images/Logos/etrade.gif" border="0" /></a>
+	         <img src="Images/Logos/etrade.gif" border="0"
+	              alt="e*Trade" /></a> 
 	      <a href="http://amazon.com/">
-	         <img src="Images/Logos/amazon.gif" border="0"/></a>
+	         <img src="Images/Logos/amazon.gif" border="0"
+	              alt="amazon.com" /></a>
 	   </td>
 	 </tr>
+	 <tr> <td colspan=2> as well as between</td>
+	 </tr>
 	 <tr>
-	   <th align="left" >people</th>
-	   <th align="left" >machines</th>
+	   <th align="left">people and people</th>
+	   <th align="left">&nbsp;&nbsp; people and machines</th>
 	 </tr>
 	 <tr>
 	   <th>
 	      <a href="http://www.undernet.org/">
-	         <img src="Images/Logos/undernet.gif" border="0"/></a>
+	         <img src="Images/Logos/undernet.gif" border="0"
+	              alt="Undernet.org" /></a>
 	   </th>
-	   <th>
+	   <th>&nbsp;&nbsp;
 	      <a href="http://www.moretonbay.com/">
-	         <img src="Images/Devices/nettel.jpg" border="0" /></a>
+	         <img src="Images/Devices/nettel.jpg" border="0" 
+	              alt="moretonbay.com" /></a>
 	   </th>
+	 </tr>
+	 <tr>
+	   <td align="right">(a chat site)</td>
+	   <td align="right">(a router)</td>
 	 </tr>
   </table>
   </li>
@@ -129,9 +153,9 @@
 	   		width="130" border="0" /></a>
 	   </td>
 	 </tr>
-         <tr> <td>Thin clients</td>
-	      <td>Mobile clients</td>
-	      <td>... others </td>
+         <tr> <td>Mobile clients</td>
+	      <td>Thin clients</td>
+	      <td>Specialized clients</td>
 	 </tr>
        </table>
   </li>
@@ -302,22 +326,24 @@ There are open source operating systems and languages, too.
 </ul>
 </slide>
 
+<!-- === this slide isn't really needed. ===
 <slide><h2>Conventional Application development</h2>
-<img src="Images/img001.gif"><br />
+<img src="Images/img001.gif" /><br />
 Application consists almost entirely of code
 </slide>
+-->
+
 
 <slide><h2>Conventional Web development</h2>
-<img src="Images/img002.gif"><br />
+<img src="Images/img002.gif" /><br />
 Application consists of documents, and some separate code
 </slide>
 
 
-<!-- === answer the developer questions! === -->
 <set name="subcaption">The PIA Solution: an XML-based  framework</set>
 
 <slide><h2>PIA-based Web Development</h2>
-<img src="Images/img003.gif"><br />
+<img src="Images/img003.gif" /><br />
 Application consists almost entirely of XML documents<br />
 with a portable, standard processing engine.
 </slide>
