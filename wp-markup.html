@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<title>White Paper: Adventures in Active Markup</title>
+</head><body bgcolor="white" fgcolor="black">
+<h2><a href="../"><font face="Verdana, Arial, Helvetica, sans-serif" color="#993300">Ri</font><font face="Verdana, Arial, Helvetica, sans-serif" color="black"><i>Source.org</i></font></a>
+/ <a href="./">White Papers</a>
+/ <br /> Adventures in Active Markup
+</h2>
+
+<h3>Foreword</h3>
+
+<p> This white paper is an attempt at a roadmap for the evolution of the
+    various instances of what might be called ``active markup languages'',
+    specifically <a href="/SSML/">SSML</a>, <a href="/PIA/">PIA</a>, and <a
+    href="http://cpia.sourceforge.net/">cPIA</a>.  All three are systems for
+    writing web applications as collections of ``active web pages'' that,
+    rather than embedding constructs from another programming language, use
+    a markup language (HTML or XML) extended to the point where complete
+    server-side programs can be written <em>directly in the markup
+    language</em>.
+</p>
+<p> These systems can be viewed as ``macro languages'' for markup; they
+    extend markup languages by adding control structures and data-processing
+    functions with the same syntax as the underlying markup language.
+</p>
+
+<p> Active markup systems stand in contrast to what might be called
+    ``<em>embedded-code</em>'' systems like ASP, JSP, and PHP (which embed
+    fragments of various programming languages in otherwise-ordinary web
+    pages) and ``<em>server-side programming</em>'' systems like server API's
+    and CGI programs.  However, they are also distinct from style-sheet-based
+    systems like Cocoon and XSLT; although they <em>allow</em> a complete
+    separation between content and processing, they do not <em>require</em>
+    it, and allow processing code to be embedded directly in pages.
+</p>
+
+<p> Active markup is unique in its ability to support a mixture of separate
+    (stylesheet-like) and embedded (ASP-like) styles in different parts of a
+    web application.
+</p>
+
+<h3>   <a name="contents">Table of Contents:</a></h3>
+<toc />
+
+<h2>Roadmap: the Future of Active Markup</h2>
+
+<blockquote><em> (I'm going to present the roadmap first.  The reasoning
+  behind my suggestions may be a trifle sketchy; it may be necessary to refer
+  to the detailed <a href="#comparison">comparison</a> of the various systems,
+  below.)
+</em></blockquote>
+
+<p> I think we should work toward the following goals:
+</p>
+
+<ul>
+  <li> Identification of a <em>common tagset</em> -- a set of active tags that
+       active markup systems can pick and choose from.  Some tags will be
+       unnecessary in some systems; others will be impossible -- for example,
+       systems like SSML that extend the entity syntax to include expressions
+       don't need PIA's &lt;numeric&gt; and &lt;logical&gt; tags; systems like
+       PIA won't be able to implement SSML's looping constructs.
+  </li>
+  <li> A <em>common architecture</em> for parsers, parse trees, and output
+       modules that would allow parsers and tag handlers to be shared among
+       systems.  There will, of necessity, be different implementations for
+       these in different language families (e.g. C, Java, and Perl), but it
+       should at least (eventually) be possible to share modules freely
+       between C and C++.
+  </li>
+  <li> In the longer term, encouragement of a community of active-markup users
+       and developers.
+  </li>
+</ul>
+
+<h3>Common Tagset</h3>
+
+<p> There are a very small number of choices that distinguish among the
+    existing active-markup systems at the lexical level, e.g.,:
+</p>
+
+<ul>
+  <li> Strict (PIA) entity syntax / extended (SSML) syntax
+  </li>
+  <li> Strict XML parser / relaxed parser
+  </li>
+</ul>
+
+<blockquote>
+  (It is even possible to automatically translate among these: for
+   example an expression in an extended entity can be eliminated by using
+   &lt;do&gt; to construct the element.)
+</blockquote>
+
+<p> Beyond that, it's a matter of selecting a set of allowable operations: a
+    tagset.  It ought to be possible to select a set of primitive tags that
+    <em>everyone</em> can agree on (for example, &lt;if&gt;, &lt;get&gt;,
+    &lt;set&gt;, &lt;define&gt; and maybe a few others are already common to
+    both PIA and SSML).
+</p>
+
+<p> The main reason for doing this is not so much to make applications more
+    portable (although the ability to pass active-markup pages around will
+    certainly be a good thing in the long run) as to make the necessary
+    <em>knowledge</em> more portable: just as Java and C++ benefit greatly
+    from their common syntactic and semantic legacy from C, active-markup
+    languages will benefit from a shared core of common syntax.
+</p>
+
+<h3>Common Architecture</h3>
+
+<p> There are three ways to structure an active-markup system:
+</p>
+
+<ul>
+  <li> Parse the active document and build a parse tree.  Then traverse the
+       parse tree, calling handlers for the active tags and the output routine
+       for the rest.
+  </li>
+  <li> Parse the active document and <em>compile it</em> into a program
+       (possibly in some intermediate language such as byte codes) which can
+       then be executed or interpreted.
+  </li>
+  <li> Parse the active document and call ``event handlers'', SAX-style, on
+       the fly.  The handlers for &lt;define&gt;, &lt;set&gt;, and so on have
+       to build <em>pieces</em> of parse tree, which are stored and later
+       traversed.
+  </li>
+</ul>
+
+<p> Currently, SSML can do either of the first two.  PIA <em>essentially</em>
+    does the first, except that the nodes the parser constructs are passed
+    directly to the output and never actually linked into a real tree unless
+    the content is needed for an active tag.  The PIA parser, in other words,
+    has the interface of a tree traverser.  (The PIA also contains an
+    event-driven API, but it hasn't been tested.)
+</p>
+
+<p> Ultimately one would like to move away from the first method and toward
+    the second and third; the second (compilation) is more efficient for pages
+    that rarely change; the third (event-driven) is more efficient for
+    on-the-fly expansion and allows enormous pages if you're careful.
+</p>
+
+
+<h3>Community</h3>
+
+
+
+<h2><a name="comparison">Comparisons</a></h2>
+
+<h3>System-Level Comparison</h3>
+
+<p> This section compares the three active markup systems <a href="/SSML/">
+      SSML</a>, <a href="/PIA/">PIA</a>, and <a
+      href="http://cpia.sourceforge.net/">cPIA</a>.
+</p>
+
+<table border="1">
+  <tr>
+    <th>&nbsp;</th>
+    <th align="left">PIA</th>
+    <th align="left">cPIA</th>
+    <th align="left">SSML</th>
+  </tr>
+  <tr>
+    <th>Implementation Language</th>
+    <td>Java</td>
+    <td>C</td>
+    <td>C++</td>
+  </tr>
+  <tr>
+    <th>Tree Representation</th>
+    <td>DOM</td>
+    <td>DOM</td>
+    <td>(something else)</td>
+  </tr>
+  <tr>
+    <th>Binding Time</th>
+    <td>late</td>
+    <td>late</td>
+    <td>early</td>
+  </tr>
+  <tr>
+    <th>Execution Environment</th>
+    <td>stand-alone server/servlet</td>
+    <td>Apache module</td>
+    <td>Apache module</td>
+  </tr>
+  <tr>
+    <th>command-line operation?</th>
+    <td>filter</td>
+    <td>filter</td>
+    <td>--</td>
+  </tr>
+  <tr>
+    <th>Parser</th>
+    <td>virtual-tree iterator</td>
+    <td>virtual-tree iterator</td>
+    <td>tree-builder</td>
+  </tr>
+  <tr>
+    <th>Compiler?</th>
+    <td>no</td>
+    <td>no</td>
+    <td>yes</td>
+  </tr>
+  <tr>
+    <th></th>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+</table>
+
+<h3>Architecture Comparison</h3>
+
+<p> This section compares the architectures of <a href="/SSML/">SSML</a> and
+    <a href="/PIA/">PIA</a>/<a href="http://cpia.sourceforge.net/">cPIA</a>
+    (which share their basic structure in spite of having been written in
+    different implementation languages).
+</p>
+
+<p> SSML has a fairly conventional architecture: it generates a parse tree
+    which is passed along to a LISP-like interpretor, which in turn invokes
+    handlers for the active tags and sends anything it doesn't recognize along
+    to the output.  This makes it possible to save a compact binary
+    representation of pages which can be interpreted very efficiently.
+</p>
+
+<p> PIA, on the other hand, has a somewhat unusual architecture: instead of
+    building and then traversing a parse tree, the parser <em>has the
+    interface of a tree walker</em>.  This makes it possible to process large
+    documents without ever having to construct a complete tree.  Similarly,
+    output is done through an object with the interface of a <em>tree
+    constructor</em>.
+</p>
+
+<p> PIA's parse tree representation was inspired by the W3C's Document Object
+    Model (DOM), and in fact the PIA includes a reasonably complete DOM
+    implementation.  Unfortunately, it turns out that the DOM is really
+    unsuitable for server-side use; among other things, it includes
+    bidirectional links that make allow the tree to be traversed in any order,
+    and make reference counting much more complicated.  LISP-like trees with
+    unidirectional links are all that the PIA really needs.
+</p>
+
+<h3>Language Comparison</h3>
+
+<p> This section compares the active markup languages of <a
+    href="/SSML/">SSML</a> and the <a href="/PIA/">PIA</a> family.
+</p>
+
+<p> At a language level, the two systems have a great deal in common.
+</p>
+
+<ul>
+  <li> Both are fundamentally HTML-based, rather than XML-based -- they both
+       allow unquoted attributes and attributes without values.  SSML
+       explicitly allows, and indeed encourages, HTML-like structures in order
+       to improve human read/writeability; PIA tries hard to be XML-compatible
+       but allows HTML-like shortcuts.
+  </li>
+  <li> Both abuse the XML entity-reference syntax; PIA uses entities as
+       variables; SSML uses <code>&amp;(<em>variable</em>);</code> and
+       <code>&amp;{<em>expression</em>};</code>.  SSML's extensions are
+       required for early binding and avoid name collisions with existing
+       entities; PIA's form works better with late binding.
+  </li>
+  <li> Both ignore the XML namespace architecture, although the PIA abuses the
+       namespace <em>syntax</em> to specify context in entity names.
+  </li>
+  <li> Both have a rich set of control-structure and data-processing tags,
+       with some tags (e.g., &lt;if&gt;, &lt;set&gt;, and &lt;get&gt;) in
+       common.  
+  </li>
+  <li> Both have a &lt;define&gt; tag for defining new tags, essentially as
+       macros.  And, of course, both have a way of implementing
+       native-language tag handlers.
+  </li>
+  <li> Both include a way of executing Unix commands.
+  </li>
+</ul>
+
+<p> There are some significant differences, too, but these are mainly in the
+    choice of tags available, and are strongly influenced by SSML's expression
+    syntax and PIA's lack of it.
+</p>
+
+<ul>
+  <li> SSML allows scripting languages (Perl and Python handlers are provided)
+       to be embedded in pages (using a &lt;SCRIPT&gt; tag), providing a
+       convenient escape from the tag language.
+  </li>
+  <li> PIA has a rich set of tags for arithmetic and logical operations.  These
+       are, of course, made necessary by its lack of a syntax for embedding
+       expressions in entity references and its lack of an escape to a
+       scripting language. 
+  </li>
+  <li> SSML's control structures are more C-like; PIA's are more verbose and
+       somewhat LISP-like.
+  </li>
+  <li> PIA includes operators for constructing and manipulating parse trees at
+       run-time.  In particular, it includes the &lt;make&gt; and &lt;do&gt;
+       tags, which allow XML elements to be constructed and (with &lt;do&gt;)
+       executed at run time, and the &lt;extract&gt; tag for extracting
+       information from parse trees.  
+  </li>
+  <li> Because it is basically a tree-manipulation language, PIA can be used
+       to parse and manipulate arbitrary web pages.  This includes repurposing
+       existing tags (as can be seen in <a
+       href="http://cpia.sourceforge.net/">cPIA</a>, where the &lt;p&gt; tag
+       is redefined as a table with a white background).
+  </li>
+</ul>
+
+<hr />
+<b>Copyright &copy; 2002 Ricoh Innovations, Inc.</b><br>
+<b>$Id$</b><br>
+<address><a href="http://rii.ricoh.com/~steve/"
+         >Stephen R. Savitzky</a> &lt;<a href="mailto:steve@rii.ricoh.com"
+         >steve@rii.ricoh.com</a>&gt;</address>
+</body></html>
