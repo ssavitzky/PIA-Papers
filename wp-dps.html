@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<title>White Paper: Document Processing in the PIA</title>
+</head><body bgcolor="white" fgcolor="black">
+<h2><a href="../index.shtml"><font
+face="Verdana, Arial, Helvetica, sans-serif" color="#993300">Ri</font><font
+face="Verdana, Arial, Helvetica, sans-serif" color="black"
+><i>Source.org</i></font></a>
+/ <a href="index.html">White Papers</a>
+/ Document Processing in the PIA</h2>
+
+<h2>Overview</h2>
+
+<p> The PIA's <em>Document Processing System</em> (DPS) is fundamentally a
+    document formatting system masquerading as a macro language.  (Programmers
+    may be more comfortable thinking of it as a simple programming language
+    optimized for document processing).  The most unusual feature of the
+    system is that the input documents, output documents, and processing
+    instructions <em>all have the same syntax</em> -- XML (or a less strict
+    superset that includes HTML the way most people write it).
+
+<h3>Document-Oriented Computing</h3>
+
+<p> In many ways, the PIA represents a new way of using computers on the Web,
+    which we call ``<em>Document-Oriented Computing</em>.''  It reflects the
+    realization that, not only does the Web consist entirely of documents, but
+    that documents and document fragments have become the basic objects of
+    computation for web applications.  They are stored on servers, passed from
+    servers to clients, operated on by style sheets (which are <em>also</em>
+    documents), cached in files, and so on.
+
+<p> Just as numbers are the basic objects of computation for a spreadsheet or
+    a ``number-crunching'' application, just as images and pixels are the
+    basic objects of games and presentation programs, documents and their
+    components are the basic objects of computation for the PIA.  The PIA goes
+    further than traditional applications, however: because the PIA allows
+    documents to be active, it is possible to build complete applications
+    using <em>nothing but documents</em>.
+
+<p> A ``style sheet'' is a simple example of an active document:  it specifies
+    how some other document is supposed to be formatted for presentation in a
+    browser, or for printing.  An ``active server page'' is another example:
+    it consists of an ordinary HTML document with some fragments of program
+    embedded in it, which are interpreted by the server.
+
+<p> The difference in the PIA is that active documents don't contain pieces of
+    code in some programming language.  Instead, the PIA simply associates
+    actions with some of the document's ``tags.''  Some tags (about two dozen)
+    are predefined, others can be defined as needed by the application
+    designer.
+
+<h3>Examples</h3>
+
+<p> For example, this is all one needs to do in order to create a ``footer''
+    tag to go at the bottom of every document on your web site:
+
+<blockquote><pre>
+&lt;define element="footer" empty="yes">
+  &lt;action>
+    &lt;b>&lt;i>Copyright 1999 
+        &lt;a href="http://RiSource.org/"&gt;RiSource.org&lt;/a>&lt;/i>&lt;/b>&lt;br&gt;
+  &lt;/action>
+&lt;/define>
+</pre></blockquote>
+
+<p> Notice the way this definition mixes ordinary HTML tags with a small
+    number of ``active tags'' -- <code>&lt;define&gt;</code> and
+    <code>&lt;action&gt;</code> in this case. 
+
+<p> The document being processed need not be a local file -- it can come
+    from anywhere on the Web, and processing need not be confined to simple
+    substitution.  For example, here is a fragment of PIA code that extracts
+    all of the links from a web page and presents them as a bulleted list:
+
+<blockquote><pre>
+&lt;ul>
+  &lt;repeat>
+    &lt;foreach entity="link">
+      &lt;extract>&lt;from>&lt;include src="http://RiSource.org/"/>&lt;/from>
+	       &lt;name all="yes">a&lt;/name>
+      &lt;/extract>
+    &lt;/foreach>
+    &lt;li> &amp;link; &lt;/li>
+  &lt;/repeat>
+&lt;/ul>  
+</pre></blockquote>
+
+<p> Something only slightly more complicated could be used to prepare a site
+    index. 
+
+
+<h2>Tags All the Way Down</h2>
+
+<blockquote>
+  <br> ``The world is supported on the backs of four elephants standing on 
+       the shell of a giant turtle.''
+  <br> ``And what is the turtle standing on?''
+  <br> ``You're very clever, young man, but it's turtles all the way down.''
+  <br> <div align=right> -- <em>told of William James, Bertrand Russell, and
+       others; see <a href='http://www.celenet.org/usedtobe.htm'>here</a> and
+       <a href="http://home.earthlink.net/~mageist/turtle.html">here</a>.
+       </div> 
+</em>
+</blockquote>
+
+<p> The PIA's document processing is <em>entirely</em> XML-based; there are no
+    snippets with other syntax embedded in attributes or text.  All of the
+    actions of the document processing system are performed by associating
+    actions with tags.
+
+<p> This makes the PIA completely compatible with existing XML toolsets.  But
+    because the parser used is <em>also</em> capable of dealing with standard
+    HTML and many other SGML-based markup languages, it can <em>also</em> be
+    used to process documents from a wide variety of sources, including those
+    generated by programs or created using simple text editors. 
+    
+
+<h3>How it works</h3>
+
+<p> The DPS works by making a single pass over a document, performing the
+    <em>actions</em> that are associated with the tags in the document.  The
+    default action for any unknown tag is simply to copy it.  (More correctly,
+    to copy the start tag and its corresponding end tag, and to
+    <em>process</em> the contents.)
+
+<p> The action associated with a tag can either be a <em>definition</em> -- a
+    document fragment that simply replaces the tag in the document; or a
+    <em>primitive</em> -- an action defined by the implementation, in some
+    programming language.  The set of primitives is small, but sufficiently
+    powerful that any possible document transformation can be performed.  The
+    set of tag definitions used to process a document is called a
+    <em>tagset</em>.
+
+<p> The DPS is implemented as a ``processor'' situated between an ``input''
+    which functions as a parser or parse-tree traverser, and an ``output''
+    which functions as a tree <em>builder</em>.  In most cases the input and
+    output tree structures can be entirely virtual.
+
+<p> This approach has several advantages:
+
+<ul>
+  <li> All transformations on the document are <em>local</em>: a tag's action
+       can affect only the element and its contents. 
+
+  <li> A simple consequence of this locality is that, once a part of a
+       document has been processed, it never needs to be looked at again.
+       This means that the DPS can handle documents that are too large to fit
+       in the computer's memory, making the DPS useable in embedded
+       applications.
+
+  <li> Because the DPS operates on ``parse trees'' rather than on strings, it
+       is <em>impossible</em> to produce a document that is syntactically
+       incorrect -- the output document is always well-formed.
+
+  <li> But because the DPS is not restricted to XML parsers, it is not
+       necessary for the <em>input</em> to be well-formed XML -- it might be
+       HTML or even something entirely different. 
+
+  <li> Because the set of primitives is small and the syntax of the language
+       is <em>pure</em> XML or HTML, the DPS is easily implemented in any
+       programming language.  Although the current implementation language is
+       Java, an earlier version was written in Perl, and a version in C is
+       being contemplated.
+
+  <li> Because the set of tag definitions is separate from the document being
+       processed, it is possible to process the same document in multiple
+       ways.  (We will examine this further in the next section.)
+
+  <li> Again because the definitions are separate from the document, the DPS
+       is inherently secure:  by restricting the set of primitives available
+       when processing a document, it is easy to prevent a document
+       ``imported'' from some other web site from affecting local files or
+       accessing other sites.  At the same time, documents that are part of a
+       PIA-based application need <em>not</em> be so restricted.
+
+  <li> On the other hand, by making a more complete set of primitives
+       available to it, a single document can be made to specify both an HTML
+       form, and the associated processing.  The advantages of this can be
+       easily seen in the PIA, which allows <em>complete web-based
+       applications</em> to be built entirely without the use of
+       ``traditional'' programming languages or scripts.
+</ul>
+
+
+<h3>Multiple Views</h3>
+
+<p> One of the major advantages of the DPS is that a document can be processed
+    using different tagsets for different purposes.  There are several
+    applications of this in the PIA; others will no doubt spring to mind.
+
+<ul>
+  <li> Style.  Because <em>any</em> tag can have a definition, it's easy to
+       apply ``styles'' to ordinary HTML documents.  A document can be a
+       mixture of invented tags (for example, <code>&lt;header&gt;</code> and
+       <code>&lt;footer&gt;</code>) and ordinary HTML tags.
+
+  <li> Formatting.  Something we aren't doing at the moment, but could do
+       rather easily, is formatting HTML pages (for a printer, for example).  
+
+  <li> Documentation.  One of the things we do in the PIA is to automatically
+       generate documentation for our tagsets.  We do this by means of a
+       specialized tagset, <code>tsdoc.ts</code>, that redefines the
+       <code>&lt;define&gt;</code> tag.
+
+  <li> Extraction.  It's easy in the DPS to extract information (all images,
+       for example, or all headings) from a document.  
+</ul>
+
+
+<h3>Combining Information and Processing</h3>
+
+<p> As we have seen, the PIA allows information and processing to be mixed in
+    the same document, using the same XML-derived syntax.  This has several
+    benefits:
+
+<ul>
+  <li> Processing and document never become separated, making them less likely
+       to get out of sync.
+
+  <li> Because processing has the same syntax as the document, only one set of
+       editing tools is needed.
+
+  <li> Files that contain primarily processing instructions, for example
+       tagsets and configuration files, are nevertheless perfectly valid
+       documents and can be treated as such.  This allows software and its
+       documentation to stay together.  Tagsets and configuration files can
+       easily be turned into readable HTML or printed documentation.
+</ul>
+
+<h3>Separating Input, Processing, and Output</h3>
+
+<p> The PIA has separate interfaces (API's) for input, output, and processor
+    objects.
+
+<ul>
+  <li> <strong>Input</strong><br>
+
+       is essentially a ``document traverser'' -- it includes the methods
+       necessary for making a single left-to-right, top-down pass through a
+       document's parse tree.  An important feature of the Input interface,
+       however, is that the tree never has to exist in its complete form.
+
+       <p>
+
+  <li> <strong>Output</strong><br>
+
+       defines the interface for a ``document constructor.''  As with the
+       Input interface, the document produced need not be a DOM tree; it might
+       be a character stream, a string, or a SAX application.
+
+  <li> <strong>Processor</strong><br>
+
+       defines the interface for the classes that actually process documents.
+       A Processor implementation can operate in either of two modes: ``pull
+       mode,'' in which the document is supplied by an Input, and ``push
+       mode,'' in which the Processor is ``driven'' by an Output.  The latter
+       is necessary for interfacing to ``event-driven'' parsers such as those
+       that use the popular SAX interface.
+</ul>
+
+
+<h2>The DPS and Standards</h2>
+
+<h3>Choice of Syntax: HTML or XML</h3>
+
+<p> The DPS's parser is capable of handling <em>either</em> XML or HTML
+    syntax -- the parser's degree of ``strictness'' in handling things like
+    omitted end tags or minimized attributes is specified in the tagset. 
+
+<p> Unlike a ``pure XML'' system, this means that HTML documents can be
+    ``imported'' from other web sites and processed using the DPS.  It also
+    means that standard HTML authoring tools can be used to create documents.
+
+<p> But the option of using XML means that the DPS can <em>create</em>
+    documents that <em>are</em> pure XML.  This is true even if the input
+    format is HTML, so that the DPS is easily integrated into any XML-based
+    system. 
+
+
+<h3>Application Programming Interfaces</h3>
+
+<p> There are two major API's in use in the Java/XML community:  SAX and the
+    DOM.  The DPS works well with both.
+
+<ul>
+  <li> SAX is the Simple API for XML.  It is designed as the interface between
+       a parser or ``driver'' and an ``application.''  It is ``event-driven,''
+       in the sense that an ``event handler'' in the application is called by
+       the driver for every ``node'' in the document's parse tree.  The DPS
+       can use the SAX interface ``at both ends'' -- the processor can be
+       driven by a SAX driver, and it can drive a SAX application.
+
+       <p>This versatility means that the PIA can be easily inserted into a
+       SAX ``tool chain'' to perform special-purpose processing
+       <em>between</em> the parser and the application.
+
+       <p>
+
+  <li> DOM is the Document Object Model -- a language-independent set of
+       interfaces for manipulating document parse trees.  The PIA uses its
+       own, extended implementation of the DOM as its internal representation,
+       but because of the extensions it is not really suitable for use in
+       other applications.  However, <em>any</em> DOM implementation can be
+       used as an input or output for the PIA, making the PIA suitable for use
+       with other DOM-based software such as XML databases and document
+       managers. 
+</ul>
+
+<hr>
+<b>Copyright &copy; 1997-1999 Ricoh Silicon Valley</b><br>
+<b>$Id$</b><br>
+<address><a href="http://rsv.ricoh.com/~steve/"
+         >Stephen R. Savitzky</a> &lt;<a href="mailto:steve@rsv.ricoh.com"
+         >steve@rsv.ricoh.com</a>&gt;</address>
+</body></html>
