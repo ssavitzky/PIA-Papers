@@ -113,7 +113,7 @@ Summarize trends; skills
             <img src="Images/Devices/matchbox.jpg" width="133" height="120"
  		 border="0" alt="matchbox server" /></a> <br />
             <a href="http://people.ne.mediaone.net/fwhite/ace/index.html">
-            <img src="Images/Devices/matchhead.jpg" height="101" width="133"
+            <img src="Images/Devices/matchhead.jpg" height="50"
  		 border="0" alt="matchhead server" /></a> 
        </th>
        <th> <a href="http://www.ricoh-usa.com/wnew/pr/1999/1116a.htm">
@@ -156,13 +156,13 @@ Summarize trends; skills
        <table>
          <tr>
 	   <td valign="bottom"> <a href="http://palm.com/">
-		   <img src="Images/palmvii.gif" border="0" /></a>
+		   <img src="Images/Devices/palmvii.gif" border="0" /></a>
 	   </td>
 	   <td valign="bottom"> <a href="http://rebel.com/">
-		   <img src="Images/netwinder.jpg" border="0" /></a>
+		   <img src="Images/Devices/netwinder.jpg" border="0" /></a>
 	   </td>
 	   <td valign="bottom"><a href="http://www.ceiva.com/">
-		   <img src="Images/ceiva.jpg"
+		   <img src="Images/Devices/ceiva.jpg"
 	   		width="130" border="0" /></a>
 	   </td>
 	 </tr>
@@ -236,27 +236,18 @@ There are open source operating systems and languages, too.
 </slide>
 
 <slide><h2>The Rise of XML</h2>
-<!-- === rewrite === -->
+<p> &nbsp;</p>
 <ul>
-  <li> XML is a standardized syntax
+  <li> eXtensible Markup Language is the successor to HTML
   </li>
-  <li> ... with no associated semantics
+  <li> Standard format for exchanging text content and data
   </li>
-  <li> Good for:
-       <ul>
-	 <li> text with markup
-	 </li>
-	 <li> data
-	 </li>
-	 <li> <em>we</em> use it to represent actions as well
-	 </li>
-       </ul>
+  <li> Widespread support in web authoring tools, scripting languages,
+       databases, servers, clients
   </li>
-  <li> Easy for computers to read and write
+  <li> Easy to translate to HTML for legacy clients
   </li>
-  <li> not so easy for humans,
-  </li>
-  <li> ... but the tools are getting better
+  <li> Easy to process
   </li>
 </ul>
 </slide>
@@ -374,13 +365,13 @@ with a portable, standard processing engine.
 <ul>
   <li> Which platform?
        <ul>
-	 <li> Whichever one you prefer: the PIA is portable.
+	 <li> Whichever one you prefer: PIA applications are portable.
 	 </li>
        </ul>
   </li>
   <li> How to collaborate?
        <ul>
-	 <li> Use XML files as <em>lingua franca</em>
+	 <li> Use XML files as standard file format
 	 </li>
        </ul>
   </li>
@@ -390,11 +381,19 @@ with a portable, standard processing engine.
 	 </li>
        </ul>
   </li>
-  <li> How to maintain / customize?
+  <li> How to maintain / customize applications?
        <ul>
-	 <li> Edit simple XML documents that use domain-specific markup.
+	 <li> Edit simple XML documents with domain-specific markup.
 	 </li>
+	 <li> XML minimizes need for special skills, IT support. 
+	 </li>
+       </ul>
+  </li>
+  <li> How to maintain / customize the PIA's core software?
+       <ul>
 	 <li> The PIA's processing engine is open source
+	 </li>
+	 <li> ... for easy collaboration on the code
 	 </li>
        </ul>
   </li>
@@ -402,7 +401,7 @@ with a portable, standard processing engine.
 </slide>
 
 <slide><h2>PIA Features</h2>
-
+<p> &nbsp;</p>
 <ul>
   <li> uses a single XML-based language for :
        <ul>
@@ -416,6 +415,8 @@ with a portable, standard processing engine.
 	      interpret scripts</em>
 	 </li>
        </ul>
+  </li>
+  <li> Supports collaborative (open source) development of applications
   </li>
   <li> Small, simple document-processing engine<br />
        Versatile site-description package
@@ -434,7 +435,8 @@ with a portable, standard processing engine.
 	 </li>
        </ul>
   </li>
-  <li> Open source at <a href="http://RiSource.org/"><font face="Verdana, Arial, Helvetica, sans-serif" color="#993300">Ri</font><font face="Verdana, Arial, Helvetica, sans-serif" color="black"><i>Source.org</i></font></a>
+  <li> <a href="http://RiSource.org/"><font face="Verdana, Arial, Helvetica, sans-serif" color="#993300">Ri</font><font face="Verdana, Arial, Helvetica, sans-serif" color="black"><i>Source.org</i></font></a>
+       to coordinate open source community development
   </li>
 </ul>
 </slide>
