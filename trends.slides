@@ -42,21 +42,19 @@ Summarize trends; skills
 </pre>
 
 
-<font size="+2">
+<font size="+2"></font><!-- HTML doesn't like <p> inside <font> -->
 <slide><!-- title slide: no top caption. -->
-<p> &nbsp;</p>
 <div align='center' valign='center'>
 <font size='+2'> <strong>Trends in Web Applications</strong></font><br />
 <p><img src="Images/pialogo150.gif" /></p>
-<table>
+<table border="0" cellspacing="5" >
   <tr>
      <td>
 	Stephen Savitzky<br />
 	Chief Software Scientist<br />
 	Ricoh Silicon Valley<br />
-	<code>&lt;steve@rsv.ricoh.com&gt;</code><br />
+	<font size="-1"><code>&lt;steve@rsv.ricoh.com&gt;</code></font>
      </td>
-     <td>&nbsp;</td>
      <td align="left" valign="top">
 	<table cellpadding='0' cellspacing='0' border='0'>
 	    <tr nowrap nobr><th><a href='http://rsv.ricoh.com/'><img src='Images/ricoh.gif' border='0' width='170' height='48' alt='R I C O H'></a></th></tr> 
@@ -64,30 +62,49 @@ Summarize trends; skills
 	    <tr nowrap nobr><th align='left' valign='top'><img src='Images/ricoh-silicon-valley.gif' alt='RICOH SILICON VALLEY' border='0' width='170' height='21'></th></tr>
 	</table>
      </td>
-  </tr>	  
+  </tr>
 </table>
 </div>
 </slide>
 
 <slide><h2>The Triumph of the Web</h2>
 <ul>
-  <li> The web the preeminent medium for communication between
-       <ul>
-	 <li> businesses
-	 </li>
-	 <li> people
-	 </li>
-	 <li> machines
-	 </li>
-       </ul>
+  <li> The web is the preeminent medium for communication between people and
+       <table>
+	 <tr>
+	   <th align="left" colspan=2> businesses</th>
+	 </tr>
+	 <tr>
+	   <td colspan=2>
+	      <a href="http://yahoo.com/">
+	         <img src="Images/logo-yahoo.gif" border="0" /></a>
+	      <a href="http://etrade.com/">
+	         <img src="Images/logo-etrade.gif" border="0" /></a>
+	      <a href="http://amazon.com/">
+	         <img src="Images/logo-amazon.gif" border="0"/></a>
+	   </td>
+	 </tr>
+	 <tr>
+	   <th align="left" >people</th>
+	   <th align="left" >machines</th>
+	 </tr>
+	 <tr>
+	   <th>
+	      <a href="http://www.undernet.org/">
+	         <img src="Images/logo-undernet.gif" border="0"/></a>
+	   </th>
+	   <th>
+	      <a href="http://www.moretonbay.com/">
+	         <img src="Images/nettel.jpg" border="0" /></a>
+	   </th>
+	 </tr>
+  </table>
   </li>
 </ul>
 </slide>
 
 <slide><h2>The Rise of XML</h2>
 <!-- === rewrite === -->
-<p> Perhaps the one area of convergence:
-</p>
 <ul>
   <li> XML is a standardized syntax
   </li>
@@ -98,6 +115,8 @@ Summarize trends; skills
 	 <li> text with markup
 	 </li>
 	 <li> data
+	 </li>
+	 <li> <em>we</em> use it to represent actions as well
 	 </li>
        </ul>
   </li>
@@ -118,18 +137,22 @@ Summarize trends; skills
   </tr>
   <tr> <th> <a href="http://wearables.stanford.edu">
             <img src="Images/matchbox.jpg" width="133" height="120"
- 		 alt="matchbox server" /></a> <br />
+ 		 border="0" alt="matchbox server" /></a> <br />
             <a href="http://people.ne.mediaone.net/fwhite/ace/index.html">
             <img src="Images/matchhead.jpg" height="101" width="133"
- 		 alt="matchhead server" ></a> 
+ 		 border="0" alt="matchhead server" /></a> 
        </th>
-       <th> <img src="Images/ecabinet.jpg" width="151" height="134"
-	    alt="Ricoh eCabinet" /> <br />
-	    <img src="Images/qube.jpg" />
+       <th> <a href="http://www.ricoh-usa.com/wnew/pr/1999/1116a.htm">
+	    <img src="Images/ecabinet.jpg" width="151" height="134"
+	         border="0" alt="Ricoh eCabinet" /></a> <br />
+	    <a href="http://www.cobalt.com/">
+	    <img src="Images/qube.jpg" width="160" height="58"
+	         border="0" alt="Cobalt Qube" /></a>
        </th>
-       <th> <a href="http://oss.software.ibm.com/developerworks/opensource/linux390/index.html">
+       <th> <a
+ href="http://oss.software.ibm.com/developerworks/opensource/linux390/">
             <img src="Images/s390.gif" alt="IBM S/390"
-	         width="148" height="243" /></a>
+	         border="0" width="148" height="243" /></a>
        </th>
   </tr>
 
@@ -140,17 +163,38 @@ Summarize trends; skills
 <slide><h2>Proliferation of Clients</h2>
 <ul><!-- === pictures === -->
   <li> Browsers, of course
-  </li>
-  <li> ... and more
        <table>
-       </table>
-         <tr> <th>``Thin'' clients</th>
-	      <th>Mobile clients</th>
-	      <th>Specialized </th>
+	 <tr>
+	   <td valign="bottom"> <a href="http://microsoft.com/">
+		   <img src="Images/logo-IE.gif" border="0" /></a>
+	   </td>
+	   <td valign="bottom"> <a href="http://netscape.com/">
+		   <img src="Images/logo-netscape.gif"
+	   	        width="90" border="0" /></a>
+	   </td>
+	   <td valign="bottom"> <a href="http://opera.com/">
+		   <img src="Images/logo-opera.gif" border="0" /></a>
+	   </td>
 	 </tr>
-         <tr> <td><img src="" /> </td>
-	      <td><img src="" /></td>
-	      <td><img src="" /> </td>
+       </table>
+  </li>
+  <li> ... <em>and more</em>
+       <table>
+         <tr>
+	   <td valign="bottom"> <a href="http://palm.com/">
+		   <img src="Images/palmvii.gif" border="0" /></a>
+	   </td>
+	   <td valign="bottom"> <a href="http://rebel.com/">
+		   <img src="Images/netwinder.jpg" border="0" /></a>
+	   </td>
+	   <td valign="bottom"><a href="http://www.ceiva.com/">
+		   <img src="Images/ceiva.jpg"
+	   		width="130" border="0" /></a>
+	   </td>
+	 </tr>
+         <tr> <td>Thin clients</td>
+	      <td>Mobile clients</td>
+	      <td>... others </td>
 	 </tr>
        </table>
   </li>
@@ -159,8 +203,10 @@ Summarize trends; skills
 
 
 <slide><h2>Increasing Customization and Interaction</h2>
+<p> &nbsp;
+</p>
 <ul>
-  <li> Some web applications are <em>designed for interaction</em>.
+  <li> Some web applications are designed for <em>interaction</em>.
        <ul>
 	 <li> user contributions
 	      (e.g. <a href="http://www.linuxtoday.com/">Linux Today</a>)
@@ -181,7 +227,7 @@ Summarize trends; skills
   <li> Others are designed to be <em>customized</em>
        <ul>
 	 <li> customizable portals
-	      (e.g. <a href="http://my.yahoo.com/">My Yahoo</a>
+	      (e.g. <a href="http://my.yahoo.com/">My Yahoo</a>)
 	 </li>
 	 <li> customizable intranet applications
 	      (e.g. the <a href="http://forms:8000/">RSV Forms Server</a> )
@@ -231,40 +277,71 @@ Summarize trends; skills
 </slide>
 
 <slide><h2>Which platform?</h2>
-<p align="center"> <strong>platform = ( server, OS, language )</strong> 
-<br />
-    <img src="Images/widening.png" />
-</p>
+<div align="center">
+   <strong>platform = ( server, OS, language )</strong> </div>
+<table border=0 cellspacing=0>
+  <tr>
+    <td>
+     <img src="Images/platform-cube.png" align=right />
+    </td>
+    <td>
+<font size="-1">
+    Any point in the three-dimensional space defined by the server, operating
+    system, and implementation language represents a ``platform'' on which a
+    web appliation can be built.
+</font>
+    </td>
+  </tr>
+</table>
 </slide>
 
 <slide><h2>How to Collaborate?</h2>
+<table>
+  <tr>
+    <td><img src="Images/hacker.gif" width="100" /></td>
+    <td><img src="Images/programmer.gif" width="100" /></td>
+    <td><img src="Images/author.gif" width="100" /></td>
+    <td><img src="Images/users.gif" width="100" /></td>
+  </tr>
+  <tr>
+    <td align=center>Software engineer</td>
+    <td align=center>Programmer</td>
+    <td align=center>Author/Designer</td>
+    <td align=center>Customers</td>
+  </tr>
+</table>
 <ul>
   <li> Many people work on a web application
-       <ul>
-	 <li> ...over time
-	 </li>
-	 <li> ...at the same time
-	 </li>
-       </ul>
-  </li>
-  <li> Some have specialized skills
-       <ul>
-	 <li> writers
-	 </li>
-	 <li> artists
-	 </li>
-	 <li> application designers
-	 </li>
-	 <li> web designers
-	 </li>
-	 <li> program designers
-	 </li>
-       </ul>
+       <table>
+	 <tr>
+	   <td>
+		<ul>
+		  <li> writers
+		  </li>
+		  <li> artists
+		  </li>
+		  <li> application designers
+		  </li>
+		</ul>
+	   </td>
+	   <td>
+		<ul>
+		  <li> web designers
+		  </li>
+		  <li> program designers
+		  </li>
+		</ul>
+	   </td>
+	 </tr>
+      </table>
   </li>
 </ul>
 </slide>
 
 <slide><h2>Which Development Environment?</h2>
+
+<p> &nbsp; </p>
+
 <ul>
   <li> From ``notepad'' and <code>emacs</code>
   </li>
@@ -282,6 +359,9 @@ Summarize trends; skills
 </slide>
 
 <slide><h2>How to Maintain and Customize?</h2>
+
+<p> &nbsp; </p>
+
 <ul>
   <li> Customization and maintenance are closely related
        <ul>
@@ -294,83 +374,36 @@ Summarize trends; skills
   <li> Customizing and interacting users may have simpler needs<br />
        ... or they may be computer experts themselves.
   </li>
-  <li> Documents are easy to maintain<br />
-       ... programs are hard
+       <p> &nbsp; </p>
+  <li> <strong>Documents are easy to maintain<br />
+       ... programs are hard</strong>
   </li>
 </ul>
 </slide>
-
-<hide>
-<!-- === old === -->
-<slide><h2>Requirements for Web Applications</h2>
-<ul>
-  <li> Cross Platform 
-  </li>
-  <li> Client Neutral
-  </li>
-  <li> Scalable
-  </li>
-  <li> Stable Interfaces
-       <ul>
-	 <li> interfaces must not change if implementation changes.
-	 </li>
-       </ul>
-  </li>
-  <li> Customizable
-  </li>
-</ul>
-</slide>
-
-<slide><h2>Requirements for Application Development</h2>
-<ul>
-  <li> Support wide range of skill levels
-       <ul>
-	 <li> allow customization by non-experts
-	 </li>
-       </ul>
-  </li>
-  <li> Strong support for markup languages (XML, HTML)
-  </li>
-  <li> Support for distributed development
-  </li>
-  <li> Platform neutral
-  </li>
-  <li> Tool neutral
-       <ul>
-	 <li> support for adding new tools
-	 </li>
-	 <li> tools should preserve source-level formatting
-	 </li>
-       </ul>
-  </li>
-</ul>
-</slide>
-</hide>
 
 <set name="subcaption">The PIA Solution: XML-based  framework</set>
-<slide><h2>The PIA Solution</h2>
-
-<p align="center"> <strong>An XML-based framework for web applications</strong>
-</p>
+<slide><h2>The PIA Solution:  An XML-based framework</h2>
 
 <ul>
   <li> uses a single XML-based language for :
        <ul>
 	 <li> document markup (content)
 	 </li>
-	 <li> data
+	 <li> data -- the ``conventional'' use for XML
 	 </li>
-	 <li> behavior
+	 <li> behavior -- <em>very unconventional</em><br />
+
+	      <em>in a way, we are abusing a stylesheet language to make it
+	      interpret scripts</em>
 	 </li>
        </ul>
   </li>
-  <li> Small, simple document-processing engine
+  <li> Small, simple document-processing engine<br />
+       Versatile site-description package
        <ul>
 	 <li> easily integrated into many platforms
 	 </li>
        </ul>
-  </li>
-  <li> Versatile site-description package
   </li>
   <li> Applications consist entirely of XML documents
        <ul>
@@ -394,7 +427,7 @@ Summarize trends; skills
 </ol>
 </slide>
 
-</font>
+
 <hr>
 <b>Copyright &copy; &year; Ricoh Silicon Valley</b><br>
 <b>$Id$</b><br>
