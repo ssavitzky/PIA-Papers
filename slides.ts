@@ -67,12 +67,12 @@
   <doc> The height of the main portion of a table.  This needs to be tweeked
 	for the screen size of the presentation device; the default is 300,
 	which is correct for a large-screen TV pretending to be a 640x480
-	monitor.
+	monitor, and a browser running in fullscreen mode.
     <p> For 800x600, e.g. a Magio laptop, use <br />
 	<code>&lt;set name=VAR:hh&gt;445&lt;/set&gt;</code>
     </p>
   </doc>
-  <value>300</value>
+  <value>380</value>
 </define>
 
 <define entity="slideH">
@@ -93,7 +93,7 @@
 
 <define entity=topBg><value>#669966</value></define>
 <define entity=topFg><value>black</value></define>
-<define entity=leftBg><value>darkgreen</value></define><!-- #c40026 -->
+<define entity=leftBg><value>#669966</value></define><!-- #c40026 -->
 <define entity=leftFg><value>blue</value></define>
 <define entity=leftW><value>100</value></define>
 <define entity=ulBg><value>lightblue</value></define>
@@ -180,7 +180,7 @@
   <if>&VAR:slidelist;<else><set name="VAR:slidelist"> </set></else></if>
 </hide>
 <table width="100%" cellspacing=0 cellpadding=5 border=0>
-  <tr><td xbgcolor="&leftbg;" width="&leftW;" valign="top" align="center"
+  <tr><td bgcolor="&leftbg;" width="&leftW;" valign="top" align="center"
           background="Images/bkgnd_grn.gif" rowspan=3><br />
         <if>&prev;
   	      <then><a href="#&prev;">&toPrev;</a></then>
@@ -190,7 +190,8 @@
         --?><if>&next;
 	      <then><a href="#&next;">&toNext;</a></then>
 	      <else>&noNext;</else></if><br />
-	<a href="#TOC">-&gt;toc</a><br />
+	<a href="#TOC">contents</a><br />
+	<a href="#0">start</a><br />
       </td>
       <th align=left bgcolor="&topBg;" fgcolor="&topFg;">
 	    <a name="&slide;">&nbsp;</a><if>
@@ -240,7 +241,7 @@
   </action>
 </define>
 
-<define element=h1>
+<define element="h1">
   <doc> The top-level heading in the file (typically there is only one)
 	becomes the default subCaption.  This may not be exactly what you
 	want, but is easily overridden.  It also generates a link with the
