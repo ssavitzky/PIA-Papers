@@ -103,32 +103,6 @@ Summarize trends; skills
 </ul>
 </slide>
 
-<slide><h2>The Rise of XML</h2>
-<!-- === rewrite === -->
-<ul>
-  <li> XML is a standardized syntax
-  </li>
-  <li> ... with no associated semantics
-  </li>
-  <li> Good for:
-       <ul>
-	 <li> text with markup
-	 </li>
-	 <li> data
-	 </li>
-	 <li> <em>we</em> use it to represent actions as well
-	 </li>
-       </ul>
-  </li>
-  <li> Easy for computers to read and write
-  </li>
-  <li> not so easy for humans,
-  </li>
-  <li> ... but the tools are getting better
-  </li>
-</ul>
-</slide>
-
 <slide><h2>Proliferation of Servers</h2>
 <table align="center">
   <tr> <th>Embedded Applications </th>
@@ -223,6 +197,7 @@ Summarize trends; skills
 	      Firewall Tools</a>)
 	 </li>
        </ul>
+       <p>&nbsp;</p>
   </li>
   <li> Others are designed to be <em>customized</em>
        <ul>
@@ -237,7 +212,7 @@ Summarize trends; skills
 </ul>
 </slide>
 
-
+<set name="subcaption">Trends in the Web Infrastructure</set>
 <slide><h2>The Rise of Open Source</h2>
 
 <table align="center">
@@ -256,6 +231,34 @@ Summarize trends; skills
       </td>
   </tr>
 </table>
+
+There are open source operating systems and languages, too.
+</slide>
+
+<slide><h2>The Rise of XML</h2>
+<!-- === rewrite === -->
+<ul>
+  <li> XML is a standardized syntax
+  </li>
+  <li> ... with no associated semantics
+  </li>
+  <li> Good for:
+       <ul>
+	 <li> text with markup
+	 </li>
+	 <li> data
+	 </li>
+	 <li> <em>we</em> use it to represent actions as well
+	 </li>
+       </ul>
+  </li>
+  <li> Easy for computers to read and write
+  </li>
+  <li> not so easy for humans,
+  </li>
+  <li> ... but the tools are getting better
+  </li>
+</ul>
 </slide>
 
 
@@ -295,7 +298,8 @@ Summarize trends; skills
 </table>
 </slide>
 
-<slide><h2>How to Collaborate?</h2>
+<slide><h2>How to Collaborate?  Develop? Maintain?</h2>
+<p align="center"> It's all a matter of <em>people using tools</em></p>
 <table>
   <tr>
     <td><img src="Images/hacker.gif" width="100" /></td>
@@ -307,7 +311,7 @@ Summarize trends; skills
     <td align=center>Software engineer</td>
     <td align=center>Programmer</td>
     <td align=center>Author/Designer</td>
-    <td align=center>Customers</td>
+    <td align=center>Users</td>
   </tr>
 </table>
 <ul>
@@ -330,59 +334,74 @@ Summarize trends; skills
 		  </li>
 		  <li> program designers
 		  </li>
+		  <li> users (customizers)
+		  </li>
 		</ul>
 	   </td>
 	 </tr>
       </table>
   </li>
 </ul>
-</slide>
-
-<slide><h2>Which Development Environment?</h2>
-
-<p> &nbsp; </p>
-
 <ul>
-  <li> From ``notepad'' and <code>emacs</code>
-  </li>
-  <li> ... to integrated HTML editors
-  </li>
-  <li> ... ... to publishing frameworks
-  </li>
-       <p> 
-       </p>
-  <li> Different developers have different preferences
-  </li>
-  <li> Tools should not interfere with one another
+  <li> What can link them is XML
   </li>
 </ul>
 </slide>
 
-<slide><h2>How to Maintain and Customize?</h2>
+<slide><h2>Conventional Application development</h2>
+<img src="Images/img001.gif"><br />
+Application consists almost entirely of code
+</slide>
 
-<p> &nbsp; </p>
+<slide><h2>Conventional Web development</h2>
+<img src="Images/img002.gif"><br />
+Application consists of documents, and some separate code
+</slide>
 
+
+<!-- === answer the developer questions! === -->
+<set name="subcaption">The PIA Solution: an XML-based  framework</set>
+
+<slide><h2>PIA-based Web Development</h2>
+<img src="Images/img003.gif"><br />
+Application consists almost entirely of XML documents<br />
+with a portable, standard processing engine.
+</slide>
+
+
+<slide><h2>The PIA's Answers</h2>
+<p> &nbsp;</p>
 <ul>
-  <li> Customization and maintenance are closely related
+  <li> Which platform?
        <ul>
-	 <li> an application that is easy to customize
-	 </li>
-	 <li> ... is also easy to maintain
+	 <li> Whichever one you prefer: the PIA is portable.
 	 </li>
        </ul>
   </li>
-  <li> Customizing and interacting users may have simpler needs<br />
-       ... or they may be computer experts themselves.
+  <li> How to collaborate?
+       <ul>
+	 <li> Use XML files as <em>lingua franca</em>
+	 </li>
+       </ul>
   </li>
-       <p> &nbsp; </p>
-  <li> <strong>Documents are easy to maintain<br />
-       ... programs are hard</strong>
+  <li> Which development environment?
+       <ul>
+	 <li> Whichever one makes sense: they all support XML
+	 </li>
+       </ul>
+  </li>
+  <li> How to maintain / customize?
+       <ul>
+	 <li> Edit simple XML documents that use domain-specific markup.
+	 </li>
+	 <li> The PIA's processing engine is open source
+	 </li>
+       </ul>
   </li>
 </ul>
 </slide>
 
-<set name="subcaption">The PIA Solution: XML-based  framework</set>
-<slide><h2>The PIA Solution:  An XML-based framework</h2>
+<slide><h2>PIA Features</h2>
 
 <ul>
   <li> uses a single XML-based language for :
