@@ -90,7 +90,24 @@
 </ul>
 </slide>
 
-<slide><h2>Proliferation of Servers</h2>
+
+<slide><h2>Many challenges facing application developers</h2>
+<ul>
+ <li> Multiplication of platforms/clients
+ <li> Applications growing in complexity
+ <li> Increasing interaction between applications
+ <li> Maintenance and customization
+</ul>				      
+
+<h4>Need for new design methodology</h4>
+<ul>
+<li> Based on common standards and open source
+</ul>
+
+</slide>
+
+
+<slide><h2>Proliferation of Servers, Languages, OS'es</h2>
 <table align="center">
   <tr> <th>Embedded Applications </th>
        <th>Appliances</th>
@@ -118,12 +135,15 @@
   </tr>
 
 </table>
+<ul>
+<li> Where applications might be deployed.
+</ul>
 </slide>
 
 
 <slide><h2>Proliferation of Clients</h2>
 <ul>
-  <li> Browsers, of course
+  <li> With a wide range of capabilities
        <table>
 	 <tr>
 	   <td valign="bottom"> <a href="http://microsoft.com/">
@@ -167,7 +187,7 @@
 <p> &nbsp;
 </p>
 <ul>
-  <li> Some web applications are designed for <em>interaction</em>.
+  <li> Many applications support <em>interaction</em> between users.
        <ul>
 	 <li> user contributions
 	      (e.g. <a href="http://www.linuxtoday.com/">Linux Today</a>)
@@ -186,11 +206,14 @@
        </ul>
        <p>&nbsp;</p>
   </li>
-  <li> Some are designed to be <em>customized</em>
+  <li> or give <em>personalized</em> views/access to information
        <ul>
 	 <li> customizable portals
 	      (e.g. <a href="http://my.yahoo.com/">My Yahoo</a>)
 	 </li>
+       </ul>
+  <li> with a trend towards fully customized processing
+       <ul> 
 	 <li> customizable intranet applications
 	      (e.g. the <a href="http://forms:8000/">RSV Forms Server</a> )
 	 </li>
@@ -200,10 +223,10 @@
 </slide>
 
 <set name="subcaption">Trends in the Web Infrastructure</set>
-<slide><h2>The Rise of Open Source</h2>
+<slide><h2>Open Source supports shared development</h2>
 
 <table align="center">
-  <tr><th>Market Share for Top Servers Across All Domains</th></tr>
+  <tr><th>Apache holds 60% Market Share for Web Servers</th></tr>
   <tr><td align="center">
          <img src="Images/server-market-share.gif" width="503" height="166"
          alt="" />
@@ -218,7 +241,10 @@
   </tr>
 </table>
 
-There are open source operating systems and languages, too.
+<ul>
+<li> Open Source operating systems and languages favored for Web development
+<li> ...but the market is fragmented
+</ul>
 </slide>
 
 <slide><h2>The Rise of XML</h2>
@@ -236,10 +262,12 @@ src="Images/Logos/xml_com_logo_99.gif"
   <li> Widespread support in web authoring tools, scripting languages,
        databases, servers, clients
   </li>
-  <li> Easy to translate to HTML for legacy clients
-  </li>
   <li> Easy to process
   </li>
+  <ul>
+      <li> Easy to translate to HTML for legacy clients
+      </li>
+  </ul>
 </ul>
 <p align="right">
 <a href="http://www.xml.org/"><img border="0"
@@ -276,11 +304,11 @@ src="Images/Logos/xmlorg_top_logo.gif"
     </td>
     <td>
 <font size="-1">
-    Any point in the three-dimensional space defined by the server, operating
-    system, and implementation language represents a ``platform'' on which a
-    web appliation can be built. <br />
-    &nbsp; Merging multiple apps into a website may mean moving them from one
-    platform to another.
+    Developers must choose a web server, operating
+    system, and implementation language before building an
+    application. <br />
+    &nbsp; Merging apps on a website or choosing another platform may require
+    substantial re-engineering.
 </font>
     </td>
   </tr>
@@ -288,7 +316,7 @@ src="Images/Logos/xmlorg_top_logo.gif"
 </slide>
 
 <slide><h2>How to Collaborate?  Develop? Maintain?</h2>
-<p align="center"> It's all a matter of <em>people using tools</em></p>
+<p align="center"> Many people involved in the design, development, and maintenance</p>
 <table>
   <tr>
     <td><img src="Images/hacker.gif" width="100" /></td>
@@ -296,15 +324,10 @@ src="Images/Logos/xmlorg_top_logo.gif"
     <td><img src="Images/author.gif" width="100" /></td>
     <td><img src="Images/users.gif" width="100" /></td>
   </tr>
-  <tr>
-    <td align=center>Software engineer</td>
-    <td align=center>Programmer</td>
-    <td align=center>Author/Designer</td>
-    <td align=center>Users</td>
-  </tr>
+ 
 </table>
 <ul>
-  <li> Many people work on a web application
+  <li> 
        <table>
 	 <tr>
 	   <td>
@@ -323,7 +346,7 @@ src="Images/Logos/xmlorg_top_logo.gif"
 		  </li>
 		  <li> program designers
 		  </li>
-		  <li> users (customizers)
+		  <li> users <br />(3rd party customization)
 		  </li>
 		</ul>
 	   </td>
@@ -332,7 +355,7 @@ src="Images/Logos/xmlorg_top_logo.gif"
   </li>
 </ul>
 <ul>
-  <li> What can link them is XML
+  <li> Each brings their own tools and skills.
   </li>
 </ul>
 </slide>
@@ -366,12 +389,23 @@ with a portable, standard processing engine.
   <li> Which platform?
        <ul>
 	 <li> Whichever one you prefer: PIA applications are portable.
+	 </li> 
+	 <li> Open Source processing engine
 	 </li>
+	 <ul>
+	   <li> eliminates dependence on proprietary technology
+	   <li> can be integrated with any server engine 
+	   <li> or approximated with existing XML support
+	 </ul> 
        </ul>
   </li>
   <li> How to collaborate?
        <ul>
-	 <li> No code: applications are XML with domain-specific tags.
+	 <li> Shared editing of XML documents 
+	 </li>
+	 <li> using domain-specific tags provided by programmers
+	 </li>
+	 <li> Integrating applications by merging documents
 	 </li>
        </ul>
   </li>
@@ -383,12 +417,9 @@ with a portable, standard processing engine.
   </li>
   <li> How to maintain / customize applications?
        <ul>
-	 <li> Edit simple XML documents with domain-specific markup.
+	 <li> Modify, extend the XML documents 
 	 </li>
-	 <li> XML minimizes need for special skills, IT support. 
-	 </li>
-	 <li> The PIA's processing engine is open source<br />
-	       ... for easy customization of the code
+	 <li> supported by mainstream editors and specialized clients
 	 </li>
        </ul>
   </li>
