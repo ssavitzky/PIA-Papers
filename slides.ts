@@ -212,7 +212,7 @@
       </td>
   </tr>
 </table>
-<p /> <hide>
+<p /><hide>
     <if><test zero>&slide;</test><then>
         <else><set entity name="slidelist"><get entity name="slidelist" />
 <li> <a href="#&slide;">&caption;</a></li></set></else></if>
