@@ -3,10 +3,13 @@
 <title>White Paper: Cross-Platform Web Applications with the PIA</title>
 </head><body bgcolor="white" fgcolor="black">
     
+    
+    
+    
      
 
-<h1>  <a href="../index.shtml"><font face="Verdana, Arial, Helvetica, sans-serif" color="#993300">Ri</font><font face="Verdana, Arial, Helvetica, sans-serif" color="black"><i>Source.org</i></font></a>
-/   <a href="index.html">White Papers</a>
+<h1>   <a href="../index.shtml"><font face="Verdana, Arial, Helvetica, sans-serif" color="#993300">Ri</font><font face="Verdana, Arial, Helvetica, sans-serif" color="black"><i>Source.org</i></font></a>
+/    <a href="index.html">White Papers</a>
 / Cross-Platform Web Applications with the PIA
 </h1>
 
@@ -16,26 +19,29 @@
 <p> <em>This White Paper is intended for web developers.  It describes a way
     of creating platform independent applications that can not only be
     deployed on many different operating systems and servers, but also
-    interoperate with existing and future web applications.  The   <a href="http://RiSource.org/PIA/">PIA</a> framework provides support for the
+    interoperate with existing and future web applications.  The    <a href="http://RiSource.org/PIA/">PIA</a> framework provides support for the
     development of platform independent applications and is further described
-    in a companion white paper,   <a href="wp-webapp.html"> "Web Applications and the PIA"</a>.  </em></p>
+    in a companion white paper,    <a href="wp-webapp.html"> "Web Applications and the PIA"</a>.  </em></p>
 </blockquote>
 
-<h3>  <a name="contents">Table of Contents:</a></h3>
+<h3>   <a name="contents">Table of Contents:</a></h3>
 <toc>
-<br />&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section-1">1:    The Proliferation of Web Applications and Development Environments</a>
-  <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1"><a href="#section-1.1">1.1:   The Proliferation of Servers, operating systems, and languages</a></font>
- <br />&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section-2">2:    Cross-Platform Applications</a>
- <br />&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section-3">3:    Web Applications Across Platforms</a>
-  <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1"><a href="#section-3.1">3.1:   Web Applications: an Overview</a></font>
-  <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1"><a href="#section-3.2">3.2:   Moving a Web Application</a></font>
- <br />&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section-4">4:    The PIA Web Application Framework</a>
-  <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1"><a href="#section-4.1">4.1:   PIA-based Web Applications</a></font>
-  <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1"><a href="#section-4.2">4.2:   A Platform-Independent Web Application Framework</a></font>
- <br />&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section-5">5:    Running PIA applications on Other Platforms</a>
-  <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1"><a href="#section-5.1">5.1:   Java-based Systems</a></font>
-  <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1"><a href="#section-5.2">5.2:   C-based systems</a></font>
-  <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1"><a href="#section-5.3">5.3:   Systems of Cooperating Servers</a></font>
+<br />&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section-1">1: The Proliferation of Web Applications and Development Environments</a>
+  <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1"><a href="#section-1.1">1.1: The Proliferation of Servers, operating systems, and languages</a></font>
+  <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1"><a href="#section-1.2">1.2: The Proliferation of Clients</a></font>
+  <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1"><a href="#section-1.3">1.3: Don't Forget Proxies</a></font>
+  <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1"><a href="#section-1.4">1.4: The Proliferation of Development Environments</a></font>
+ <br />&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section-2">2: Cross-Platform Applications</a>
+ <br />&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section-3">3: Web Applications Across Platforms</a>
+  <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1"><a href="#section-3.1">3.1: Web Applications: an Overview</a></font>
+  <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1"><a href="#section-3.2">3.2: Moving a Web Application</a></font>
+ <br />&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section-4">4: The PIA Web Application Framework</a>
+  <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1"><a href="#section-4.1">4.1: PIA-based Web Applications</a></font>
+  <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1"><a href="#section-4.2">4.2: A Platform-Independent Web Application Framework</a></font>
+ <br />&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section-5">5: Running PIA applications on Other Platforms</a>
+  <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1"><a href="#section-5.1">5.1: Java-based Systems</a></font>
+  <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1"><a href="#section-5.2">5.2: C-based systems</a></font>
+  <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1"><a href="#section-5.3">5.3: Systems of Cooperating Servers</a></font>
   </toc>
 
 <hr />
@@ -57,11 +63,13 @@
   catalog using a tool like Front Page, but may not run on the same
   operating system as the C based CGI scripts for tracking shopping carts and
   transactions.
-  </p>
+</p>
+
   <p> Despite the growing popularity of Apache, PHP, and other open source
       tools that operate on multiple platforms, the choices for web
       application design, development, and deployment continue to proliferate
-      and diverge.  [do we need examples here?]  This paper describes an
+      and diverge -- new tools, both proprietary and open source, are
+      appearing every day.  This paper describes an
       approach to Web application development that minimizes platform
       dependencies and maximizes interoperability.  A somewhat unconventional
       use of XML (eXtensible Markup Language) plays a key role in this design.
@@ -76,7 +84,7 @@
       developed and modified on virtually any existing platform.  To handle
       the remaining platform dependent issues, namely tag implementation and
       application configuration, we propose using technology based on the open
-      source   <a href="http://RiSource.org/PIA/">PIA</a> (Platform for
+      source    <a href="http://RiSource.org/PIA/">PIA</a> (Platform for
       Information Applications).  The PIA is a Java based web server and
       application framework in which tag actions can be implemented in Java
       and site configuration information is flexibly specified via XML
@@ -94,7 +102,7 @@
 </blockquote>
 
 <hr />
-<h2> <a name="section-1">1:</a>    The Proliferation of Web Applications and Development Environments</h2>
+<h2> <a name="section-1">1:</a> The Proliferation of Web Applications and Development Environments</h2>
 
 <blockquote>
 <p> <em>As a developer, should I use Apache or IIS?  Should I write scripts in
@@ -107,7 +115,7 @@ and reduce maintenance costs. </em>
 </p>
 </blockquote>
 
-<h3><a name="section-1.1">1.1:</a>   The Proliferation of Servers, operating systems, and languages</h3>
+<h3><a name="section-1.1">1.1:</a> The Proliferation of Servers, operating systems, and languages</h3>
 
 <blockquote>
 <p> <img align="right" src="Images/platform-cube.png" />
@@ -118,7 +126,7 @@ and reduce maintenance costs. </em>
 </blockquote>
 
 <p>
-    According to the   <a href="http://www.netcraft.com/survey/">Netcraft Web Server
+    According to the    <a href="http://www.netcraft.com/survey/">Netcraft Web Server
     Survey</a> there are 10 different software "vendors" providing Web servers
     to more than 60,000 public sites each.  If we counted separately the
     number of different (incompatible) versions of server software from the
@@ -143,12 +151,12 @@ and reduce maintenance costs. </em>
 <table align="center">
   <tr><th>Market Share for Top Servers Across All Domains</th></tr>
   <tr><td align="center">
-         <!--   src=http://www.netcraft.com/Survey/Reports/199912/overallc.gif   -->
+         <!--      src=http://www.netcraft.com/Survey/Reports/199912/overallc.gif      -->
          <img src="Images/server-market-share.gif" alt="">
       </td>
   </tr>
   <tr><th>Market Share for Top Servers Across All Domains</th></tr>
-  <tr><td align="right"><font size="-1">Source:   <a href="http://www.netcraft.com/">Netcraft</a> Web Server Survey,   <a href="http://www.netcraft.com/survey/">http://www.netcraft.com/survey/</a></font>
+  <tr><td align="right"><font size="-1">Source:    <a href="http://www.netcraft.com/">Netcraft</a> Web Server Survey,    <a href="http://www.netcraft.com/survey/">http://www.netcraft.com/survey/</a></font>
       </td>
   </tr>
   <tr>
@@ -162,9 +170,7 @@ and reduce maintenance costs. </em>
   </tr>
 </table>
 
-
-<p> 
-</p>
+<p> </p>
 
 <p> We note in passing that ``traditional'' web servers are unlikely to dominate the field
     of web <em>applications</em> in the future, and indeed may not dominate
@@ -175,41 +181,51 @@ and reduce maintenance costs. </em>
     peripheral such as a scanner or digital camera (``web-cam'').
 </p>
 
-<h4>Clients</h4>
-[By market share, IE probably is doing better than ever.  However the rise of
-nontraditional clients like cellphones will change that.  Also, the use of
-older browsers comprises a significant chunk of the market.]
+<h3><a name="section-1.2">1.2:</a> The Proliferation of Clients</h3>
 
-<p>
-The range and capabilities of web clients seems to be growing and diverging even
-faster than Web servers.  Looking at just PC-based browsers, one sees great
-differences in how they render HTML much less advanced features like
-Javascript and style sheets.  Moreover, each new version introduces
-significant changes in functionality not supported by the installed base -- effectively increasing the number of clients.  This trend is likely to
-    continue, because new browsers like Opera continue to appear, and old
-    standbys continue to be popular in niche markets (for example, visually
-    handicapped users overwhelmingly prefer the text-based Lynx browser).
+<p> The range and capabilities of web clients seems to be growing and
+    diverging even faster than Web servers.  Looking at just PC-based
+    browsers, one sees great differences in how they render HTML much less
+    advanced features like Javascript and style sheets.  Moreover, each new
+    version introduces significant changes in functionality not supported by
+    the installed base -- effectively increasing the number of clients.  This
+    trend is likely to continue, because new browsers like Opera continue to
+    appear, and old standbys continue to be popular in niche markets (for
+    example, visually handicapped users overwhelmingly prefer the text-based
+    Lynx browser).
 </p>
 
 <p> Furthermore, as with servers, web browsers on personal computers represent
     a declining segment of a potentially huge market for web clients.  It is
     now possible to browse the web from a WebTV, a Palm Pilot or other PDA, an
-    alphanumeric pager, or a cellular phone.  Web-enabled microwave ovens,
-    refrigerators, and even dishwashers have been announced; such appliances
-    are likely to include a web <em>server</em> as well, with the client doing
-    double duty as web browser and front panel.
+    alphanumeric pager, or a cellular phone (Nokia's for example).
+    Web-enabled microwave ovens, refrigerators (GE has shown one), and even
+    dishwashers have been announced; such appliances are likely to include a
+    web <em>server</em> as well, with the client doing double duty as web
+    browser and front panel.
 </p>
-[Note Nokia phone from WSJ article, GE refrigerator, Mozilla]
 
-<p> The   <a href="http://www.upsdell.com/BrowserNews/stat_browser.htm">Browser
-    Trends</a> page at   <a href="http://www.upsdell.com/BrowserNews">Browser
+<p> The <a href="http://www.upsdell.com/BrowserNews/stat_browser.htm">Browser
+    Trends</a> page at <a href="http://www.upsdell.com/BrowserNews">Browser
     News</a> shows a month-by-month history of browser usage since 1998.
 </p>
 
-[implications for developers?]
+<p> Even though MSIE's share of the desktop market is currently increasing,
+    its share of the total web browser market, counting the nontraditional
+    clients, will probably change that.  The impending release of Netscape
+    Communicator 6.0 (derived from the open-source Mozilla code base) will
+    probably change the picture as well, given that Netscape is owned by AOL. 
+</p>
+
+<p> The implication for the developer is that the set of browsers that a web
+    application or web site must support (i.e. look good on) is unlikely to
+    narrow in the forseeable future -- developers must either code to the
+    lowest common denominator, or distinguish between clients on the server
+    side so that their differences can be accommodated.
+</p>
 
 
-<h4>Proxies</h4>
+<h3><a name="section-1.3">1.3:</a> Don't Forget Proxies</h3>
 
 <p> An additional segment of the web application field that has gotten little
     attention so far is the proxy: an application that sits <em>between</em>
@@ -226,10 +242,11 @@ significant changes in functionality not supported by the installed base -- effe
 </p>
 
 
-<h4>Development Environments</h4>
-[split into the application development and content development.  note
-uniqueness of Web applications in that non-programmers help evolve them over
-time]
+<h3><a name="section-1.4">1.4:</a> The Proliferation of Development Environments</h3>
+
+<!--   split into the application development and content development.  note
+     uniqueness of Web applications in that non-programmers help evolve them
+     over time   -->
 
 <p> Unlike the platform arena, there has never been a single strong market
     leader in development environments for web applications.  Indeed, most
@@ -240,11 +257,14 @@ time]
     Usenet news feeds).
 </p>
 
-[Don't we want to distinguish between "discussion group" and application customization?]
+<!--   Don't we want to distinguish between "discussion group" and application
+     customization?   -->
+
 <p> When we leave the <em>original</em> development environment and look at
     customization, however, the field is narrowed somewhat.  Probably most
     free text input on the web is done using HTML forms (for example, news
-    items and comments submitted to   <a href="http://slashdot.org/">Slashdot</a>).  Many sites include personal
+    items and comments submitted to
+    <a href="http://slashdot.org/">Slashdot</a>).  Many sites include personal
     web pages, most of which are probably created using a browser. 
 </p>
 
@@ -277,8 +297,8 @@ time]
     factors such as corporate mergers or standardization decisions.
 </p>
 
-<h2> <a name="section-2">2:</a>    Cross-Platform Applications</h2>
-
+<hr />
+<h2> <a name="section-2">2:</a> Cross-Platform Applications</h2>
 
 <p> Developers have recognized the need to maintain compatibility between web
     applications.  Integrating the process of ordering an item from a
@@ -296,14 +316,18 @@ time]
     consider:
 </p>
 
-    <ul>
-    <li> applications which will be  deployed on multiple sites (e.g. local,
-    customizable 
-    intranet applications which run in many different web server contexts)
-    </li><li> maintenance, who is responsible for updating the content and
-    processing
-    </li><li>integration, putting several existing functions together into one application
-    </li></ul>
+<ul>
+  <li> applications which will be deployed on multiple sites (e.g. local,
+       customizable intranet applications which run in many different web
+       server contexts)
+  </li>
+  <li> maintenance:  who is responsible for updating the content and
+       processing
+  </li>
+  <li> integration, putting several existing functions together into one
+       application
+  </li>
+</ul>
 
 <p> By adding a standard design and processing model, we can leverage XML
     to achieve the goal of platform independent web applications.  In
@@ -323,18 +347,19 @@ time]
 
 <hr />
 
-<h2> <a name="section-3">3:</a>    Web Applications Across Platforms</h2>
+<h2> <a name="section-3">3:</a> Web Applications Across Platforms</h2>
 
+<!--  
 <em>
-The usual processing diagrams, showing tagsets and documents.<br />
-
+The usual processing diagrams, showing tagsets and documents.
 Starting points for figures can be found in
-  <a href="file:/pia1/pia/Doc/Slides/review97/Figures/">/pia1/pia/Doc/Slides/review97/Figures/</a>.  I could have sworn that we had
-better ones, but it looks like they haven't been going into CVS.<br />
+<a href="file:/pia1/pia/Doc/Slides/review97/Figures/">/pia1/pia/Doc/Slides/review97/Figures/</a>.  I could have sworn that we had
+better ones, but it looks like they haven't been going into CVS.
 </em>
-
-[The following section would be a good sidebar]
-<h3><a name="section-3.1">3.1:</a>   Web Applications: an Overview</h3>
+  -->
+    
+<!--   The following section would be a good sidebar   -->
+<h3><a name="section-3.1">3.1:</a> Web Applications: an Overview</h3>
 
 <p> In essence, a web application is a web site or part of a web site that
     performs some useful function (for example, configuring a printer or
@@ -384,7 +409,7 @@ better ones, but it looks like they haven't been going into CVS.<br />
   </li>
 </ol>
 
-<p> The PIA is described in more detail in other white papers, specifically   <a href="wp-webapp.html">Web Applications and the PIA</a> and   <a href="wp-dps.html">Document Processing in the PIA</a>.  For now it is
+<p> The PIA is described in more detail in other white papers, specifically    <a href="wp-webapp.html">Web Applications and the PIA</a> and    <a href="wp-dps.html">Document Processing in the PIA</a>.  For now it is
     sufficient to explain that it combines aspects of <em>both</em> the
     embedded action <em>and</em> tag definition approaches.  It uses a
     complete programming language with XML syntax; this allows actions to be
@@ -392,7 +417,7 @@ better ones, but it looks like they haven't been going into CVS.<br />
     definition file <em>in the same XML-based language.</em>
 </p>
 
-<h3><a name="section-3.2">3.2:</a>   Moving a Web Application</h3>
+<h3><a name="section-3.2">3.2:</a> Moving a Web Application</h3>
 
 <h4>The General Case</h4>
 
@@ -505,9 +530,9 @@ better ones, but it looks like they haven't been going into CVS.<br />
 </p>
 
 <hr />
-<h2> <a name="section-4">4:</a>    The PIA Web Application Framework</h2>
+<h2> <a name="section-4">4:</a> The PIA Web Application Framework</h2>
 
-<h3><a name="section-4.1">4.1:</a>   PIA-based Web Applications</h3>
+<h3><a name="section-4.1">4.1:</a> PIA-based Web Applications</h3>
 
 <p> The PIA is primarily designed for web applications that are
     ``document-oriented'' -- both the ``content'' or data, and the processing
@@ -524,9 +549,9 @@ better ones, but it looks like they haven't been going into CVS.<br />
       to a browser client where appropriate.  It <em>does</em> mean that
       ``stylesheet'' processing <em>can</em> be done entirely on the server,
       making an application accessible from <em>any</em> browser.
-     [In particular, a tags might expand into either Javascript or
+      (It is even possible for a tag to expand into either Javascript or
       HTML depending on the capabilities of the client, though I would not
-      want to write such an application.]
+      want to write such an application.)
   </p>
 </blockquote>
 
@@ -555,7 +580,7 @@ better ones, but it looks like they haven't been going into CVS.<br />
 </ul>
 
 
-<h3><a name="section-4.2">4.2:</a>   A Platform-Independent Web Application Framework</h3>
+<h3><a name="section-4.2">4.2:</a> A Platform-Independent Web Application Framework</h3>
 
 <p> The PIA's particular XML processing engine has a few additional
     advantages: 
@@ -608,25 +633,33 @@ better ones, but it looks like they haven't been going into CVS.<br />
   </li>
 </ul>
 
-<h2> <a name="section-5">5:</a>    Running PIA applications on Other Platforms</h2>
+<h2> <a name="section-5">5:</a> Running PIA applications on Other Platforms</h2>
 
 <blockquote><em>
   A detailed discussion of the relationship between the PIA and other web
   technologies, including standards and protocols, can be found in
-    <a href="wp-webapp.html#15">Web Applications and the PIA</a>.  In this
+  <a href="wp-webapp.html#15">Web Applications and the PIA</a>.  In this
   section, we discuss making PIA style applications run on other
   platforms. 
 </em></blockquote>
 
 There are three ways of running PIA applications on other servers:
 <ol>
-<li>implement the primitive tags in an appropriately XML enabled server
-</li><li>incorporate the PIA processing engine with the server
-</li><li>automatically generate static pages with the appropriate inclusions
-</li></ol>
+  <li> Fully integrate the PIA processing engine and site-description
+       processing with the server -- this allows PIA applications to be ported
+       unchanged.
+  </li>
+  <li> Implement the primitive tags in an appropriately XML enabled server.
+  </li>
+  <li> Automatically generate static pages using the command-line version of
+       the PIA's processing engine.
+  </li>
+</ol>
 
-[distinguish between the PIA tech and applications built in the PIA style,
-order specific examples according to above list]
+<p> The latter two methods result in what one might call ``applications built
+    in the PIA style,'' but some effort may be required to modify an
+    application that originally ran on the PIA for such a hybrid system.
+</p>
 
 
 <p> Because of its implementation, the PIA's document-processing engine (and
@@ -638,7 +671,7 @@ order specific examples according to above list]
     new capabilities without forcing a change of platform.
 </p>
 
-<h3><a name="section-5.1">5.1:</a>   Java-based Systems</h3>
+<h3><a name="section-5.1">5.1:</a> Java-based Systems</h3>
 
 <p> Since the PIA's reference implementation is written in Java, and since it
     uses standard API's internally, it is easily incorporated into other
@@ -648,7 +681,8 @@ order specific examples according to above list]
 <h4>Servlet engines</h4>
 
 <p> The most common Java-based application platforms are web servers that use
-    the Servlet (<code>  <a href="http://www.javasoft.com/products/servlet/2.2/javadoc/index.html">javax.servlet</a></code> package) API.  Servlets provide a standard
+    the Servlet (<code><a href="http://www.javasoft.com/products/servlet/2.2/javadoc/index.html">javax.servlet</a></code>
+    package) API.  Servlets provide a standard 
     internal interface between a web server and Java code, and are a natural
     fit to the PIA. 
 </p>
@@ -669,7 +703,7 @@ order specific examples according to above list]
 
 <h4>Cocoon</h4>
 
-<p>   <a href="http://xml.apache.org/cocoon/">Cocoon</a> is a pure-XML engine
+<p> <a href="http://xml.apache.org/cocoon/">Cocoon</a> is a pure-XML engine
     based on XML-to-XML transformation engines called ``processors.''  The
     standard Processor in Cocoon is an implementation of the XML
     tree-transformation stylesheet language XSLT.  The PIA's document
@@ -699,13 +733,13 @@ order specific examples according to above list]
   </li>
 </ol>
 
-<h3><a name="section-5.2">5.2:</a>   C-based systems</h3>
+<h3><a name="section-5.2">5.2:</a> C-based systems</h3>
 
 <p> C is still by far the most widespread, most portable, and most completely
     standardized programming language currently in use.  It is particularly
     common to find a C compiler, and very little else, on the small or unusual
     processors used in embedded systems.  Also, many major pieces of software
-    are written in C; in particular, the   <a href="http://www.apache.org/">Apache</a> web server.
+    are written in C; in particular, the <a href="http://www.apache.org/">Apache</a> web server.
 </p>
 
 <p> In order to better integrate with Apache, and in order to better serve the
@@ -720,7 +754,7 @@ order specific examples according to above list]
     PIA.
 </p>
 
-<h3><a name="section-5.3">5.3:</a>   Systems of Cooperating Servers</h3>
+<h3><a name="section-5.3">5.3:</a> Systems of Cooperating Servers</h3>
 
 <p> Some servers, notably Apache, have the ability to invisibly route or proxy
     selected URL's to another server.  In fact, this ability is used inside
@@ -750,8 +784,11 @@ order specific examples according to above list]
 <p>
 <b>Copyright &copy; 2000 Ricoh Silicon Valley</b><br />
 <b>$Id$</b><br />
-<address>  <a href="http://rsv.ricoh.com/~steve/">Stephen R. Savitzky</a> &lt;  <a href="mailto:steve@rsv.ricoh.com">steve@rsv.ricoh.com</a>&gt;</address>
+<address>   <a href="http://rsv.ricoh.com/~steve/">Stephen R. Savitzky</a> &lt;   <a href="mailto:steve@rsv.ricoh.com">steve@rsv.ricoh.com</a>&gt;</address>
 </p>
+
+
+
 
 
 </body></html>
