@@ -55,6 +55,18 @@
 </div>
 </slide>
 
+<slide><h2>Outline</h2>
+<p> &nbsp;</p>
+<ol>
+  <li> Introduction: trends in web applications
+  </li>
+  <li> How the PIA Works
+  </li>
+  <li> Additional PIA features
+  </li>
+</ol>
+</slide>
+
 <slide><h2>Major Trends in Web Applications</h2>
 <p> &nbsp;</p>
 
@@ -82,36 +94,17 @@ Infrastructure:
 </slide>
 
 <slide><h2>Challenges for Web Application Developers</h2>
-<p> &nbsp;</p>
 <ul>
   <li> Which platform?
   </li>
-  <li> How to collaborate?
+  <li> How do programmers and content authors collaborate?
   </li>
   <li> Which development environment?
   </li>
-  <li> How to maintain / customize?
+  <li> How to maintain / customize applications?
   </li>
 </ul>
-</slide>
-
-<slide><h2>Platform Space</h2>
-<div align="center">
-   <strong>platform = ( server, OS, language )</strong> </div>
-<table border=0 cellspacing=0>
-  <tr>
-    <td>
-     <img src="Images/platform-cube.png" align=right />
-    </td>
-    <td>
-<font size="-1">
-    Any point in the three-dimensional space defined by the server, operating
-    system, and implementation language represents a ``platform'' on which a
-    web appliation can be built.
-</font>
-    </td>
-  </tr>
-</table>
+    <img src="Images/platform-cube.png" align=right />
 </slide>
 
 <slide><h2>The Typical Web Application</h2>
@@ -138,15 +131,19 @@ Infrastructure:
 	 </li>
        </ul>
   </li>
-  <li> How to collaborate?
+  <li> How do programmers and content authors collaborate?
        <ul>
-	 <li> Use XML files as standard file format
+	 <li> Programmers create tag vocabularies
+	 </li>
+	 <li> Authors use these tags to create active documents
 	 </li>
        </ul>
   </li>
   <li> Which development environment?
        <ul>
-	 <li> Whichever one makes sense: they all support XML
+	 <li> Whichever one makes sense <em>for each collaborator</em>
+	 </li>
+	 <li> XML is tool-friendly; many good editors exist.
 	 </li>
        </ul>
   </li>
@@ -156,13 +153,8 @@ Infrastructure:
 	 </li>
 	 <li> XML minimizes need for special skills, IT support. 
 	 </li>
-       </ul>
-  </li>
-  <li> How to maintain / customize the PIA's core software?
-       <ul>
-	 <li> The PIA's processing engine is open source
-	 </li>
-	 <li> ... for easy collaboration on the code
+	 <li> PIA's processing engine is open source<br />
+	      ... for easy customization of the code.
 	 </li>
        </ul>
   </li>
@@ -170,21 +162,10 @@ Infrastructure:
 </slide>
 
 
-<slide><h2>PIA's use of XML</h2>
+<slide><h2>A new design approach</h2>
 
 <p> <strong>We use XML for everything.</strong>
 </p>
-
-<ul>
-  <li> Documents (XHTML) and data (of course)
-  </li>
-  <li> Style-like document transformations
-  </li>
-  <li> Actions embedded in otherwise-ordinary documents 
-  </li>
-  <li> Offline document processing
-  </li>
-</ul>
 
 <ul>
   <li> The unique part is specifying behavior by assigning actions to tags.
@@ -192,22 +173,19 @@ Infrastructure:
   <li> <em>in effect, we're abusing a stylesheet processor to interpret a
        scripting language.</em>
   </li>
-  <li> we also use document elements as data structures -- it's XML ``all the
-       way down.''
+  <li> We also use document elements as data structures.
+  </li>
+  <li> There is no separate scripting language.
   </li>
 </ul>
-</slide>
 
-<slide><h2>Let's look at a (small) PIA application</h2>
-<!-- === a collection of screen shots would be better === -->
-<font size="-2">
-<include src="Images/month.html"/>
-</font>
+<p> <strong>So, how does this work?</strong>
+</p>
 </slide>
 
 <set name="label">form-sample</set>
 <slide><h2>Let's see how we develop a typical page </h2>
-<!-- === needs a heading.  Might want to do an include here === -->
+<!-- === needs some kind of heading === -->
 <form action="&url;#form-sample" method="post">
  year: <input name="year" value="&year;" /><br />
  month: <input name="month" value="&month;" /><br />
@@ -223,13 +201,14 @@ Infrastructure:
 
 </slide>
 
-<slide><h2>Here's the XML</h2>
+<slide><h2>Here's the XML for that page</h2>
 
 <!-- with protect markup, the "pretty" doesn't add linebreaks;
      in fact, it does nothing at all.   But it fits on a smaller screen.
 -->
 <small>
 <pretty><protect markup="markup">
+<heading/>
 <form action="&DOC:url;">
   year: <numeric-input name="year"/>
   month:
@@ -237,37 +216,48 @@ Infrastructure:
   day:
   <numeric-input name="day" default="&day;"/>
   <form-submit name="day of week" />
-  <if-query>
+  <if-form-submitted>
      ... is 
      <weekday>
        <year><get name="FORM:year" /></year>
        <month><get name="FORM:month" /></month>
        <day><get name="FORM:day" /></day>
      </weekday>
-  </if-query>
+  </if-form-submitted>
 </form>
 </protect></pretty>
 </small>
 </slide>
 
 
-<slide><h2>The tagset specifies what each tag does </h2>
+<slide><h2>Processing is controlled by a tagset</h2>
+<p> ... that contains definitions for all the tags
+</p>
+<p> <img src="Images/pia-app.png" />
+</p>
+</slide>
 
-<pretty><protect markup>
-<define element="if-query">
-  <doc> expand the content if responding
+<slide><h2>The tagset specifies what each tag does </h2>
+<p> here's a typical tag definition
+</p>
+<pre>
+<font color="#009900">&lt;define element="if-form-submitted"</font>
+        quoted="yes">
+  &lt;doc> expand the content if responding
 	to a form submission (query)
-  </doc>
-  <action>
-    <if><get name="queryString"/>
-        <then>
-	  <expand><get name="content"/>
-          </expand>
-	</then>
-    </if>
-  </action>
-</define>
-</protect></pretty>
+  &lt;/doc>
+  &lt;action>
+    &lt;if>&lt;get name="queryString"/>
+        &lt;then>
+	  &lt;expand>&lt;get name="content"/>
+          &lt;/expand>
+	&lt;/then>
+    &lt;/if>
+  &lt;/action>
+&lt;/define>
+</pre>
+
+<p> A tagset is simply another XML document </p>
 
 </slide>
 
@@ -276,14 +266,20 @@ Infrastructure:
 (A <em>primitive</em> is a tag defined by implementation code rather than
 defined in terms of XML.)
 
-<pretty><protect markup>
-<define element="if" class="org.risource.dps.handle.ifHandler">
-  <doc> Expand the "then" sub-element if the condition is true
-	(i.e. expands to something other than whitespace).
-  </doc>
-</define>
-</protect></pretty>
+<pre>
+&lt;define element="if"
+        <font color="#009900">class="ifHandler"</font>>
+  &lt;doc> Expand the "then" sub-element
+	if the condition is true
+	(i.e. expands to something
+	other than whitespace).
+  &lt;/doc>
+&lt;/define>
+</pre>
 
+<p> <font color="#009900"><code>class</code> attribute specifies the Java
+    ``handler'' class for this primitive.
+</p>
 </slide>
 
 
@@ -301,7 +297,8 @@ defined in terms of XML.)
   <li> &lt;extract&gt; (<small> &lt;from&gt; &lt;child&gt; &lt;name&gt;
        ... </small> )
   </li>
-  <li> &lt;make&gt; / &lt;do&gt; / &lt;namespace&gt; / &lt;tagset&gt;
+  <li> &lt;make&gt; / &lt;do&gt; / &lt;namespace&gt; / &lt;properties&gt; /
+       &lt;tagset&gt; 
   </li>
   <li> &lt;get&gt; / &lt;set&gt; / &lt;let&gt; / &lt;bind&gt;
   </li>
@@ -316,59 +313,111 @@ defined in terms of XML.)
   <li> &lt;date&gt; / &lt;url&gt; 
   </li>
 </ul>
-<p> Less than 30 primitive operations, comprising a complete language. 
+<p> About 30 primitive operations, comprising a </em>complete<em> language. 
 </p>
 </slide>
 
 
-<slide><h2>Site Structure</h2>
+<slide><h2>Many domain-specific vocabularies</h2>
+<dl>
+  <dt> For office forms
+  </dt>
+  <dd> &lt;numeric-input&gt; / &lt;text-input&gt; / &lt;selection&gt;
+       / &lt;signature&gt; / &lt;forms-pending&gt; &lt;notify&gt;
 
-<h3>Listing for <a href="/Agents/SimpleCalendar/">/Calendar/</a></h3>
-<ul>
-  <li> <a href="/Agents/SimpleCalendar/../">../</a></li>
-  <li> <a href="/Agents/SimpleCalendar/1999/">1999/</a>
-       <em>[in ~/Calendar]</em></li>
-  <li> <a href="/Agents/SimpleCalendar/2000/">2000/</a>
-       <em>[in ~/Calendar]</em>
-  <li> <a href="/Agents/SimpleCalendar/Every/">Every/</a>
-       <em>[in ~/Calendar]</em></li>
-  <li> <a href="/Agents/SimpleCalendar/SimpleCalendar-xhtml.ts">SimpleCalendar-xhtml.ts</a>
-       <em>[the tagset file]</em></li>
-  <li> <a href="/Agents/SimpleCalendar/_subsite.xcf">_subsite.xcf</a>
-       <em>[the site description file]</em></li>
-  <li> <a href="/Agents/SimpleCalendar/about.xh">about.xh</a></li>
-  <li> <a href="/Agents/SimpleCalendar/home.xh">home.xh</a></li>
-  <li> <a href="/Agents/SimpleCalendar/month.xh">month.xh</a></li>
-  <li> <a href="/Agents/SimpleCalendar/year.xh">year.xh</a></li>
-</ul>
-<a name='paths'><a href="file:/home/lsteve/.pia/Agents/SimpleCalendar">/home/lsteve/Calendar</a>, <a href="file:/home/lsteve/PIA/Agents/SimpleCalendar">/home/lsteve/PIA/Agents/SimpleCalendar</a></a>
+       <pre>&lt;numeric-input name="month" 
+               default="&amp;month;"
+               min="1" "max="12" /&gt;       </pre>
+  </dd>
+  <dt> For a datebook
+  </dt>
+  <dd> &lt;weekday&gt; / &lt;calendar-row&gt; / &lt;show-month&gt; /
+       &lt;show-one-day&gt; / &lt;get-appointments&gt;
 
+       <pre>&lt;get-appointments
+             day="&amp;day;" 
+             month="&amp;month;" 
+             year="&amp;year;"</pre>
+  </dd>
+</dl>
 </slide>
 
 
+<slide><h2>Site Structure</h2>
+<!-- === needs a figure instead === -->
+
+<ul>
+  <li> ``real'' directory is read-write, for user data
+  </li>
+  <li> ``virtual'' directory for read-only files<br />
+       (can be shared by all users)
+  </li>
+</ul>
+</slide>
+
 <slide><h2>Site structure defined by XML</h2>
-<div align="center">Subsite description file for Calendar application</div>
-<small>
+<div align="center">Where to find the files</div>
+
 <pre>
-&lt;Container file="~/Calendar"
-	   virtual="~/PIA/Agents/SimpleCalendar">
+<font color="#009900">&lt;Container file="~/Calendar"
+	   virtual="/PIA/Apps/Calendar"></font>
 
   &lt;Ext name="xh"	
        type="text/html"
        tagset="Calendar-xhtml"	/>
 
-  &lt;AGENT name="Calendar" criteria="false">
+  &lt;AGENT name="Calendar" time="0042">
      &lt;initialize>
         &lt;user-message>  Calendar initialized
 	&lt;/user-message>
      &lt;/initialize>
-     &lt;!-- This agent is just a marker,
-	 so that ~Calendar will works.
-       -->
+     &lt;daily-action>
   &lt;/AGENT>
 &lt;/Container>
 </pre>
-</small>
+
+</slide>
+
+<slide><h2>Site structure defined by XML</h2>
+<div align="center">how to map file types to tagsets</div>
+<pre>
+&lt;Container file="~/Calendar"
+	   virtual="~/PIA/Apps/Calendar">
+<font color="#009900">
+  &lt;Ext name="xh"	
+       type="text/html"
+       tagset="Calendar-xhtml"	/></font>
+
+  &lt;AGENT name="Calendar" hour="00">
+     &lt;initialize>
+        &lt;user-message>  Calendar initialized
+	&lt;/user-message>
+     &lt;/initialize>
+     &lt;daily-action>
+  &lt;/AGENT>
+&lt;/Container>
+</pre>
+</slide>
+
+<slide><h2>Site structure defined by XML</h2>
+<div align="center">Agent runs at midnight</div>
+<pre>
+&lt;Container file="~/Calendar"
+	   virtual="~/PIA/Apps/Calendar">
+
+  &lt;Ext name="xh"	
+       type="text/html"
+       tagset="Calendar-xhtml"	/>
+<font color="#009900">
+  &lt;AGENT name="Calendar" hour="00">
+     &lt;initialize>
+        &lt;user-message>  Calendar initialized
+	&lt;/user-message>
+     &lt;/initialize>
+     &lt;daily-action>
+  &lt;/AGENT></font>
+&lt;/Container>
+</pre>
 </slide>
 
 
@@ -378,48 +427,27 @@ defined in terms of XML.)
 <p> <strong>The PIA's internal representation is parse trees</strong>
 </p>
 <ul>
-  <li> closely related to W3C's <a href="http://www.w3.org/DOM/">DOM</a>
+  <li> Infrastructure widely available:<br />
+       closely related to W3C's <a href="http://www.w3.org/DOM/">DOM</a>
        (Document Object Model)
   </li>
-  <li> XML documents have a ``natural'' structure
+  <li> All operations preserve the consistancy of the document's structure
   </li>
-  <li> ... that scripts can manipulate
-  </li>
-  <li> impossible to produce ill-structured output
-  </li>
-</ul>
-<ul>
-  <li> in contrast to the ``string'' representation of most other platforms. 
-  </li>
-</ul>
-</slide>
-
-
-<slide><h2>Single Syntax</h2>
-<p> &nbsp; </p>
-
-<p> XML for both content and actions
-</p>
-
-<ul>
-  <li> Tag definitions -> application-specific language
-  </li>
-  <li> easy to learn and use
-  </li>
-  <li> friendly to all XML-aware tools
-  </li>
-</ul>
-
-<ul>
-  <li> allows either embedded actions<br />
-       as in embedded-processing languages like JSP and PHP3
-  </li>
-  <li> or totally separate data &amp; processing<br />
-       as style-based systems like XSLT and Cocoon
-  </li>
-  <li> Web designers can think of it as stylesheet + macros
-  </li>
-  <li> Programmers can think of it as LISP in XML
+       <ul>
+	 <li> Impossible to produce ill-structured output
+	 </li>
+	 <li> Most other platforms use strings:
+	      <tt><font color="#CC0000">
+	      &lt;h1&gt;&lt;em&gt;...&lt;/h1&gt;(oops!) &lt;/em&gt;
+	      </font></tt>
+	 </li>
+	 <li> Like the difference between ``GOTO's'' and structured
+	      programming. 
+	 </li>
+       </ul>
+  <li> XML documents have a natural tree structure<br />
+       that is exactly what the author intended<br />
+       and that the PIA's operations understand.
   </li>
 </ul>
 </slide>
@@ -428,10 +456,10 @@ defined in terms of XML.)
 <slide><h2>Platform-Neutral</h2>
 <p> &nbsp; </p>
 <ul>
-  <li> Document processing core easily ported to new platforms
+  <li> Reference version written in Java for portability
   </li>
        <ul>
-	 <li> simple, portable processing core (written in Java and C)
+	 <li> simple, portable processing core
 	 </li>
 	 <li> Small number of primitive tag handlers
 	 </li>
@@ -458,6 +486,7 @@ defined in terms of XML.)
 </slide>
 
 <slide><h2>Other PIA Components</h2>
+<p> &nbsp; </p>
 <ul>
   <li> Pluggable parsers and formatters
        <ul>
@@ -496,6 +525,133 @@ defined in terms of XML.)
 </slide>
 
 
+<slide><h2>Comparison to PHP3</h2>
+<p> and other platforms that embed code in web pages
+</p>
+
+<table border=1>
+  <tr>
+    <th></th> <th align="left">PIA</th> <th align="left">PHP3</th>
+  </tr>
+  <tr>
+    <th align="left"> data representation
+    </th>
+    <td> parse trees
+    </td>
+    <td> strings
+    </td>
+  </tr>
+  <tr>
+    <th align="left"> can serve invalid pages
+    </th>
+    <td> no
+    </td>
+    <td> yes
+    </td>
+  </tr>
+  <tr>
+    <th align="left"> domain-specific tags
+    </th>
+    <td> yes
+    </td>
+    <td> no
+    </td>
+  </tr>
+  <tr>
+    <th align="left"> syntax
+    </td>
+    <td> XML
+    </th>
+    <td> C-like
+    </td>
+  </tr>
+  <tr>
+    <th align="left"> semantics
+    </td>
+    <td> macro expansions
+    </th>
+    <td> procedural
+    </td>
+  </tr>
+  <tr>
+    <th align="left"> secure imported documents
+    </td>
+    <td> yes: restrict tags
+    </th>
+    <td> no
+    </td>
+  </tr>
+</table>
+
+</slide>
+
+<slide><h2>Comparison to XSLT</h2>
+<p> and other stylesheet-based publishing systems
+</p>
+
+<table border=1>
+  <tr>
+    <th></th>
+    <th align="left">PIA</th> <th align="left">XSLT</th>
+  </tr>
+  <tr>
+    <th align="left"> complete scripting language
+    </td>
+    <td> yes
+    </th>
+    <td> no
+    </td>
+  </tr>
+  <tr>
+    <td align="right"> numeric expressions
+    </td>
+    <td> yes
+    </th>
+    <td> no
+    </td>
+  </tr>
+  <tr>
+    <td align="right"> text processing
+    </td>
+    <td> yes
+    </th>
+    <td> no
+    </td>
+  </tr>
+  <tr>
+    <td align="right"> variables
+    </td>
+    <td> yes
+    </th>
+    <td> no
+    </td>
+  </tr>
+  <tr>
+    <th align="left"> local substitutions
+    </td>
+    <td> yes
+    </th>
+    <td> no
+    </td>
+  </tr>
+  <tr>
+    <th align="left"> embed actions in documents
+    </td>
+    <td> yes
+    </th>
+    <td> no
+    </td>
+  </tr>
+  <tr>
+    <th align="left"> supports legacy (HTML) docs
+    </td>
+    <td> yes
+    </th>
+    <td> no
+    </td>
+  </tr>
+</table>
+</slide>
 
 <slide><h2>Summary: PIA Features</h2>
 <p> &nbsp;</p>
@@ -552,6 +708,14 @@ defined in terms of XML.)
        <ul>
 	 <li> Version 2.1 (first stable release) released 2000-2-28
 	 </li>
+	 <li> Interactive demo/tutorial server at
+	      <a href="http://pia.rsv.ricoh.com/Tutorial/home"
+	      >pia.rsv.ricoh.com/Tutorial/home</a>
+	 </li>
+	 <li> Open-source collaboration on web applications
+	 </li>
+	 <li> Free collection of customizable apps
+	 </li>
        </ul>
   </li>
   <li> C port in progress via <a
@@ -561,8 +725,6 @@ defined in terms of XML.)
 	 <li> Current status at <a
 	      href="http://sourcexchange.com/ProjectDetail?projectID=6">
 	      sourcexchange.com/ProjectDetail?projectID=6</a>
-	 </li>
-	 <li> completion expected in May, 2000.
 	 </li>
        </ul>
   </li>
