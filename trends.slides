@@ -46,7 +46,7 @@ Summarize trends; skills
 <slide><!-- title slide: no top caption. -->
 <div align='center' valign='center'>
 <font size='+2'> <strong>Trends in Web Applications</strong></font><br />
-<p><img src="Images/pialogo150.gif" /></p>
+<p><img src="Images/Logos/pia150.gif" /></p>
 <table border="0" cellspacing="5" >
   <tr>
      <td>
@@ -57,9 +57,9 @@ Summarize trends; skills
      </td>
      <td align="left" valign="top">
 	<table cellpadding='0' cellspacing='0' border='0'>
-	    <tr nowrap nobr><th><a href='http://rsv.ricoh.com/'><img src='Images/ricoh.gif' border='0' width='170' height='48' alt='R I C O H'></a></th></tr> 
-	    <tr nowrap nobr><td nowrap nobr><img src='Images/blackline.gif' height='2' width='170'></td></tr> 
-	    <tr nowrap nobr><th align='left' valign='top'><img src='Images/ricoh-silicon-valley.gif' alt='RICOH SILICON VALLEY' border='0' width='170' height='21'></th></tr>
+	    <tr nowrap nobr><th><a href='http://rsv.ricoh.com/'><img src='Images/Logos/ricoh.gif' border='0' width='170' height='48' alt='R I C O H'></a></th></tr> 
+	    <tr nowrap nobr><td nowrap nobr><img src='Images/Logos/blackline.gif' height='2' width='170'></td></tr> 
+	    <tr nowrap nobr><th align='left' valign='top'><img src='Images/Logos/ricoh-silicon-valley.gif' alt='RICOH SILICON VALLEY' border='0' width='170' height='21'></th></tr>
 	</table>
      </td>
   </tr>
@@ -77,11 +77,11 @@ Summarize trends; skills
 	 <tr>
 	   <td colspan=2>
 	      <a href="http://yahoo.com/">
-	         <img src="Images/logo-yahoo.gif" border="0" /></a>
+	         <img src="Images/Logos/yahoo.gif" border="0" /></a>
 	      <a href="http://etrade.com/">
-	         <img src="Images/logo-etrade.gif" border="0" /></a>
+	         <img src="Images/Logos/etrade.gif" border="0" /></a>
 	      <a href="http://amazon.com/">
-	         <img src="Images/logo-amazon.gif" border="0"/></a>
+	         <img src="Images/Logos/amazon.gif" border="0"/></a>
 	   </td>
 	 </tr>
 	 <tr>
@@ -91,7 +91,7 @@ Summarize trends; skills
 	 <tr>
 	   <th>
 	      <a href="http://www.undernet.org/">
-	         <img src="Images/logo-undernet.gif" border="0"/></a>
+	         <img src="Images/Logos/undernet.gif" border="0"/></a>
 	   </th>
 	   <th>
 	      <a href="http://www.moretonbay.com/">
@@ -140,14 +140,14 @@ Summarize trends; skills
        <table>
 	 <tr>
 	   <td valign="bottom"> <a href="http://microsoft.com/">
-		   <img src="Images/logo-IE.gif" border="0" /></a>
+		   <img src="Images/Logos/IE.gif" border="0" /></a>
 	   </td>
 	   <td valign="bottom"> <a href="http://netscape.com/">
-		   <img src="Images/logo-netscape.gif"
+		   <img src="Images/Logos/netscape.gif"
 	   	        width="90" border="0" /></a>
 	   </td>
 	   <td valign="bottom"> <a href="http://opera.com/">
-		   <img src="Images/logo-opera.gif" border="0" /></a>
+		   <img src="Images/Logos/opera.gif" border="0" /></a>
 	   </td>
 	 </tr>
        </table>
