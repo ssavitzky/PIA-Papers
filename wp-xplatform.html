@@ -1,0 +1,417 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<title>White Paper: Cross-Platform Web Applications with the PIA</title>
+</head><body bgcolor="white" fgcolor="black"> 
+
+<h2><a href="../index.shtml"><font face="Verdana, Arial, Helvetica, sans-serif"
+    color="#993300">Ri</font><font face="Verdana, Arial, Helvetica, sans-serif"
+    color="black"><i>Source.org</i></font></a>
+/ <a href="index.html">White Papers</a>
+/ Cross-Platform Web Applications with the PIA
+</h2>
+
+<h3>Foreword </h3>
+
+<blockquote>
+<p> <em>This White Paper is intended for developers of cross-platform web
+    applications (loosely defined as software applications that computer
+    applications that use the World Wide Web in significant ways, including as
+    a data source or as a user interface, and that may be deployed in multiple
+    software environments).  The <a href="http://RiSource.org/PIA/">PIA</a>
+    provides a framework in which such applications can easily be developed.
+    More information on the PIA approach to customizable web applications can
+    be found in <a href="wp-webapp.html"> Web Applications and the PIA</a>.
+</em></p>
+</blockquote>
+
+<h2><a name="contents">Table of Contents:</a></h2>
+
+<hr />
+<h3>Abstract</h3>
+
+<p> <em>[will be sent in as a proposal to <a
+    href="http://www9.org/w9-call-developer-extend.html">WWW9</a> Developer's
+    Day XML track.]</em> 
+</p>
+
+<blockquote>
+  <p> Major trends in web applications (computer applications that use the
+      World Wide Web in significant ways, including as a data source or as a
+      user interface) include: a proliferation of server platforms, clients,
+      and development environments, increasing use of dynamic content,
+      increasing use of XML, and increasing use of collaboration and
+      customization as part both of the development process and of deployed
+      applications.  One of the major consequences of these trends is an
+      increasing need for <em>cross-platform</em> applications and development
+      environments.
+  </p>
+
+  <p> The <a href="http://RiSource.org/PIA/">PIA</a> is an XML-based web
+      application framework that is well-suited as a basis for developing and
+      deploying cross-platform applications.  Some of the PIA's
+      characteristics that support this include the PIA's reliance on XML as a
+      single meta-syntax for both documents and processing, the use of
+      standard API's (including SAX and DOM) for easy inclusion in existing
+      XML applications, a small, portable core document-processing ``engine'',
+      and an open-source reference implementation.
+  </p>
+
+  <p> The PIA can be seen as either an alternative or an adjunct to existing
+      web application platforms, including those based on the XSLT
+      transformation language, Java Server Pages, and Java Servlets.  The
+      document-processing engine implements a complete programming language
+      with XML syntax; it can be used <em>either</em> in a style-sheet-like
+      mode with separate data and styles, or embedded in active documents.
+      This allows it to fit easily into many different server platforms. 
+  </p>
+
+  <p> The PIA technology enables platform-independence in several ways.  It
+      has a reference implementation in Java, which runs on any computing
+      platform with a JVM.  The processing engine is simple, and easily ported
+      to a wide range of different platforms.  And applications, which are
+      written in XML, can be moved between platforms with no need for
+      rewriting. 
+  </p>
+
+</blockquote>
+
+<hr />
+<h2>Trends in Web Applications and Development Environments</h2>
+
+<blockquote>
+<p> <em>In this paper we briefly mention those major trends in web
+    applications that strongly imply a need for cross-platform applications
+    and application development.  A more complete discussion can be found in a
+    companion White Paper, <a href="wp-trends.html">Trends in Web
+    Applications</a>.  </em>
+</p>
+</blockquote>
+
+<h3>The Proliferation of Platforms</h3>
+
+<p> The first major trend we will examine is the proliferation of platforms
+    for deployment (servers), use (clients), and development of web
+    applications.
+</p>
+
+<h4>Servers</h4>
+
+<p> The number of server platforms on which one might consider running a web
+    application is continuing to increase, as it has ever since the Web was
+    created.  Although the <a href="http://www.netcraft.com/survey/">Netcraft
+    Web Server Survey</a> shows that one web server, <a
+    href="http://www.apache.org/">Apache</a>, has slightly over 50% of the
+    market,  it still shows nine other servers used at over 60,000 sites
+    each.  
+</p>
+
+<table align="center">
+  <tr><th>Market Share for Top Servers Across All Domains</th></tr>
+  <tr><td align="center">
+         <img src="http://www.netcraft.com/Survey/Reports/199912/overallc.gif"
+         alt="">
+      </td>
+  </tr>
+  <tr><td align="right"><font size="-1">Source: <a
+	href="http://www.netcraft.com/">Netcraft</a> Web Server Survey, <a
+	href="http://www.netcraft.com/survey/"
+	>http://www.netcraft.com/survey/</a>
+      </td>
+  </tr>
+</table>
+
+
+<p> In addition, this survey is somewhat misleading in two different ways.
+    First, it groups servers together by vendor (so that the ``Microsoft''
+    category, at nearly 25%, covers a total of five different server
+    versions).  Second, it covers only publicly-accessible web sites.  The
+    second is the more important effect:  the majority of web applications at
+    the moment are <em>intranet</em> sites, hidden behind corporate firewalls.
+</p>
+
+<p> Moreover, ``traditional'' web servers are unlikely to dominate the field
+    of web <em>applications</em> in the future, and indeed may not dominate
+    even today.  Small web servers can now be found inside of a wide range of
+    ``appliances'' including printers, scanners, routers, ethernet switches,
+    and file servers.  Still others are specialized servers running on
+    ordinary personal computers in order to ``web enable'' some attached
+    peripheral such as a scanner or digital camera (``web-cam'').
+</p>
+
+<h4>Clients</h4>
+
+<p> The web client field has not been dominated by a single browser since
+    Microsoft started grabbing a significant market share away from Netscape.
+    But even though these two currently make up most of the browser market,
+    there are such significant differences between versions that the effective
+    number of clients is increasing, not decreasing.  This trend is likely to
+    continue, because new browsers like Opera continue to appear, and old
+    standbys continue to be popular in niche markets (for example, visually
+    handicapped users overwhelmingly prefer the text-based Lynx browser).
+</p>
+
+<p> Furthermore, as with servers, web browsers on personal computers represent
+    a declining segment of a potentially huge market for web clients.  It is
+    now possible to browse the web from a WebTV, a Palm Pilot or other PDA, an
+    alphanumeric pager, or a cellular phone.  Web-enabled microwave ovens,
+    refrigerators, and even dishwashers have been announced; such appliances
+    are likely to include a web <em>server</em> as well, with the client doing
+    double duty as web browser and front panel.
+</p>
+
+
+<h4>Proxies</h4>
+
+<p> An additional segment of the web application field that has gotten little
+    attention so far is the proxy: an application that sits <em>between</em>
+    client and server, performing some useful function.  Web caches, banner-ad
+    eliminators, and ``parental choice'' filters all fall into this category;
+    a huge number of users have used this kind of web application without
+    knowing it (especially since AOL runs a proxy for all of its customers).
+</p>
+
+<p> In the future, we are likely to see an increase in the number of web
+    applications that operate as proxies for performing a variety of
+    <em>document processing</em> operations, including formatting, annotation,
+    and content filtering.
+</p>
+
+
+<h4>Development Environments</h4>
+
+<p> Unlike the platform arena, there has never been a single strong market
+    leader in development environments for web applications.  Indeed, most
+    applications are probably developed using a combination of text editors
+    for code, and word processors for HTML documents.  A large amount of
+    content, moreover, is <em>imported</em> from other environments, including
+    databases and text files (for example, newswires, mailing lists, and
+    Usenet news feeds).
+</p>
+
+<p> When we leave the <em>original</em> development environment and look at
+    customization, however, the field is narrowed somewhat.  Probably most
+    free text input on the web is done using HTML forms (for example, news
+    items and comments submitted to <a
+    href="http://slashdot.org/">Slashdot</a>).  Many sites include personal
+    web pages, most of which are probably created using a browser. 
+</p>
+
+<p> With the advent of the WebDAV protocol, which allows ``distributed
+    authoring'' by giving HTTP clients access to server-based files and
+    metadata, it is likely that web applications with multiple developers will
+    be developed using multiple tools, since each developer will be able to
+    use their own favorite set.  Even without WebDAV, many applications
+    (especially in the Open Source community) are developed using CVS and
+    other server-based version-control systems. 
+</p>
+
+<p> Indeed, the line between dynamic content and the development environment
+    is already getting rather fuzzy.  It is ``traditional'' to upload dynamic
+    content to a server, and have it converted into HTML (possibly in several
+    different styles) ``on the fly'' as it's being streamed out to the client.
+    Bug content developers have access to the same stylesheet-based
+    transformation tools at their desktops, so they could perform the style
+    transformations once and upload the resulting <em>static</em> content,
+    which would place less of a load on the server.  Then again, a
+    sufficiently clever server could accomplish the same thing by caching.
+</p>
+
+
+<h2>The need for Cross-Platform Applications</h2>
+
+<p> One common thread among all of these trends is that the total market for
+    web application platforms and development environments is growing far
+    faster than the market share of any one participant.  ``Traditional''
+    platforms in these areas, such as Unix servers, personal computers, and
+    word-processing applications are being marginalized by less visible but
+    more numerous embedded applications.  Even among the traditional platforms
+    no single vendor controls the market, although one could make a good case
+    for open-source platforms predominating in all areas the near future (as
+    they already do in servers).
+</p>
+
+<p> Another point to consider is that most web applications evolve over time,
+    and may involve many developers, content contributors, customizers, and
+    collaborators.  Not only will these contributors all be using different
+    development platforms, but the application may have to be ported from its
+    original <em>server</em> platform to another.  This may happen because of
+    inadequate performance, software or hardware obsolescence, or external
+    factors such as corporate mergers or standardization decisions.
+</p>
+
+<p> Web applications have moved away from the simple world of static documents
+    being passed from server to browser, toward more dynamic systems in which
+    operations are performed on documents in all components of the system.
+    Increasingly these dynamic systems are using XML as a <em>lingua
+    franca</em>, representing tranditional documents, data, configuration
+    files, and style transformations using a single easily-processed syntax.
+</p>
+
+<p> Clearly, wise web developers will want to keep their options open, which
+    means using technologies that are as platform-neutral as possible.
+    Fortunately, the increasing use of XML provides the means.  Because XML
+    is, itself, completely platform-neutral, any application that can be
+    specified entirely in XML will be platform-neutral as well.
+</p>
+
+<p> Another reason for platform-neutrality is that a single application may
+    need to be deployed on multiple platforms from the beginning.  A web
+    application is not necessarily a public web site -- most are intranet
+    servers, and an increasing number are merely programs that run on desktop
+    computers.  Anyone developing one of these applications may well want to
+    sell it to more than one customer, and even to customers running a wide
+    range of operating systems and servers.
+</p>
+
+<p> The argument for platform neutrality also applies -- rather strongly -- to
+    consultants who develop web sites and web applications under contract.
+    There is, of course, no way to control what the customer's platform of
+    choice will be: the only options are to be platform neutral or to
+    artificially restrict one's potential clientele.
+</p>
+
+<hr />
+<h2>The PIA Web Application Framework</h2>
+
+<h3>PIA-based Web Applications</h3>
+
+
+<p> The PIA is primarily designed for web applications that are
+    ``document-oriented'' -- both the ``content'' or data, and the processing
+    instructions (including so-called ``business rules'' as well as
+    stylesheets and ``macros'') are represented as XML documents.  The PIA is
+    also server-based: all of its processing is done on the application's
+    server.
+</p>
+
+<blockquote>
+  <p> We note in passing that the fact that the PIA does its document
+      processing on the server in no way prevents active documents, including
+      Cascading Style Sheets, Javascript and Java applets, from being passed
+      to a browser client where appropriate.  It <em>does</em> mean that
+      ``stylesheet'' processing </em>can<em> be done entirely on the server,
+      making an application accessible from <em>any</em> browser.
+  </p>
+</blockquote>
+
+<p> The point is worth emphasizing: a PIA web application consists
+    <em>entirely</em> of XML and HTML documents, except for the
+    document-processing ``engine'' that interprets the processing
+    instructions.  Using server-side XML to build a web application has a
+    number of advantages:
+</p>
+
+<ul>
+  <li> XML is a widely-accepted standard.  XML files are easily ported between
+       platforms and shared among applications.
+  </li>
+  <li> Because processing takes place on the server side, all the browser
+       needs to see is ordinary HTML (customized, if necessary, for the
+       particular client).
+  </li>
+  <li> Because XML files are simply documents with a standardized format, the
+       same file can be processed in several different ways.  This can be
+       used to make a site index or a ``what's new'' list, or to improve
+       interoperability with other sites (for example, many news sites
+       maintain an XML file with the day's headlines, for the benefit of
+       portal sites).
+  </li>
+</ul>
+
+
+<h3>A Platform-Independent Web Application Framework</h3>
+
+<p> The PIA's particular XML processing engine has a few additional
+    advantages: 
+</p>
+
+<ol>
+  <li> It provides a complete set of processing operations, represented as XML
+       ``tags,'' rather than providing a limited set (e.g. the
+       tree-transformation operations of XSLT) or relying on ``escapes'' into
+       another language (as do JSP, PHP, and others).  This means that PIA
+       applications can be developed using any XML-aware development
+       environment. 
+  </li>
+  <li> The mapping from tags to processing operations is completely defined by
+       a document, called a ``tagset,'' that is completely separate from the
+       document being processed.  Limiting the operations available when
+       processing a document gives a simple but very effective form of
+       security that can be especially useful in applications that allow users
+       to upload or create documents.
+  </li>
+  <li> Unlike some other systems that are <em>purely</em> XML, the PIA is
+       capable of processing ordinary HTML documents, optionally with a few
+       XML tags embedded in them as extensions.  This makes it easier to
+       incorporate ``legacy'' HTML documents into a primarily XML-based
+       application.  HTML documents are also easier for users to create using
+       simple text editors, which makes PIA-based applications easier to
+       customize in a world that is not yet entirely ``XML-ready.''
+  </li>
+  <li> Because the processing engine itself is simple, and the set of
+       basic processing operations is small, the PIA's document processing
+       engine is easily ported to various server platforms.
+  </li>
+  <li> The reference implementation is written in Java, which is itself
+       platform-neutral. 
+  </li>
+</ol>
+
+<h3>The PIA and Other Platforms</h3>
+
+<blockquote><em>
+  A detailed discussion of the relationship between the PIA and other web
+  technologies, including standards and protocols, can be found in
+  <a href="wp-webapp.html#15">Web Applications and the PIA</a>.  In this
+  section, we discuss making the PIA interoperate with other application
+  platforms. 
+</em></blockquote>
+
+<pre>
+
+Integrating the PIA into other web application platforms
+
+	In most cases either the DPS, the site package, or both can be
+	incorporated into an application, as required.
+
+	<em>[for each platform, what's required.  Identify easy targets]</em>
+
+  Java-based systems
+
+    Servlet engines
+
+	This is one of the easiest.  There are two servlet classes provided;
+	one is just the document processor, the other includes the site
+	package.  <em>[give sample code]</em>
+
+    Cocoon
+
+	Equally easy: Processor class.  <em>[less clear how to integrate the
+	site package with Cocoon's processing model]</em>
+
+    SAX-based systems
+
+	SAX is an API that interfaces between an application and a parser; the
+	PIA can operate on either side of the interface. 
+
+    DOM-based systems
+
+	The PIA can read and write DOM trees.  The site package can provide
+	a complete site map or any subtree of it in the form of a DOM tree. 
+
+  C-based systems
+
+    Apache
+
+    Expat-based systems
+
+</pre>
+
+
+<hr />
+<p>
+<b>Copyright &copy; 2000 Ricoh Silicon Valley</b><br>
+<b>$Id$</b><br>
+<address><a href="http://rsv.ricoh.com/~steve/">Stephen R. Savitzky</a> &lt;<a href="mailto:steve@rsv.ricoh.com">steve@rsv.ricoh.com</a>&gt;</address>
+</p>
+</body></html>
