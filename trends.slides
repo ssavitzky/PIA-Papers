@@ -5,43 +5,6 @@
 <h1>Trends in Web Applications</h1>
 <!-- Slides for a brief presentation on trends -->
 
-
-<pre> Outline
-
-What's happening on the web:
-  0. The web has become the standard for providing goods and services
-     [assorted e-commerce logos: e-trade, amazon, webvan, peapod...]
-
-  1. HTML and now XML have become the standard for information interchange
-
-  2. Proliferation of clients
-     [PC, cell phone, picture frame]
-
-  2a. Proliferation of servers
-     [the server slide]
-
-  3. Increased interactivity and customization
-     
-  4. Rise of open source software
-     [Apache slide]
-
-Web Engineering Challenges:
-
-  1. What server / language / OS to use?
-     [3-d chart -- labeled axes]
-
-  2. How to collaborate
-     [one of the old PIA writer/programmer/customer slides]
-
-  3. Maintenance and Customization
-     [old slide: editing paper vs. electronic forms]
-
-The PIA Solution
-
-Summarize trends; skills
-</pre>
-
-
 <font size="+2"></font><!-- HTML doesn't like <p> inside <font> -->
 <slide><!-- title slide: no top caption. -->
 <div align='center' valign='center'>
@@ -403,7 +366,7 @@ with a portable, standard processing engine.
 <slide><h2>PIA Features</h2>
 <p> &nbsp;</p>
 <ul>
-  <li> uses a single XML-based language for :
+  <li> Uses a single XML-based language for :
        <ul>
 	 <li> document markup (content)
 	 </li>
@@ -416,22 +379,20 @@ with a portable, standard processing engine.
 	 </li>
        </ul>
   </li>
-  <li> Supports collaborative (open source) development of applications
+  <li> Applications consist entirely of XML documents
+       <ul>
+	 <li> Makes applications portable
+	 </li>
+	 <li> Supports collaborative (open source) development
+	 </li>
+       </ul>
   </li>
   <li> Small, simple document-processing engine<br />
        Versatile site-description package
        <ul>
 	 <li> easily integrated into many platforms
 	 </li>
-       </ul>
-  </li>
-  <li> Applications consist entirely of XML documents
-       <ul>
-	 <li> maintain and develop with standard tools
-	 </li>
-	 <li> easily customized
-	 </li>
-	 <li> friendly to text-based version control systems
+	 <li> Open source code available on the net
 	 </li>
        </ul>
   </li>
