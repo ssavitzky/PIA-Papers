@@ -77,7 +77,8 @@ face="Verdana, Arial, Helvetica, sans-serif" color="black"
      restricts the dependence on a particular computing environment to the
      implementation of a few tags. In the PIA, semantics for the small set of
      primitive or "basic" tags are defined in Java, while the majority of
-     developer-defined tags are specified in terms of these primitives.
+     application-specific (defined by developers) tags are specified in terms
+     of these primitives.
      
 
 
@@ -87,16 +88,14 @@ face="Verdana, Arial, Helvetica, sans-serif" color="black"
      interfaces that conform to all relevant standards, including the W3C's
      Document Object Model (DOM), and the Simple API for XML (SAX).
      RiSource.org also distributes and helps coordinate the development of
-     PIA-based applications including as a workflow system, shared calendar,
-     Web site management tool, and a personal ``browsing assistant.''
+     open source Web applications including as a workflow system, shared calendar,
+     Web site management tool, and a personal ``browsing assistant.''  As the
+     technology for developing and deploying XML based Web applications becomes
+     standardized, RiSource.org will help facilitate the collaboration of the
+     expanding pool of developers who create and maintain Web applications.
 
 <!-- need a good ending here -- perhaps reiterate notion of shared development
      with participation by non-programmers -->
-
- <p> As an open source project the PIA group welcomes contributions, and we
-     are especially eager to receive input from non-programmers.  Naturally,
-     contributors will receive <a href="../PIA/Doc/contributors.html">
-     public recognition</a> for their work.
 
 <!-- The contributors' list is in PIA/Doc, since it ought to be distributed
 with the code. (ss) -->
@@ -507,10 +506,11 @@ with the code. (ss) -->
 <!-- proprietary application platforms to support sophisticated Web
     application development -- e.g. cold fusion -->
 
-<p> A few proprietary platforms exist, for example Cold Fusion, that support
-    sophistecated Web application development.  Unfortunately these tend to
-    be very expensive, have their own nonstandard programming component, and
-    of course lock the designers in to a single vendor.
+<p> Some proprietary Web development platforms, such as Cold Fusion, do
+    support some aspects of application development and maintenance.
+    Unfortunately these tend to be very expensive, have their own nonstandard
+    programming component, and of course lock the designers in to a single
+    vendor.
 
 <!-- more needed? SS -->
 
@@ -1034,14 +1034,16 @@ be just introduce PHP, Meta-HTML as examples that we compare in detail -->
     document.  The document is simply treated as a ``character string;'' it is
     possible to generate syntactically incorrect documents, and it is
     not particularly easy to manipulate the document's parse tree.  This makes
-    it difficult to take advantage of the document's structure. 
+    it difficult to take advantage of the document's structure.   (Of course,
+    XSL does explicitly manipulate the documents structure but it does not
+    provide the traditional scripting capabilities.) 
 
 <!-- expand this section -- why is it important? -->
 
 
-<p> PHP <em>does</em> include an XML parser, which can be used for processing
-    documents, but it can't handle ordinary HTML.  Unlike Meta-HTML, PHP lacks
-    the notion of tagsets.
+<p> Note the latest version of PHP <em>does</em> include an XML parser, which
+    can be used for processing documents, but it can't handle ordinary HTML.
+    Unlike Meta-HTML, PHP lacks the notion of tagsets.
 
 
 <h3>XML-based approaches</h3>
@@ -1246,7 +1248,9 @@ to be tomorrow, especially integration of key features into apache/PHP, etc. -->
        <em>ultimate</em> in performance, would be to <em>compile</em> pages
        into C programs.  Running such a program would perform any necessary
        processing, and send the resulting page directly to an output stream.
-
+       (Note this is similar to the page compilation of PHP 4.0.  Further
+       investigation needs to be done to determine whether the significant
+       features of the PIA can be integrated with the PHP module.)
 </ol>
 
 <h3>Server integration</h3>
@@ -1405,19 +1409,11 @@ to be tomorrow, especially integration of key features into apache/PHP, etc. -->
 <hr>
 <h2><a name="conclusions">Conclusions</a></h2>
 
-
-<h3>What's Important about the PIA approach?</h3>
-
-
-<p> We have seen that the PIA offers what appears to be a unique combination
-    of features:
-<ul>
-  <li> Turing-complete, XML-syntax document-processing language
-  <li> Embedded <em>or</em> separate (style-like) processing
-  <li> Web client/server/proxy platform based on agents
-</ul>
-
-<p> The following table goes into a little more detail:
+The PIA approach offers a way to build Web applications that can be easily
+customized and maintained.  It leverages existing and future XML tools and
+allows developers to create application-specific vocabularies so that the
+documents which comprise Web application may be created and modified without
+customized programming skills or tools.
 
 <p>
 <table>
@@ -1446,6 +1442,12 @@ to be tomorrow, especially integration of key features into apache/PHP, etc. -->
  </tr>
  <tr><td valign=top><em>Small set of primitives</em></td>
      <td> Easily ported to other programming languages.  Easy to learn.
+     </td>
+ </tr>
+ <tr><td valign=top><em>Turing complete</em></td>
+     <td> It is possible to write arbitrary programs in this XML language
+	  (not that you would want to, but it it is nice to not have to worry
+	  about running into brick walls)
      </td>
  </tr>
  <tr><td valign=top><em>Efficient</em></td>
@@ -1499,7 +1501,7 @@ argue for adoption of particular features in other development areas? -->
        This is the archetypal application area for the PIA.  If you're
        building a web-based workgroup or small office application, especially
        one that is going to be customized by group members without programming
-       skills, the PIA may be almost ideal.
+       skills, the PIA may be well-suited.
 
        <p>
 
