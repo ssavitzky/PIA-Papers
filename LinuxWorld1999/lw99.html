@@ -1,0 +1,514 @@
+<!doctype html public "-//IETF//DTD HTML//EN//3.2">
+<html><head>
+<title>Slides for LinuxWorld</title>
+<link rev="made" href="mailto:steve@rsv.ricoh.com">
+</head><body>
+<h1>Slides for LinuxWorld 1999, Session 74</h1>
+
+<hide>
+<p> Note: you are viewing the plain form of a document that was designed to be
+    viewed as a <a href="lw99.slides.html">slide presentation</a>.
+<include src=config.inc>
+<!-- Due Feb. 1 in ftp.linuxcentral.com:/pub/session-74/ -->
+<!-- See mail.conferences:102 -->
+</hide>
+
+<pr-hide>
+<p> Note: The <a href="lw99.slides.html">processed form</a> of this
+    presentation looks best in Netscape with a screen size of 800x600, and all
+    toolbars turned off.  Set the variable width font to 24-pt Times and the
+    fixed-width font to 18-pt Courier.  It was designed to be presented using
+    a laptop computer and projection CRT.
+
+<p> This document was converted (processed by the PIA) from the <a href="lw99.html">plain HTML
+    form</a>.
+</pr-hide>
+
+<slide><!-- Slide 0 doesn't have a title -->
+<P>&nbsp;
+<div align='center' valign='center'>
+
+<font size='+2'> <strong>The PIA</strong></font><br>
+<font size='+2'><strong>An Open-Source Web-Based Document Processing System</strong></font>
+
+<P>
+<IMG SRC="Images/pialogo150.gif">
+<P>
+
+<TABLE><TR><TD ALIGN="left">
+<table cellpadding='0' cellspacing='0' border='0'>
+	    <tr nowrap nobr><th><a href='http://rsv.ricoh.com/'><img src='Images/ricoh.gif' border='0' width='170' height='48' alt='R I C O H'></a></th></tr> 
+	    <tr nowrap nobr><td nowrap nobr><img src='Images/blackline.gif' height='2' width='170'></td></tr> 
+	    <tr nowrap nobr><th align='left' valign='top'><img src='Images/ricoh-silicon-valley.gif' alt='RICOH SILICON VALLEY' border='0' width='170' height='21'></th></tr>
+	  </table>
+</TD><TD ALIGN="left">
+
+ Stephen Savitzky<br>
+    Chief Software Scientist<br>
+    Ricoh Silicon Valley<br>
+    <code>&lt;steve@rsv.ricoh.com&gt;</code><br>
+</TD></TR>
+</TABLE>
+
+
+</div>
+
+</slide>
+
+<slide><h2>A Platform for Information Applications</h2>
+<p>&nbsp;
+<table width='80%' cellspacing=0 border=0 align=center>
+  <tr> <th bgcolor=white colspan=3 valign=top align=left>
+	<table width='100%' cellspacing=0 border=0 >
+	  <tr>
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<th bgcolor=lightgreen> &nbsp; </th>
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<td bgcolor=white>&nbsp;</td>
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<th bgcolor=lightgreen> &nbsp; </th> 
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<td bgcolor=white>&nbsp;</td>
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<th bgcolor=lightgreen> &nbsp;  </th>
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<td bgcolor=white>&nbsp;</td>
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<th bgcolor=lightgreen> &nbsp; </th>
+		<td bgcolor=lightgreen>&nbsp;</td>
+	  <tr>
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<th bgcolor=lightgreen> App 1 </th>
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<td bgcolor=white>&nbsp;</td>
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<th bgcolor=lightgreen> App 2 </th> 
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<td bgcolor=white>&nbsp;</td>
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<th bgcolor=lightgreen> App 3  </th>
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<td bgcolor=white>&nbsp;</td>
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<th bgcolor=lightgreen> App 4 </th>
+		<td bgcolor=lightgreen>&nbsp;</td>
+	  <tr>
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<th bgcolor=lightgreen> &nbsp; </th>
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<td bgcolor=white>&nbsp;</td>
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<th bgcolor=lightgreen> &nbsp; </th> 
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<td bgcolor=white>&nbsp;</td>
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<th bgcolor=lightgreen> &nbsp; </th>
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<td bgcolor=white>&nbsp;</td>
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<th bgcolor=lightgreen> &nbsp; </th>
+		<td bgcolor=lightgreen>&nbsp;</td>
+	  </tr>
+	</table> </th></tr>
+  <tr> 
+  <tr>
+  <tr> <th bgcolor=lightblue colspan=3 valign=top align=left>&nbsp;
+  <tr> <th bgcolor=lightblue>&nbsp;
+       <th bgcolor=white>
+	    Single representation for content and behavior
+       <th bgcolor=lightblue>&nbsp;
+  <tr> <th bgcolor=lightblue colspan=3 align=right> &nbsp;
+</table>
+
+<dl>
+  <dt> Developing information applications
+  <dd> becomes as easy as developing web pages
+</dl>
+</slide>
+
+
+<hr><set name=subCaption>Three examples</set>
+<slide><h2>Example 1: form server</h2>
+<img src="Images/formspage.gif" align=left><br>
+Used for <em>all</em> forms at Ricoh Silicon Valley.
+<p>
+<strong>The people who create the forms can specify their processing.</strong>
+  
+</slide>
+
+
+
+<slide><h2>Example 2: batch downloader</h2>
+<img src="Images/mp3pages.gif" align=right>
+Adds checkboxes to links for batch download.
+<p>
+Operates as a client.
+</slide>
+
+
+<slide><h2>Example 3: browser's companion</h2>
+<img src="Images/historypage.gif" align=right>
+<strong>History shared across machines.</strong>
+<p>
+Proxy inserts ``toolbar'' on every page<br>
+<code>
+<a href='http://gelion.crc.ricoh.com:8888/' target='_top'><img src='http://gelion.crc.ricoh.com:8888/Icon/pent24.gif' height='24' width='24' border='0'></a>
+<a href='http://gelion.crc.ricoh.com:8888/~/' target='_top'>[~]</a>
+<a href='http://gelion.crc.ricoh.com:8888/Toolbar/remote/hide?hide=true' target='_top'>[X]</a>
+<a href='http://gelion.crc.ricoh.com:8888/Toolbar/remote/help?topic=toolbar'
+target='_top'>[help]</a>
+</code>
+<p>
+
+<code>
+[<a href='http://gelion.crc.ricoh.com:8888/History' target='_top'>Hist</a>
+ <a href='http://gelion.crc.ricoh.com:8888/~History/' target='_top'>*</a>/<a href='http://gelion.crc.ricoh.com:8888/~History/1999/' target='_top'>1999</a>/<a href='http://gelion.crc.ricoh.com:8888/~History/1999/03/' target='_top'>03</a>/<a href='http://gelion.crc.ricoh.com:8888/~History/1999/03/02.html' target='_top'>02</a>
+ <a href='http://gelion.crc.ricoh.com:8888/~History/last.html' target='_top'>09:33</a>]
+</code>
+</slide>
+
+<slide><h2>Same platform, different uses</h2>
+<p>&nbsp;
+<ul>
+  <li> Different operations on web documents
+       <ol>
+	 <li> Server (forms)
+	 <li> Client (downloader)
+	 <li> Proxy (toolbar)
+       </ol>
+  <li> All developed
+       <ul>
+	 <li> on the same platform
+	 <li> without programming
+       </ul>
+</ul>
+</slide>
+
+<hr><set name=subCaption>Goals</set>
+<slide><h2>Goals:</h2>
+<p>&nbsp;
+<p> <strong>The goals of the PIA project are:</strong>
+<ol>
+  <li> to make it easy to develop document-processing applications
+  <li> <strong>by providing a single representation for content, layout, and
+       processing</strong> 
+  <li> to give authors and users more power over their documents
+</ol>
+</slide>
+
+<hr><set name=subCaption>Documents and the web</set>
+<slide><h2>What do people do with documents?</h2>
+<ul>
+  <li> Fill out and process forms
+  <li> Create and sign legal documents
+  <li> Edit and publish manuscripts
+  <li> Memos: send, recieve, copy, file, ...
+  <li> Letters, bills, junk mail, magazines, postit notes, ...
+</ul>
+
+<p> Processing:
+<ul>
+  <li> signing: approving, authorizing, ...
+  <li> storing: indexing, filing, stacking, boxing, ...
+  <li> retrieving: searching, skimming, ...
+  <li> excerpting, annotating, summarizing, ...
+  <li> presenting, performing, parodying, ...
+  <li> deleting, shredding, ...
+</ul>
+
+</slide>
+
+
+<slide><h2>Documents: From paper to the web</h2>
+<p>&nbsp;
+<ul>
+  <li> <strong>Before computers, documents were ink on paper</strong>
+       <ul>
+	 <li> All these things were <strong>easy</strong>
+       </ul>
+  <li> <strong>Computers changed things: documents became <em>data</em></strong>
+       <ul>
+	 <li> Doing <em>anything</em> requires an <strong>application.</strong>
+	 <li> <em>sharing</em> requires everyone to have the <em>same</em>
+	      application 
+       </ul>
+  <li><strong>The Web changed things again.</strong>
+       <ul>
+	 <li> HTML is a <em>shared representation</em>
+	 <li> But processing still requires programming
+       </ul>
+
+       <p>
+
+  <li> <strong><i>"Normal"</i> people lost some document processing capabilities </strong>
+</ul>
+</slide>
+
+
+<hr><set name=subCaption>Technical Details</set>
+<!-- The technical part of the talk -->
+<expand><extract><from><include src=technical.html quoted></from>
+        <name recursive>slide</name></extract></expand>
+
+
+<hr><set name=subCaption>Open Source</set>
+<slide><h2>The Web is Open</h2>
+<dl>
+  <dt> Why did the Web grow so explosively?
+  <dd> <strong>Because it is open source</strong>
+       <ul>
+	 <li> Both web pages (HTML) and servers
+       </ul>
+</dl>
+<dl>
+  <dt> Because PIA <em>extends</em> HTML and XML,
+  <dd> <strong>It has to be open, too</strong>
+</dl>
+<dl>
+  <dt> Besides,
+  <dd> Open Source is best, fastest way to evolve the most reliable system
+</dl>
+
+</slide>
+
+<slide><h2>Time to make a release</h2>
+<dl>
+  <dt> We <em>think</em> we have a good design.
+  <dt> We have working code.
+  <dd> So we've reached the point where Eric Raymond says we should release it
+       as Open Source.
+</dl>
+
+</slide>
+
+<slide><h2>Announcing RiSource.org</h2>
+<p>&nbsp;
+<table width='90%' cellspacing=0 border=0 align=center>
+  <tr> <td align=left valign=center>
+	      <a href="http://www.risource.org/" align=center><img border=0
+	          src="Images/risource.gif" alt="RiSource"></a>
+	<th align=left>
+	      <em>resources for information <br>application developers</em>
+</table>
+<table width='90%' cellspacing=0 border=0 align=center>
+  <tr> <th bgcolor=white colspan=3 valign=top align=left>
+	<table width='100%' cellspacing=0 border=0 >
+	  <tr>
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<th bgcolor=lightgreen> &nbsp; </th>
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<td bgcolor=white>&nbsp;</td>
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<th bgcolor=lightgreen> &nbsp; </th> 
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<td bgcolor=white>&nbsp;</td>
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<th bgcolor=lightgreen> &nbsp;  </th>
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<td bgcolor=white>&nbsp;</td>
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<th bgcolor=lightgreen> &nbsp; </th>
+		<td bgcolor=lightgreen>&nbsp;</td>
+	  <tr>
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<th bgcolor=lightgreen> sample </th>
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<td bgcolor=white>&nbsp;</td>
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<th bgcolor=lightgreen> infoware </th> 
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<td bgcolor=white>&nbsp;</td>
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<th bgcolor=lightgreen> applications  </th>
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<td bgcolor=white>&nbsp;</td>
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<th bgcolor=lightgreen>&nbsp; </th>
+		<td bgcolor=lightgreen>&nbsp;</td>
+	  <tr>
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<th bgcolor=lightgreen> &nbsp; </th>
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<td bgcolor=white>&nbsp;</td>
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<th bgcolor=lightgreen> &nbsp; </th> 
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<td bgcolor=white>&nbsp;</td>
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<th bgcolor=lightgreen> &nbsp; </th>
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<td bgcolor=white>&nbsp;</td>
+		<td bgcolor=lightgreen>&nbsp;</td>
+		<th bgcolor=lightgreen> &nbsp; </th>
+		<td bgcolor=lightgreen>&nbsp;</td>
+	  </tr>
+	</table> </th></tr>
+  <tr> 
+  <tr>
+  <tr> <th bgcolor=lightblue colspan=3 valign=top align=left>&nbsp;
+  <tr> <th bgcolor=lightblue>&nbsp;
+       <th bgcolor=white>
+	    Starting with Ricoh's source code base.
+       <th bgcolor=lightblue>&nbsp;
+  <tr> <th bgcolor=lightblue colspan=3 align=right> &nbsp;
+  <tr> <th colspan=3 align=right> 
+	      <a href="http://www.risource.org/">www.RiSource.org</a>
+</table>
+
+</slide>
+
+
+<slide><h2>Cool things to do with it</h2>
+Personal/Developer tools:
+<ul>
+  <li> Web-site management package 
+  <li> Templates for forms and agents
+  <li> Calendar, phonebook, etc.
+</ul>
+Small office/workgroup applications:
+<ul>
+  <li> Complete small-office forms package
+  <li> Accounting package
+  <li> Scheduling and project management
+</ul>
+</slide>
+
+<slide><h2>Cool things to do <em>to</em> it</h2>
+Infrastructure: <em>(strictly for hackers)</em>
+<ul>
+  <li> Re-write the PIA in &lt;<em>your favorite language</em>&gt;
+       <ul>
+	 <li> Squeak / Scheme / Python / DSSSL? / ...
+	 <li> Revive the <a href="/PIA/src/perl/">Perl</a> version
+	 <li> <b>Port to C</b> speed, portability, embedding
+       </ul>
+  <li> Integrate with Apache (mod_pia)
+  <li> Integrate with standard XML/SGML parsers
+       <ul>
+	 <li> Easy, since it uses the DOM.
+       </ul>
+  <li> totally change the tag language
+       <ul>
+	 <li> translate to French, perhaps?
+       </ul>
+</ul>
+<em>we can go into these later...</em>
+</slide>
+
+<slide><h2>Our Vision</h2>
+
+<p>&nbsp;
+<table width='90%' cellspacing=0 border=0 align=center>
+  <tr> <td bgcolor=lightgreen colspan=3 align=left>&nbsp; Infoware
+  <tr> <th bgcolor=lightgreen>&nbsp;
+       <td bgcolor=white rowspan=2>
+<ul>
+  <li> Applications will come <em>out of the community</em>
+  <li> With lots of information developers, the pool of infoware will grow
+       rapidly.
+</ul>
+        <th bgcolor=lightgreen>&nbsp;</th></tr>
+  <tr> <th bgcolor=lightgreen>&nbsp;
+       <td bgcolor=lightgreen>&nbsp;</tr><!-- white for open "S" -->
+  <tr> <td colspan=3>
+	<table width=100% cellspacing=0 cellpadding=0 border=0 >
+          <tr><td width='25%' bgcolor=lightgreen align=left>&nbsp;</td>
+              <td width='25%' bgcolor=lightgreen align=right> &nbsp;</td>
+              <td width='25%' bgcolor=lightblue>&nbsp; </td>
+              <td width='25%' bgcolor=lightblue align=right> &nbsp;</td>
+          </tr>
+	</table></td></tr>
+  <tr> <th bgcolor=lightblue>&nbsp;<!-- white for open "S" -->
+       <td bgcolor=white rowspan=2>
+<ul>
+  <li> Meanwhile, the open-source process will improve the software base
+</ul>
+       <th bgcolor=lightblue>&nbsp;</tr>
+  <tr> <th bgcolor=lightblue>&nbsp;
+       <th bgcolor=lightblue>&nbsp;
+  <tr> <td bgcolor=lightblue colspan=3 align=right> Software &nbsp;
+  <tr> <th colspan=3 align=center>
+	<em>The best software is made by people who love it.</em>
+</table>
+</slide>
+
+
+
+<hr><set name=subCaption>Conclusion</set>
+<slide><h2>Where do we go from here?</h2>
+<p>&nbsp;
+<table width='90%' cellspacing=0 border=0 align=center>
+  <tr> <td align=left valign=left>
+	      <a href="http://www.risource.org/" align=center><img border=0
+	          src="Images/risource.gif" alt="RiSource"></a>
+	<th align=left>
+		<em>a community for information <br> application developers</em>
+</table>
+<table width='90%' cellspacing=0 border=0 align=center>
+  <tr> <td bgcolor=lightgreen colspan=3 valign=top align=left>&nbsp; Infoware
+  <tr> <th bgcolor=lightgreen>&nbsp;
+       <td bgcolor=white rowspan=2>
+<ul>
+  <li> Provide resources for <em>editors</em> of infoware projects
+
+</ul>
+       <th bgcolor=lightgreen>&nbsp;
+  <tr> <th bgcolor=lightgreen>&nbsp;
+       <td bgcolor=lightgreen>&nbsp;<!-- white for open  "S" -->
+  <tr> <td colspan=3>
+	<table width=100% cellspacing=0 cellpadding=0 border=0 >
+          <tr><td width='25%' bgcolor=lightgreen align=left>&nbsp;</td>
+              <td width='25%' bgcolor=lightgreen align=right> &nbsp;</td>
+              <td width='25%' bgcolor=lightblue>&nbsp; </td>
+              <td width='25%' bgcolor=lightblue align=right> &nbsp;</td>
+          </tr>
+	</table></td></tr>
+  <tr> <th bgcolor=lightblue>&nbsp;<!-- white for open "S" -->
+       <td bgcolor=white rowspan=2>
+<ul>
+  <li> Coordinate the open-source development of PIA  software base 
+</ul>
+       <th bgcolor=lightblue>&nbsp;
+  <tr> <th bgcolor=lightblue>&nbsp;
+       <th bgcolor=lightblue>&nbsp;
+  <tr> <td bgcolor=lightblue colspan=3 align=right> Software &nbsp;
+  <tr> <td colspan=3 align=right valign=center>
+	      <a href="http://www.risource.org/">www.RiSource.org</a>
+</table>
+</slide>
+
+
+<hr><set name=subCaption>Links</set><set name=label>branch</set>
+<slide><h2>Additional information.</h2>
+<p>&nbsp;
+
+<div align=center> <img src=Images/pia45.gif>  </div>
+<ul>
+  <li> <a href="appendices.slides.html#TOC">Appendices</a>
+  <li> <a href="appendices.slides.html#QA">Questions &amp; answers</a>
+
+  <p>
+  <li> <a href="history.slides.html#0">An Alternative History of Documents</a>
+  <li> <a href="who-what.slides.html#0">Users and Uses</a>
+  <li> <a href="oss-bkgnd.slides.html#0">Open Source Background Info</a>
+       <p>
+  <li> Our web site <a href="http://www.RiSource.org/">www.RiSource.org/pia</a>
+</ul>
+
+</slide>
+
+<hr>
+<set name=label>TOC</set>
+<slide><!-- toc not working: tagset doesn't seem to be properly recursive. -->
+<h2>Table of Contents:</h2>
+<ol>
+  &slidelist;
+</ol>
+</slide>
+
+<b>Copyright &copy; 1999 Ricoh Silicon Valley</b><br>
+<b>$Id$</b><br>
+<address><a href="http://rsv.ricoh.com/~steve/"
+         >Stephen R. Savitzky</a> &lt;<a href="mailto:steve@rsv.ricoh.com"
+         >steve@rsv.ricoh.com</a>&gt;</address>
+</body></html>
