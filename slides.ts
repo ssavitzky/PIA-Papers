@@ -1,24 +1,23 @@
-<!doctype tagset system "tagset.dtd">
-<!-- -------------------------------------------------------------------------- -->
-<!-- The contents of this file are subject to the Ricoh Source Code Public      -->
-<!-- License Version 1.0 (the "License"); you may not use this file except in   -->
-<!-- compliance with the License.  You may obtain a copy of the License at      -->
-<!-- http://www.risource.org/RPL                                                -->
-<!--                                                                            -->
-<!-- Software distributed under the License is distributed on an "AS IS" basis, -->
-<!-- WITHOUT WARRANTY OF ANY KIND, either express or implied.  See the License  -->
-<!-- for the specific language governing rights and limitations under the       -->
-<!-- License.                                                                   -->
-<!--                                                                            -->
-<!-- This code was initially developed by Ricoh Silicon Valley, Inc.  Portions  -->
-<!-- created by Ricoh Silicon Valley, Inc. are Copyright (C) 1995-1999.  All    -->
-<!-- Rights Reserved.                                                           -->
-<!--                                                                            -->
-<!-- Contributor(s):                                                            -->
-<!-- -------------------------------------------------------------------------- -->
+<!DOCTYPE tagset SYSTEM "tagset.dtd">
+<!-- ====================================================================== -->
+<!-- The contents of this file are subject to the Ricoh Source Code Public  -->
+<!-- License Version 1.0 (the "License"); you may not use this file except  -->
+<!-- in compliance with the License.  You may obtain a copy of the License  -->
+<!-- at http://www.risource.org/RPL                                         -->
+<!--                                                                        -->
+<!-- Software distributed under the License is distributed on an "AS IS"    -->
+<!-- basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.        -->
+<!-- See the License for the specific language governing rights and         -->
+<!-- limitations under the License.                                         -->
+<!--                                                                        -->
+<!-- This code was initially developed by Ricoh Silicon Valley, Inc.	    -->
+<!-- Portions created by Ricoh Silicon Valley, Inc. are Copyright (C)       -->
+<!-- 1995-2000.  All Rights Reserved.                                       -->
+<!--                                                                        -->
+<!-- Contributor(s):                                                        -->
+<!-- ====================================================================== -->
 
-
-<tagset name=slides parent="xhtml" recursive>
+<tagset name="slides" parent="xhtml" recursive="yes">
 <doc>
 <p> This tagset is used for generating ``slide'' presentations from ordinary
     HTML documents.  The original document contains &lt;slide&gt; elements,
@@ -72,7 +71,7 @@
 	<code>&lt;set name=VAR:hh&gt;445&lt;/set&gt;</code>
     </p>
   </doc>
-  <value>380</value>
+  <value>370</value>
 </define>
 
 <define entity="slideH">
@@ -80,10 +79,10 @@
 	of the presentation device; the default is correct for a large-screen
 	TV pretending to be a 640x480 monitor.
     <p> For 800x600, e.g. a Magio laptop, use <br />
-	<code>&lt;set name=VAR:hh&gt;445&lt;/set&gt;</code>
+	<code>&lt;set name=VAR:slideH&gt;445&lt;/set&gt;</code>
     </p>
   </doc>
-  <value>400</value>
+  <value>450</value>
 </define>
 
 <h3>Colors</h3>
@@ -152,7 +151,7 @@
 </action>
 </define>
 
-<define element=slide parent=body>
+<define element="slide" parent="body">
   <doc>	This is the element that defines a ``slide''.   Usage is something
 	like:
 	<pre>
@@ -168,20 +167,20 @@
   <note> This represents a major change from the way slides used to be done!
 	 We used to have a table with cells for top left, top, left side,
 	 bottom left, and bottom.  We now have a single left edge, which
-	 allows the use of a "binding"-type background.
+	 allows the use of a "binding"-type background that tiles vertically.
   </note>	
 <action>
 <hide><!-- first time through we initialize the variables -->
-  <if>&VAR:slide;<else><set name=VAR:slide>0</set></else></if>
+  <if>&VAR:slide;<else><set name="VAR:slide">0</set></else></if>
   <if>&VAR:next;
-      <else><set name=VAR:next><numeric sum>1 &slide;</numeric></set></else>
+      <else><set name="VAR:next"><numeric sum>1 &slide;</numeric></set></else>
   </if>
   <if>&VAR:prev;<else><set name="VAR:prev"> </set></else></if>
   <if>&VAR:slidelist;<else><set name="VAR:slidelist"> </set></else></if>
 </hide>
 <table width="100%" cellspacing=0 cellpadding=5 border=0>
   <tr><td bgcolor="&leftbg;" width="&leftW;" valign="top" align="center"
-          background="Images/bkgnd_grn.gif" rowspan=3><br />
+          background="Images/bkgnd_grn.gif" rowspan="4"><br />
         <if>&prev;
   	      <then><a href="#&prev;">&toPrev;</a></then>
   	      <else>&noPrev;</else></if><?--
@@ -193,14 +192,18 @@
 	<a href="#TOC">contents</a><br />
 	<a href="#0">start</a><br />
       </td>
-      <th align=left bgcolor="&topBg;" fgcolor="&topFg;">
+      <th align=left bgcolor="&mainBg;" fgcolor="&topFg;">
 	    <a name="&slide;">&nbsp;</a><if>
 	    <get name=label>
 	    <then><a name="&label;">&nbsp;<get name="caption" /></a></then>
 	    <else>&nbsp;<get name="caption" /></else></if>
       </th>
-  <tr>
-      <td bgcolor="&mainBg;"  valign="top" height="&hh;">
+  </tr>
+  <!-- this green stripe occupies 11 pixels vertically -->
+  <tr><td bgcolor="&topBg;" height="3"><img src="Images/trans1x1.gif" /></td>
+  </tr>
+  <tr><!-- this table cell contains the actual content of the slide -->
+      <td bgcolor="&mainBg;" valign="top" height="&hh;">
 &content;
       </td>
   </tr>  
