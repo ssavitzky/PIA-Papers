@@ -17,11 +17,12 @@ face="Verdana, Arial, Helvetica, sans-serif" color="black"
   While this paper discusses development in the context of the PIA technology,
   the fundamental philosophy, which can be roughly characterized as "Web
   application maintenance is mostly a task of document management and should
-  not require specialized programming skills/tools," applies equally well to other
+  not require specialized programming skills or tools," applies equally well
+  to other 
   platforms.  Several other technologies, such as Meta-HTML, PHP, and the
   proposed Apache XML initiative, support some of the "active XML" features of
   the PIA.  We encourage the evolution and convergence of these technologies
-  to a standard, platform independent design for Web applications that
+  to a standard, platform-independent design for Web applications that
   facilitates shared development and ongoing maintenance.
 </em></blockquote>
 
@@ -79,16 +80,25 @@ face="Verdana, Arial, Helvetica, sans-serif" color="black"
      
 
 
- <p> Freely available as open source, the PIA software written in pure Java is
+ <p> Freely available as open source, the PIA software, written in pure Java, is
      available from www.RiSource.org and includes
      interfaces that conform to all relevant standards, including the W3C's
      Document Object Model (DOM), and the Simple API for XML (SAX).  
      RiSource.org also distributes and helps coordinate the development of
-     applications such as a workflow system, shared calendar, Web site
+     PIA-based applications including as a workflow system, shared calendar,
+     Web site 
      management tool, and a personal ``browsing assistant.''  
      <!-- need a good ending here --  perhaps reiterate notion of shared
      development with participation by non-programmers -->
-     
+
+ <p> As an open source project the PIA group welcomes contributions, and we
+     are especially eager to receive input from non-programmers.  Naturally,
+     contributors will receive <a href="../PIA/Doc/contributors.html">
+     public recognition</a> for their work.
+
+<!-- I think the contributors' list belongs in PIA/Doc, since it ought to be
+distributed with the code. [steve] -->
+
 </blockquote>
 
 
@@ -191,7 +201,9 @@ face="Verdana, Arial, Helvetica, sans-serif" color="black"
     applications generally have a relatively small number of users but must
     constantly evolve as the information and group needs change.  Embedded
     applications must be very robust and may be deployed in harsh environments
-    with no local support.  Existing Web application designs and development
+    with no local support.
+
+<p> Existing Web application designs and development
     tools are most appropriate for public and enterprise applications.  These
     applications generally have well-defined software components that are
     developed and maintained by a support group.  In contrast, our design
@@ -266,9 +278,9 @@ face="Verdana, Arial, Helvetica, sans-serif" color="black"
   ---GW]
 
        <p> From the client perspective, Web applications consist entirely of
-	   documents.  HTML pages that are viewed in a browser.  The
+	   documents:  HTML pages that are viewed in a browser.  The
 	   developer's perspective depends in part on which technology they
-	   choose.  In the original formulation, Web applications consisted
+	   choose.  In the early days of the Web, applications consisted
 	   primarily of standard HTML documents with a few CGI scripts to
 	   handle &lt;form&gt; submissions.  Initial development consisted of
 	   creating HTML pages and then creating the CGI scripts to handle
@@ -303,7 +315,7 @@ face="Verdana, Arial, Helvetica, sans-serif" color="black"
 	   
        <p> Server pages work reasonably well assuming that all of the
 	   developers have similar skill sets, which includes the ability to
-	   modify the particular programming language, and a standard
+	   write in the pages' embedded programming language, and a standard
 	   development environment.   Oftentimes though, the embedded
 	   programming language makes the documents incompatible with
 	   standard structured editors (or the editors produce HTML/XML
@@ -317,7 +329,7 @@ face="Verdana, Arial, Helvetica, sans-serif" color="black"
 	   portable -->
 
 
-[!-- is this section needed??
+[!-- is this section needed?? -- probably not
        <p> Web applications consist mainly of documents; these are mostly
 	   written in HTML using ``traditional'' text editing and word
 	   processing tools.  Increasing amounts of XML, the eXtensible Markup
@@ -374,7 +386,8 @@ face="Verdana, Arial, Helvetica, sans-serif" color="black"
 	   up'' to full deployment.
 
 
-[!-- what's the point here?
+<p> [!-- what's the point here? -- that rapid customization is needed. ]
+
        <p> A web application is different.  After it is installed on a
 	   public server it may be only a matter of minutes -- days at the
 	   most -- before it is found by the search engines, and shortly
@@ -382,7 +395,11 @@ face="Verdana, Arial, Helvetica, sans-serif" color="black"
 	   made, the ``Slashdot effect'' may innundate the server with a
 	   ``flash crowd'' -- Britannica's web site was all but inaccessible
 	   for a week after its introduction.
-]
+
+       <p> This means that the maintenance cycle is much shorter for a web
+	   application than for a software application.  The application's
+	   designers may have to respond to problems within minutes, rather
+	   than months. 
 
        <p>
 
@@ -470,10 +487,7 @@ face="Verdana, Arial, Helvetica, sans-serif" color="black"
     development, few (if any) methodologies exist to guide this process.
 
 <p> Then again, the tools available for building web applications are still
-    very primitive.  
-[!-- proprietary application platforms to support sophisticated Web
-    application development -- e.g. cold fusion]
-WYSIWYG editors are good for documents whose ultimate
+    very primitive. WYSIWYG editors are good for documents whose ultimate
     destination is ink on paper, but they fail miserably when applied to a web
     page that may be viewed on anything from a Palm Pilot to a 21-inch
     monitor.  There is little if any support for complex operations like
@@ -482,6 +496,15 @@ WYSIWYG editors are good for documents whose ultimate
     mixed in (especially if some of it is meant for the browser and some for
     the server, in two different languages).
 
+<!-- proprietary application platforms to support sophisticated Web
+    application development -- e.g. cold fusion -->
+
+<p> A few proprietary platforms exist, for example Cold Fusion, that support
+    sophistecated Web application development.  Unfortunately these tend to
+    be very expensive, have their own nonstandard programming component, and
+    of course lock the designers in to a single vendor.
+
+<!-- more needed? -->
 
 <h3>Customization</h3>
 
@@ -685,8 +708,8 @@ WYSIWYG editors are good for documents whose ultimate
 	   directory-like hierarchical structure on entities.  This gives rise
 	   to entity names like ``<code>&FORM:inputVar;</code>'' and
 	   ``<code>&DOC:path;</code>'' -- the value of the "inputVar" variable
-	   submitted as part of a form, and the path <em>from</em> that URL to the
-	   document itself.
+	   submitted as part of a form, and the path <em>from</em> the
+	   server's URL to the document itself.
 
        <p>
 
@@ -720,16 +743,18 @@ WYSIWYG editors are good for documents whose ultimate
 
 </ul>
 
-
-<p>&nbsp;</p>
-[!-- mention other interesting properties like flow-through that might be
-interesting for other aspects of development but not germane to customizable
-Web applications --]
-
 <p> The operation of the PIA's document-processing system is described further
     in a companion White Paper, <a href="wp-dps.html">Document Processing in
     the PIA</a>.  The PIA's documentation can be found online at <a
-    href="../PIA/Doc">../PIA/Doc</a>.
+    href="../PIA/Doc">../PIA/Doc</a>.  There are several features of the PIA,
+    including its flow-through architecture and its use of open API's, that
+    are of interest for other areas besides customizable Web applications.
+
+<!-- mention other interesting properties like flow-through that might be
+interesting for other aspects of development but not germane to customizable
+Web applications -->
+
+
 
 
 <h3><a name="site">Flexible site configuration</a></h3>
@@ -939,9 +964,11 @@ be just introduce PHP, Meta-HTML as examples that we compare in detail --]
        disadvantages of embedded code with respect to editing tools, but at
        least the embedded constructs are designed so that they can be properly
        ignored or passed through by XML tools.  It would not be difficult for
-       PHP and the PIA to co-exist.  
+       PHP and the PIA to co-exist; for example, PHP could be used inside of
+       tagsets, or an application could consist of a mixture of XML and PHP
+       documents.  
 
-       [!-- e.g. PHP in the tagset --]
+       <!-- e.g. PHP in the tagset -->
 
 </ul>
 
@@ -992,10 +1019,14 @@ be just introduce PHP, Meta-HTML as examples that we compare in detail --]
 </ul>
 
 <p> The main disadvantage of the style-sheet languages is that they cannot be
-    embedded in a document. [!-- difficult to learn, not manipulated has data,
-    difficult to use in practice --] We feel that <em>both</em> expressive power and
-    embeddability are important.
+    embedded in a document.  In addition, they tend to be difficult to learn,
+    and cannot easily be manipulated as data.  XSL, and the closely related
+    Cascading Style Sheets of HTML, are not complete programming languages.
+    We feel that <em>both</em> expressive power and embeddability are
+    important. 
 
+<!-- difficult to learn, not manipulated has data,
+    difficult to use in practice -->
 
 <h3>Summary</h3>
 
@@ -1025,8 +1056,16 @@ be just introduce PHP, Meta-HTML as examples that we compare in detail --]
 
 <h3>Performance and portability</h3>
 
-[!-- make clearer what is the state of the world today and what we would like
-to be tomorrow, especially integration of key features into apache/PHP, etc. --]
+<blockquote>
+<p> Currently the PIA is highly portable, but fairly large and not
+    particularly fast; this makes it most suitable for personal and group
+    applications.  We are actively working on the size and speed problems,
+    with the ultimate goal of developing a much faster and smaller version
+    that can easily be integrated with Apache and other high-end web servers. 
+</blockquote>
+
+<!-- make clearer what is the state of the world today and what we would like
+to be tomorrow, especially integration of key features into apache/PHP, etc. -->
 
 <p> The PIA is currently written in Java, which makes it highly portable; it
     is known to run under Sun's JDK 1.1 and 1.2 on Linux, Solaris, and Windows
@@ -1064,11 +1103,10 @@ to be tomorrow, especially integration of key features into apache/PHP, etc. --]
        truly dynamic pages need to be processed by the server. 
 </ul>
 
-<p> <em>In its present Java
-    implementation</em> is not well suited for large public websites or other
-    applications where extreme high performance is needed.  At least, <em>not
-    yet.</em>  There are three possible ways of improving the PIA's
-    performance dramatically:
+<p> <em>In its present Java implementation</em>, the PIA is not well suited
+    for large public websites or other applications where extreme high
+    performance is needed.  At least, <em>not yet.</em> There are three
+    possible ways of improving the PIA's performance dramatically:
 
 <ol>
   <li> <strong>Full compilation</strong><br>
@@ -1084,7 +1122,8 @@ to be tomorrow, especially integration of key features into apache/PHP, etc. --]
        of primitive tags, it would be quite simple to rewrite it in another
        programming language.  C is the obvious choice: it is universally
        available, easily interfaced with other web servers, and delivers very
-       high performance.  (See RiSource.org for status of the conversion effort.)
+       high performance.  (See RiSource.org for status of the conversion
+       effort.) 
 
        <p>
 
@@ -1134,22 +1173,24 @@ to be tomorrow, especially integration of key features into apache/PHP, etc. --]
        Apache has an extremely powerful extension technique in which
        ``modules'' -- essentially shared libraries with a standard interface
        -- are linked in with the main server.  Many of Apache's standard
-       functions are already implemented as modules.  By rewriting the PIA's
+       functions are already implemented in this form, as are several existing
+       extension languages such as PHP.  By rewriting the PIA's
        document processing and site-structuring subsystems in C, it will be
-       possible to integrate the PIA into Apache as a module.  [!-- necessary?
+       possible to integrate the PIA into Apache as a module.
+<!-- necessary? -->
        When complete,
        this effort will give the tightest integration and the highest
-       performance. --]
+       performance.
 
        <p>
 
   <li> <strong>Offline Processing</strong><br>
 
        As we mentioned above under ``performance,'' it is possible to process
-       documents outside the PIA.  If a web site consists entirely of static
-       pages, it is possible to use the PIA's document processing purely as a
-       formatter and have the existing server deliver the resulting static
-       pages.
+       documents outside of the server environment.  If a web site consists
+       entirely of static pages, it is possible to use the PIA's document
+       processing purely as a formatter and have the existing server deliver
+       the resulting static pages.
 
        <p>
 
@@ -1182,8 +1223,13 @@ to be tomorrow, especially integration of key features into apache/PHP, etc. --]
   <li> <strong>Custom primitive tags</strong><br>
 
        It is easy for a programmer to write custom ``handlers'' for
-       special-purpose tags, and add these to a PIA application.
-[!-- example of legacy database access --]
+       special-purpose tags, and add these to a PIA application.  Interfaces
+       to special-purpose hardware and legacy databases have already been
+       developed in this form.  The PIA's tags for date and time computation
+       and for generating digital signatures were originally custom handlers
+       that later became part of the basic system.
+
+<!-- example of legacy database access -->
        <p>
 
   <li> <strong>Standard API's</strong><br>
@@ -1264,31 +1310,12 @@ platform independence]
 </ul>
 
 <h3>Would the PIA be useful for <em>your</em> web application?</h3>
-[!-- Not sure what the best organization for this section is.  Maybe just
+
+<!-- Not sure what the best organization for this section is.  Maybe just
 present the strongest case for PIA adoption (e.g. group application) and then
-argue for adoption of particular features in other development areas? --]
+argue for adoption of particular features in other development areas? -->
 
 <ul>
-  <li> <strong><a href="#public">Public web sites</a></strong>  <br>
-
-       The PIA's offline document processing can be a powerful tool for
-       organizing a public web site, and a personal PIA server is almost ideal
-       for quickly previewing a site.  The PIA can also be integrated with an
-       existing server for form handling.  Currently, however, the performance
-       is not up to serving a high-traffic site and the security, while
-       potentially high, is still unproven.
-
-       <p>
-
-  <li> <strong><a href="#enterprise">Enterprise applications</a></strong> <br>
-
-       Most of the above remarks apply to enterprise applications as well,
-       except to note that a PIA-based server could be a useful
-       <em>adjunct</em> to an enterprise site, serving as a platform for a
-       subset of the site's applications.   A definite maybe.
-
-       <p>
-
   <li> <strong><a href="#group">Group applications</a></strong> <br>
 
        This is the archetypal application area for the PIA.  If you're
@@ -1300,10 +1327,33 @@ argue for adoption of particular features in other development areas? --]
 
   <li> <strong><a href="#personal">Personal applications</a></strong> <br>
 
-       This is another area where the PIA has enormous potential.  Also
+       This is another area where the PIA has enormous potential.  Since the
+       PIA is highly portable it can run on almost anyone's desktop; since
+       PIA-based applications are <em>designed</em> to be easily customized,
+       every user can personalize and improve their own environment.  Also
        consider systems in which <em>both</em> personal and workgroup PIA's
        are present and interacting, or in which a personal PIA interacts with
        web-based appliances. 
+
+       <p>&nbsp;</p>
+
+       <p>
+
+
+  <li> <strong><a href="#public">Public web sites</a></strong> and
+       <strong><a href="#enterprise">Enterprise applications</a></strong> <br>
+       
+       The PIA's offline document processing can be a powerful tool for
+       organizing a public web site, and a personal PIA server is almost ideal
+       for quickly previewing a site.  The PIA can also be integrated with an
+       existing server for form handling.  Currently, however, the performance
+       is not up to serving a high-traffic site and the security, while
+       potentially high, is still unproven.  In the more protected enterprise
+       environment, a PIA-based server could be a useful <em>adjunct</em> to a
+       site, serving as a platform for a subset of the site's applications.
+       As the PIA's performance improves and it becomes better-integrated with
+       servers such as Apache, we expect it to become more useful at this
+       level as well.
 
        <p>
 
@@ -1312,8 +1362,9 @@ argue for adoption of particular features in other development areas? --]
        Until the C version of the PIA is completed, the PIA is probably not
        suitable for use on slow CPU's with limited memory, such as are typical
        in many embedded applications.  It <em>is</em> suitable for high-end
-       systems that are capable of supporting a JVM, and is also highly
-       suitable for rapid prototyping of web-based interfaces. 
+       systems that are capable of supporting a JVM, and is highly suitable
+       for rapid prototyping of web-based interfaces which can then be
+       re-implemented using other techniques.
 
 </ul>
 
