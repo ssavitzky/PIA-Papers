@@ -95,7 +95,7 @@ Summarize trends; skills
 	   </th>
 	   <th>
 	      <a href="http://www.moretonbay.com/">
-	         <img src="Images/nettel.jpg" border="0" /></a>
+	         <img src="Images/Devices/nettel.jpg" border="0" /></a>
 	   </th>
 	 </tr>
   </table>
@@ -110,22 +110,22 @@ Summarize trends; skills
        <th>Mainframes</th>
   </tr>
   <tr> <th> <a href="http://wearables.stanford.edu">
-            <img src="Images/matchbox.jpg" width="133" height="120"
+            <img src="Images/Devices/matchbox.jpg" width="133" height="120"
  		 border="0" alt="matchbox server" /></a> <br />
             <a href="http://people.ne.mediaone.net/fwhite/ace/index.html">
-            <img src="Images/matchhead.jpg" height="101" width="133"
+            <img src="Images/Devices/matchhead.jpg" height="101" width="133"
  		 border="0" alt="matchhead server" /></a> 
        </th>
        <th> <a href="http://www.ricoh-usa.com/wnew/pr/1999/1116a.htm">
-	    <img src="Images/ecabinet.jpg" width="151" height="134"
+	    <img src="Images/Devices/ecabinet.jpg" width="151" height="134"
 	         border="0" alt="Ricoh eCabinet" /></a> <br />
 	    <a href="http://www.cobalt.com/">
-	    <img src="Images/qube.jpg" width="160" height="58"
+	    <img src="Images/Devices/qube.jpg" width="160" height="58"
 	         border="0" alt="Cobalt Qube" /></a>
        </th>
        <th> <a
  href="http://oss.software.ibm.com/developerworks/opensource/linux390/">
-            <img src="Images/s390.gif" alt="IBM S/390"
+            <img src="Images/Devices/s390.gif" alt="IBM S/390"
 	         border="0" width="148" height="243" /></a>
        </th>
   </tr>

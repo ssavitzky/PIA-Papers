@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<title>The PIA, a platform for XML-based Web Applications</title>
+</head><body>
+<h1>The PIA, a platform for XML-based Web Applications</h1>
+<!-- Slides for XTech2000 -->
+
+<slide><!-- title slide: no top caption. -->
+<p> &nbsp;</p>
+<div align='center' valign='center'>
+<font size='+2'> <strong>The PIA</strong></font><br />
+<font size='+2'> <strong>a platform for XML-based Web Applications</strong></font><br />
+<p><img src="Images/pialogo150.gif" /></p>
+<table>
+  <tr>
+     <td>
+	Stephen Savitzky<br />
+	Chief Software Scientist<br />
+	Ricoh Silicon Valley<br />
+	<code>&lt;steve@rsv.ricoh.com&gt;</code><br />
+     </td>
+     <td>&nbsp;</td>
+     <td align="left" valign="top">
+	<table cellpadding='0' cellspacing='0' border='0'>
+	    <tr nowrap nobr><th><a href='http://rsv.ricoh.com/'><img src='Images/ricoh.gif' border='0' width='170' height='48' alt='R I C O H'></a></th></tr> 
+	    <tr nowrap nobr><td nowrap nobr><img src='Images/blackline.gif' height='2' width='170'></td></tr> 
+	    <tr nowrap nobr><th align='left' valign='top'><img src='Images/ricoh-silicon-valley.gif' alt='RICOH SILICON VALLEY' border='0' width='170' height='21'></th></tr>
+	</table>
+     </td>
+  </tr>	  
+</table>
+</div>
+</slide>
+
+<slide><h2>outline</h2>
+<pre>
+5 min: introduction.
+	mention that it's an unconventional application for XML
+
+10 min: an actual (tiny) application.
+	tagsets, application-specific tags
+	site structure
+
+5 min: other aspects
+	both embedded-code and defined tags
+	support for legacy HTML; other parsers
+	ability to repurpose code
+</pre>
+</slide>
+
+<slide><h2>Major Trends in Web Applications</h2>
+<ul>
+  <li> Widening Range of Platforms = ( server, OS, language )
+  </li>
+  <li> Increasing use of XML
+  </li>
+  <li> Proliferation of Clients
+  </li>
+  <li> Increasing use of Collaborative Development
+  </li>
+  <li> Increasing Customization and Interaction
+  </li>
+  <li> Proliferation of Development Environments
+  </li>
+</ul>
+</slide>
+
+<slide><h2>Requirements for Web Applications</h2>
+<!-- from trends.slides -->
+<ul>
+  <li> Cross Platform 
+  </li>
+  <li> Client Neutral
+  </li>
+  <li> Scalable
+  </li>
+  <li> Stable Interfaces
+       <ul>
+	 <li> interfaces must not change if implementation changes.
+	 </li>
+       </ul>
+  </li>
+  <li> Customizable
+  </li>
+</ul>
+</slide>
+
+<slide><h2>Requirements for Development</h2>
+<!-- from trends.slides -->
+<ul>
+  <li> Support wide range of skill levels
+       <ul>
+	 <li> allow customization by non-experts
+	 </li>
+       </ul>
+  </li>
+  <li> Strong support for markup languages (XML, HTML)
+  </li>
+  <li> Support for distributed development
+  </li>
+  <li> Platform neutral
+  </li>
+  <li> Tool neutral
+       <ul>
+	 <li> support for adding new tools
+	 </li>
+	 <li> tools should preserve source-level formatting
+	 </li>
+       </ul>
+  </li>
+</ul>
+</slide>
+
+<slide><h2>The Fundamental Assumption</h2>
+
+<p> <strong>Web application development and maintenance</strong>
+</p>
+<ul>
+  <li> <strong>are fundamentally a matter of document management</strong>
+  </li>
+  <li> <strong>should not require specialized programming skills or
+       tools.</strong> 
+  </li>
+</ul>
+</slide>
+
+<slide><h2>Our Guiding Principle</h2>
+
+<p> <strong>Web applications should use a single syntax for:</strong>
+</p>
+<ul>
+  <li> document markup (content)
+  </li>
+  <li> data
+  </li>
+  <li> behavior
+  </li>
+</ul>
+
+<p> <strong>The obvious choice is XML.</strong>
+</p>
+</slide>
+
+<slide><h2>PIA: an XML-Based Web Application Framework</h2>
+
+[overview]
+</slide>
+
+
+<slide><h2>PIA Application Structure</h2>
+<em>[processing engine image]</em>
+</slide>
+
+
+<slide><h2>Single Meta-Syntax</h2>
+
+<ul>
+  <li> allows either embedded actions<br />
+       as in embedded-processing languages like JSP and PHP3
+  </li>
+  <li> or totally separate data &amp; processing<br />
+       as style-based systems like XSLT and Cocoon
+  </li>
+  <li> Tag definitions -> application-specific language
+  </li>
+  <li> Web designers can think of it as stylesheet + macros
+  </li>
+  <li> Programmers can think of it as LISP in XML
+  </li>
+</ul>
+</slide>
+
+<slide><h2>PIA Framework Structure</h2>
+<ul>
+  <li> Simple document-processing engine
+  </li>
+  <li> Site structure definition package
+  </li>
+  <li> Web server/proxy
+  </li>
+</ul>
+</slide>
+
+<slide><h2>PIA is Platform-Neutral</h2>
+<ul>
+  <li> Document processing core easily ported to new platforms
+  </li>
+       <ul>
+	 <li> simple, portable processing core (written in Java and C)
+	 </li>
+	 <li> Small number of primitive tag handlers
+	 </li>
+       </ul>
+  <li> Standard API's for server-based platforms
+       <ul>
+	 <li> Apache modules
+	 </li>
+	 <li> Java Servlet
+	 </li>
+	 <li> Cocoon Processor
+	 </li>
+       </ul>
+  </li>
+  <li> Standard API's for non-server applications
+       <ul>
+	 <li> SAX (Simple API for XML)
+	 </li>
+	 <li> DOM (Document Object Model)
+	 </li>
+       </ul>
+  </li>
+</ul>
+</slide>
+
+<slide><h2>PIA is Development System Neutral</h2>
+
+</slide>
+
+<slide><h2>Support for Legacy Appliations</h2>
+<ul>
+  <li> HTML parser as well as XML
+  </li>
+  <li> ...
+  </li>
+</ul>
+</slide>
+
+
+<slide><h2></h2>
+</slide>
+
+
+<slide><h2>Status</h2>
+
+</slide>
+
+<set name=label>TOC</set>
+<slide><h2>Table of Contents</h2>
+<ol>
+  &slidelist;
+</ol>
+</slide>
+
+<hr>
+<b>Copyright &copy; &year; Ricoh Silicon Valley</b><br>
+<b>$Id$</b><br>
+<address><a href="http://rsv.ricoh.com/~steve/"
+         >Stephen R. Savitzky</a> &lt;<a href="mailto:steve@rsv.ricoh.com"
+         >steve@rsv.ricoh.com</a>&gt;</address>
+</body></html>
